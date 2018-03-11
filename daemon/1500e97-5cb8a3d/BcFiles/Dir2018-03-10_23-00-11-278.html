@@ -1,0 +1,1804 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<style>
+.AlignLeft { text-align: left; }
+.AlignCenter { text-align: center; }
+.AlignRight { text-align: right; }
+body { font-family: sans-serif; font-size: 11pt; }
+img.AutoScale { max-width: 100%; max-height: 100%; }
+td { vertical-align: top; padding-left: 4px; padding-right: 4px; }
+
+tr.SectionGap td { font-size: 4px; border-left: none; border-top: none; border-bottom: 1px solid Black; border-right: 1px solid Black; }
+tr.SectionAll td { border-left: none; border-top: none; border-bottom: 1px solid Black; border-right: 1px solid Black; }
+tr.SectionBegin td { border-left: none; border-top: none; border-right: 1px solid Black; }
+tr.SectionEnd td { border-left: none; border-top: none; border-bottom: 1px solid Black; border-right: 1px solid Black; }
+tr.SectionMiddle td { border-left: none; border-top: none; border-right: 1px solid Black; }
+tr.SubsectionAll td { border-left: none; border-top: none; border-bottom: 1px solid Gray; border-right: 1px solid Black; }
+tr.SubsectionEnd td { border-left: none; border-top: none; border-bottom: 1px solid Gray; border-right: 1px solid Black; }
+table.fc { border-top: 1px solid Black; border-left: 1px solid Black; width: 100%; font-family: monospace; font-size: 10pt; }
+td.TextItemInsigMod { color: #000000; background-color: #EEEEFF; }
+td.TextItemInsigOrphan { color: #000000; background-color: #FAEEFF; }
+td.TextItemNum { color: #696969; background-color: #F0F0F0; }
+td.TextItemSame { color: #000000; background-color: #FFFFFF; }
+td.TextItemSigMod { color: #000000; background-color: #FFE3E3; }
+td.TextItemSigOrphan { color: #000000; background-color: #F1E3FF; }
+.TextSegInsigDiff { color: #0000FF; }
+.TextSegReplacedDiff { color: #0000FF; font-style: italic; }
+.TextSegSigDiff { color: #FF0000; }
+td.TextItemInsigAdd { color: #000000; background-color: #EEEEFF; }
+td.TextItemInsigDel { color: #000000; background-color: #EEEEFF; text-decoration: line-through; }
+td.TextItemSigAdd { color: #000000; background-color: #FFE3E3; }
+td.TextItemSigDel { color: #000000; background-color: #FFE3E3; text-decoration: line-through; }
+.TextSegElementComment { color: #786A41; }
+.TextSegElementBranding { }
+</style>
+<title>dcrd-1.1.0 <--> hxd-rc1.0 Comparison</title>
+</head>
+<body>
+dcrd-1.1.0 <--> hxd-rc1.0 Comparison<br/>
+Produced: 10/3/2018 11:00:11 PM<br/>
+&nbsp; &nbsp;
+<br/>
+Mode:&nbsp; All, Ignoring Unimportant &nbsp;
+<br/>
+Left file: dcrd-1.1.0\blockchain\subsidy.go &nbsp;
+<br/>
+Right file: hxd-rc1.0\blockchain\subsidy.go &nbsp;
+<br/>
+<table class="fc" cellspacing="0" cellpadding="0">
+<tr class="SectionBegin">
+<td class="TextItemSame"><span class="TextSegElementComment">// Copyright (c) 2013-2015 The btcsuite developers</span></td>
+<td class="AlignCenter">=</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// Copyright (c) 2013-2015 The btcsuite developers</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// Copyright (c) 2015-2016 The Decred developers</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// Copyright (c) 2015-2016 The Decred developers</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// Use of this source code is governed by an ISC</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// Use of this source code is governed by an ISC</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// license that can be found in the LICENSE file.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// license that can be found in the LICENSE file.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">package blockchain</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">package blockchain</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">import (</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">import (</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;bytes&quot;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;bytes&quot;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;fmt&quot;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;fmt&quot;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;sync&quot;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;sync&quot;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;github.com/<span class="TextSegElementBranding">d</span><span class="TextSegElementBranding">ec</span><span class="TextSegElementBranding">red</span>/<span class="TextSegElementBranding">dcr</span>d/blockchain/stake&quot;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;github.com/<span class="TextSegElementBranding">hybridnetwork</span>/<span class="TextSegElementBranding">hx</span>d/blockchain/stake&quot;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;github.com/<span class="TextSegElementBranding">d</span><span class="TextSegElementBranding">ec</span><span class="TextSegElementBranding">red</span>/<span class="TextSegElementBranding">dcr</span>d/chaincfg&quot;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;github.com/<span class="TextSegElementBranding">hybridnetwork</span>/<span class="TextSegElementBranding">hx</span>d/chaincfg&quot;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;github.com/<span class="TextSegElementBranding">d</span><span class="TextSegElementBranding">ec</span><span class="TextSegElementBranding">red</span>/<span class="TextSegElementBranding">dcr</span>d/txscript&quot;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;github.com/<span class="TextSegElementBranding">hybridnetwork</span>/<span class="TextSegElementBranding">hx</span>d/txscript&quot;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;github.com/<span class="TextSegElementBranding">d</span><span class="TextSegElementBranding">ec</span><span class="TextSegElementBranding">red</span>/<span class="TextSegElementBranding">dcr</span>d/wire&quot;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;github.com/<span class="TextSegElementBranding">hybridnetwork</span>/<span class="TextSegElementBranding">hx</span>d/wire&quot;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementBranding">&quot;github.com/</span><span class="TextSegElementBranding">d</span><span class="TextSegElementBranding">ec</span><span class="TextSegElementBranding">red/dcr</span><span class="TextSegElementBranding">util&quot;</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementBranding">dcrutil </span><span class="TextSegElementBranding">&quot;github.com/</span><span class="TextSegElementBranding">hybridnetwork</span><span class="TextSegElementBranding">/hx</span><span class="TextSegElementBranding">util&quot;</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// The number of values to precalculate on initialization of the subsidy</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// The number of values to precalculate on initialization of the subsidy</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// cache.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// cache.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">const subsidyCacheInitWidth = 4</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">const subsidyCacheInitWidth = 4</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// SubsidyCache is a structure that caches calculated values of subsidy so that</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// SubsidyCache is a structure that caches calculated values of subsidy so that</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// they're not constantly recalculated. The blockchain struct itself possesses a</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// they're not constantly recalculated. The blockchain struct itself possesses a</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// pointer to a preinitialized SubsidyCache.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// pointer to a preinitialized SubsidyCache.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">type SubsidyCache struct {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">type SubsidyCache struct {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; subsidyCache&nbsp; &nbsp;&nbsp; map[uint64]int64</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; subsidyCache&nbsp; &nbsp;&nbsp; map[uint64]int64</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; subsidyCacheLock sync.RWMutex</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; subsidyCacheLock sync.RWMutex</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; params *chaincfg.Params</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; params *chaincfg.Params</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// NewSubsidyCache initializes a new subsidy cache for a given height. It</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// NewSubsidyCache initializes a new subsidy cache for a given height. It</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// precalculates the values of the subsidy that are most likely to be seen by</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// precalculates the values of the subsidy that are most likely to be seen by</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// the client when it connects to the network.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// the client when it connects to the network.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">func NewSubsidyCache(height int64, params *chaincfg.Params) *SubsidyCache {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">func NewSubsidyCache(height int64, params *chaincfg.Params) *SubsidyCache {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; scm := make(map[uint64]int64)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; scm := make(map[uint64]int64)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; sc := SubsidyCache{</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; sc := SubsidyCache{</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; subsidyCache: scm,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; subsidyCache: scm,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; params:&nbsp; &nbsp; &nbsp;&nbsp; params,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; params:&nbsp; &nbsp; &nbsp;&nbsp; params,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; iteration := uint64(height / params.SubsidyReductionInterval)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; iteration := uint64(height / params.SubsidyReductionInterval)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if iteration &lt; subsidyCacheInitWidth {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if iteration &lt; subsidyCacheInitWidth {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return &amp;sc</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return &amp;sc</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; for i := iteration - 4; i &lt;= iteration; i++ {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; for i := iteration - 4; i &lt;= iteration; i++ {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; sc.CalcBlockSubsidy(int64(iteration) * params.SubsidyReductionInterval)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; sc.CalcBlockSubsidy(int64(iteration) * params.SubsidyReductionInterval)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return &amp;sc</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return &amp;sc</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// CalcBlockSubsidy returns the subsidy amount a block at the provided height</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// CalcBlockSubsidy returns the subsidy amount a block at the provided height</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// should have. This is mainly used for determining how much the coinbase for</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// should have. This is mainly used for determining how much the coinbase for</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// newly generated blocks awards as well as validating the coinbase for blocks</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// newly generated blocks awards as well as validating the coinbase for blocks</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// has the expected value.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// has the expected value.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">//</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">//</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// Subsidy calculation for exponential reductions:</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// Subsidy calculation for exponential reductions:</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// 0 for i in range (0, height / SubsidyReductionInterval):</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// 0 for i in range (0, height / SubsidyReductionInterval):</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// 1&nbsp; &nbsp;&nbsp; subsidy *= MulSubsidy</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// 1&nbsp; &nbsp;&nbsp; subsidy *= MulSubsidy</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// 2&nbsp; &nbsp;&nbsp; subsidy /= DivSubsidy</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// 2&nbsp; &nbsp;&nbsp; subsidy /= DivSubsidy</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">//</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">//</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// Safe for concurrent access.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// Safe for concurrent access.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">func (s *SubsidyCache) CalcBlockSubsidy(height int64) int64 {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">func (s *SubsidyCache) CalcBlockSubsidy(height int64) int64 {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Block height 1 subsidy is 'special' and used to</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Block height 1 subsidy is 'special' and used to</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// distribute initial tokens, if any.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// distribute initial tokens, if any.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if height == 1 {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if height == 1 {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return s.params.BlockOneSubsidy()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return s.params.BlockOneSubsidy()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; iteration := uint64(height / s.params.SubsidyReductionInterval)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; iteration := uint64(height / s.params.SubsidyReductionInterval)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if iteration == 0 {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if iteration == 0 {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return s.params.BaseSubsidy</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return s.params.BaseSubsidy</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// First, check the cache.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// First, check the cache.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; s.subsidyCacheLock.RLock()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; s.subsidyCacheLock.RLock()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cachedValue, existsInCache := s.subsidyCache[iteration]</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cachedValue, existsInCache := s.subsidyCache[iteration]</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; s.subsidyCacheLock.RUnlock()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; s.subsidyCacheLock.RUnlock()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if existsInCache {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if existsInCache {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return cachedValue</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return cachedValue</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Is the previous one in the cache? If so, calculate</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Is the previous one in the cache? If so, calculate</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// the subsidy from the previous known value and store</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// the subsidy from the previous known value and store</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// it in the database and the cache.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// it in the database and the cache.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; s.subsidyCacheLock.RLock()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; s.subsidyCacheLock.RLock()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cachedValue, existsInCache = s.subsidyCache[iteration-1]</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cachedValue, existsInCache = s.subsidyCache[iteration-1]</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; s.subsidyCacheLock.RUnlock()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; s.subsidyCacheLock.RUnlock()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if existsInCache {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if existsInCache {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; cachedValue *= s.params.MulSubsidy</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; cachedValue *= s.params.MulSubsidy</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; cachedValue /= s.params.DivSubsidy</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; cachedValue /= s.params.DivSubsidy</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; s.subsidyCacheLock.Lock()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; s.subsidyCacheLock.Lock()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; s.subsidyCache[iteration] = cachedValue</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; s.subsidyCache[iteration] = cachedValue</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; s.subsidyCacheLock.Unlock()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; s.subsidyCacheLock.Unlock()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return cachedValue</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return cachedValue</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Calculate the subsidy from scratch and store in the</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Calculate the subsidy from scratch and store in the</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// cache. TODO If there's an older item in the cache,</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// cache. TODO If there's an older item in the cache,</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// calculate it from that to save time.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// calculate it from that to save time.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; subsidy := s.params.BaseSubsidy</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; subsidy := s.params.BaseSubsidy</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; for i := uint64(0); i &lt; iteration; i++ {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; for i := uint64(0); i &lt; iteration; i++ {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; subsidy *= s.params.MulSubsidy</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; subsidy *= s.params.MulSubsidy</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; subsidy /= s.params.DivSubsidy</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; subsidy /= s.params.DivSubsidy</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; s.subsidyCacheLock.Lock()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; s.subsidyCacheLock.Lock()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; s.subsidyCache[iteration] = subsidy</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; s.subsidyCache[iteration] = subsidy</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; s.subsidyCacheLock.Unlock()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; s.subsidyCacheLock.Unlock()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return subsidy</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return subsidy</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// CalcBlockWorkSubsidy calculates the proof of work subsidy for a block as a</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// CalcBlockWorkSubsidy calculates the proof of work subsidy for a block as a</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// proportion of the total subsidy.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// proportion of the total subsidy.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">func CalcBlockWorkSubsidy(subsidyCache *SubsidyCache, height int64,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">func CalcBlockWorkSubsidy(subsidyCache *SubsidyCache, height int64,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; voters uint16, params *chaincfg.Params) int64 {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; voters uint16, params *chaincfg.Params) int64 {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; subsidy := subsidyCache.CalcBlockSubsidy(height)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; subsidy := subsidyCache.CalcBlockSubsidy(height)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; proportionWork := int64(params.WorkRewardProportion)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; proportionWork := int64(params.WorkRewardProportion)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; proportions := int64(params.TotalSubsidyProportions())</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; proportions := int64(params.TotalSubsidyProportions())</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; subsidy *= proportionWork</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; subsidy *= proportionWork</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; subsidy /= proportions</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; subsidy /= proportions</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Ignore the voters field of the header before we're at a point</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Ignore the voters field of the header before we're at a point</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// where there are any voters.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// where there are any voters.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if height &lt; params.StakeValidationHeight {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if height &lt; params.StakeValidationHeight {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return subsidy</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return subsidy</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// If there are no voters, subsidy is 0. The block will fail later anyway.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// If there are no voters, subsidy is 0. The block will fail later anyway.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if voters == 0 {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if voters == 0 {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return 0</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return 0</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Adjust for the number of voters. This shouldn't ever overflow if you start</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Adjust for the number of voters. This shouldn't ever overflow if you start</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// with 50 * 10^8 Atoms and voters and potentialVoters are uint16.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// with 50 * 10^8 Atoms and voters and potentialVoters are uint16.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; potentialVoters := params.TicketsPerBlock</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; potentialVoters := params.TicketsPerBlock</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; actual := (int64(voters) * subsidy) / int64(potentialVoters)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; actual := (int64(voters) * subsidy) / int64(potentialVoters)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return actual</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return actual</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// CalcStakeVoteSubsidy calculates the subsidy for a stake vote based on the height</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// CalcStakeVoteSubsidy calculates the subsidy for a stake vote based on the height</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// of its input SStx.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// of its input SStx.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">//</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">//</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// Safe for concurrent access.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// Safe for concurrent access.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">func CalcStakeVoteSubsidy(subsidyCache *SubsidyCache, height int64,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">func CalcStakeVoteSubsidy(subsidyCache *SubsidyCache, height int64,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; params *chaincfg.Params) int64 {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; params *chaincfg.Params) int64 {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Calculate the actual reward for this block, then further reduce reward</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Calculate the actual reward for this block, then further reduce reward</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// proportional to StakeRewardProportion.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// proportional to StakeRewardProportion.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Note that voters/potential voters is 1, so that vote reward is calculated</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Note that voters/potential voters is 1, so that vote reward is calculated</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// irrespective of block reward.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// irrespective of block reward.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; subsidy := subsidyCache.CalcBlockSubsidy(height)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; subsidy := subsidyCache.CalcBlockSubsidy(height)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; proportionStake := int64(params.StakeRewardProportion)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; proportionStake := int64(params.StakeRewardProportion)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; proportions := int64(params.TotalSubsidyProportions())</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; proportions := int64(params.TotalSubsidyProportions())</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; subsidy *= proportionStake</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; subsidy *= proportionStake</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; subsidy /= (proportions * int64(params.TicketsPerBlock))</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; subsidy /= (proportions * int64(params.TicketsPerBlock))</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return subsidy</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return subsidy</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// CalcBlockTaxSubsidy calculates the subsidy for the organization address in the</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// CalcBlockTaxSubsidy calculates the subsidy for the organization address in the</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// coinbase.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// coinbase.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">//</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">//</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// Safe for concurrent access.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// Safe for concurrent access.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">func CalcBlockTaxSubsidy(subsidyCache *SubsidyCache, height int64, voters uint16,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">func CalcBlockTaxSubsidy(subsidyCache *SubsidyCache, height int64, voters uint16,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; params *chaincfg.Params) int64 {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; params *chaincfg.Params) int64 {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if params.BlockTaxProportion == 0 {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if params.BlockTaxProportion == 0 {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return 0</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return 0</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; subsidy := subsidyCache.CalcBlockSubsidy(height)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; subsidy := subsidyCache.CalcBlockSubsidy(height)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; proportionTax := int64(params.BlockTaxProportion)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; proportionTax := int64(params.BlockTaxProportion)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; proportions := int64(params.TotalSubsidyProportions())</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; proportions := int64(params.TotalSubsidyProportions())</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; subsidy *= proportionTax</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; subsidy *= proportionTax</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; subsidy /= proportions</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; subsidy /= proportions</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Assume all voters 'present' before stake voting is turned on.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Assume all voters 'present' before stake voting is turned on.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if height &lt; params.StakeValidationHeight {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if height &lt; params.StakeValidationHeight {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; voters = 5</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; voters = 5</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// If there are no voters, subsidy is 0. The block will fail later anyway.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// If there are no voters, subsidy is 0. The block will fail later anyway.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if voters == 0 &amp;&amp; height &gt;= params.StakeValidationHeight {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if voters == 0 &amp;&amp; height &gt;= params.StakeValidationHeight {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return 0</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return 0</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Adjust for the number of voters. This shouldn't ever overflow if you start</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Adjust for the number of voters. This shouldn't ever overflow if you start</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// with 50 * 10^8 Atoms and voters and potentialVoters are uint16.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// with 50 * 10^8 Atoms and voters and potentialVoters are uint16.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; potentialVoters := params.TicketsPerBlock</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; potentialVoters := params.TicketsPerBlock</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; adjusted := (int64(voters) * subsidy) / int64(potentialVoters)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; adjusted := (int64(voters) * subsidy) / int64(potentialVoters)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return adjusted</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return adjusted</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// BlockOneCoinbasePaysTokens checks to see if the first block coinbase pays</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// BlockOneCoinbasePaysTokens checks to see if the first block coinbase pays</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// out to the network initial token ledger.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// out to the network initial token ledger.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">func BlockOneCoinbasePaysTokens(tx *<span class="TextSegElementBranding">dcr</span>util.Tx,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">func BlockOneCoinbasePaysTokens(tx *<span class="TextSegElementBranding">dcr</span>util.Tx,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; params *chaincfg.Params) error {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; params *chaincfg.Params) error {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// If no ledger is specified, just return true.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// If no ledger is specified, just return true.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if len(params.BlockOneLedger) == 0 {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if len(params.BlockOneLedger) == 0 {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return nil</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return nil</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if tx.MsgTx().LockTime != 0 {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if tx.MsgTx().LockTime != 0 {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; errStr := fmt.Sprintf(&quot;block 1 coinbase has invalid locktime&quot;)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; errStr := fmt.Sprintf(&quot;block 1 coinbase has invalid locktime&quot;)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return ruleError(ErrBlockOneTx, errStr)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return ruleError(ErrBlockOneTx, errStr)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if tx.MsgTx().Expiry != wire.NoExpiryValue {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if tx.MsgTx().Expiry != wire.NoExpiryValue {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; errStr := fmt.Sprintf(&quot;block 1 coinbase has invalid expiry&quot;)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; errStr := fmt.Sprintf(&quot;block 1 coinbase has invalid expiry&quot;)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return ruleError(ErrBlockOneTx, errStr)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return ruleError(ErrBlockOneTx, errStr)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if tx.MsgTx().TxIn[0].Sequence != wire.MaxTxInSequenceNum {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if tx.MsgTx().TxIn[0].Sequence != wire.MaxTxInSequenceNum {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; errStr := fmt.Sprintf(&quot;block 1 coinbase not finalized&quot;)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; errStr := fmt.Sprintf(&quot;block 1 coinbase not finalized&quot;)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return ruleError(ErrBlockOneInputs, errStr)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return ruleError(ErrBlockOneInputs, errStr)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if len(tx.MsgTx().TxOut) == 0 {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if len(tx.MsgTx().TxOut) == 0 {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; errStr := fmt.Sprintf(&quot;coinbase outputs empty in block 1&quot;)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; errStr := fmt.Sprintf(&quot;coinbase outputs empty in block 1&quot;)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return ruleError(ErrBlockOneOutputs, errStr)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return ruleError(ErrBlockOneOutputs, errStr)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; ledger := params.BlockOneLedger</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; ledger := params.BlockOneLedger</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if len(ledger) != len(tx.MsgTx().TxOut) {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if len(ledger) != len(tx.MsgTx().TxOut) {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; errStr := fmt.Sprintf(&quot;wrong number of outputs in block 1 coinbase; &quot;+</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; errStr := fmt.Sprintf(&quot;wrong number of outputs in block 1 coinbase; &quot;+</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &quot;got %v, expected %v&quot;, len(tx.MsgTx().TxOut), len(ledger))</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &quot;got %v, expected %v&quot;, len(tx.MsgTx().TxOut), len(ledger))</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return ruleError(ErrBlockOneOutputs, errStr)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return ruleError(ErrBlockOneOutputs, errStr)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Check the addresses and output amounts against those in the ledger.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Check the addresses and output amounts against those in the ledger.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; for i, txout := range tx.MsgTx().TxOut {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; for i, txout := range tx.MsgTx().TxOut {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if txout.Version != txscript.DefaultScriptVersion {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if txout.Version != txscript.DefaultScriptVersion {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; errStr := fmt.Sprintf(&quot;bad block one output version; want %v, got %v&quot;,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; errStr := fmt.Sprintf(&quot;bad block one output version; want %v, got %v&quot;,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; txscript.DefaultScriptVersion, txout.Version)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; txscript.DefaultScriptVersion, txout.Version)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return ruleError(ErrBlockOneOutputs, errStr)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return ruleError(ErrBlockOneOutputs, errStr)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// There should only be one address.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// There should only be one address.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; _, addrs, _, err :=</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; _, addrs, _, err :=</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; txscript.ExtractPkScriptAddrs(txout.Version, txout.PkScript, params)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; txscript.ExtractPkScriptAddrs(txout.Version, txout.PkScript, params)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if err != nil {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if err != nil {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return ruleError(ErrBlockOneOutputs, err.Error())</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return ruleError(ErrBlockOneOutputs, err.Error())</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if len(addrs) != 1 {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if len(addrs) != 1 {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; errStr := fmt.Sprintf(&quot;too many addresses in output&quot;)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; errStr := fmt.Sprintf(&quot;too many addresses in output&quot;)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return ruleError(ErrBlockOneOutputs, errStr)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return ruleError(ErrBlockOneOutputs, errStr)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; addrLedger, err := <span class="TextSegElementBranding">dcr</span>util.DecodeAddress(ledger[i].Address)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; addrLedger, err := <span class="TextSegElementBranding">dcr</span>util.DecodeAddress(ledger[i].Address)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if err != nil {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if err != nil {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return err</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return err</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if !bytes.Equal(addrs[0].ScriptAddress(), addrLedger.ScriptAddress()) {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if !bytes.Equal(addrs[0].ScriptAddress(), addrLedger.ScriptAddress()) {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; errStr := fmt.Sprintf(&quot;address in output %v has non matching &quot;+</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; errStr := fmt.Sprintf(&quot;address in output %v has non matching &quot;+</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &quot;address; got %v (hash160 %x), want %v (hash160 %x)&quot;,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &quot;address; got %v (hash160 %x), want %v (hash160 %x)&quot;,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; i,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; i,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; addrs[0].EncodeAddress(),</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; addrs[0].EncodeAddress(),</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; addrs[0].ScriptAddress(),</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; addrs[0].ScriptAddress(),</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; addrLedger.EncodeAddress(),</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; addrLedger.EncodeAddress(),</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; addrLedger.ScriptAddress())</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; addrLedger.ScriptAddress())</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return ruleError(ErrBlockOneOutputs, errStr)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return ruleError(ErrBlockOneOutputs, errStr)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if txout.Value != ledger[i].Amount {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if txout.Value != ledger[i].Amount {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; errStr := fmt.Sprintf(&quot;address in output %v has non matching &quot;+</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; errStr := fmt.Sprintf(&quot;address in output %v has non matching &quot;+</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &quot;amount; got %v, want %v&quot;, i, txout.Value, ledger[i].Amount)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &quot;amount; got %v, want %v&quot;, i, txout.Value, ledger[i].Amount)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return ruleError(ErrBlockOneOutputs, errStr)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return ruleError(ErrBlockOneOutputs, errStr)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return nil</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return nil</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// CoinbasePaysTax checks to see if a given block's coinbase correctly pays</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// CoinbasePaysTax checks to see if a given block's coinbase correctly pays</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// tax to the developer organization.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// tax to the developer organization.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">func CoinbasePaysTax(subsidyCache *SubsidyCache, tx *<span class="TextSegElementBranding">dcr</span>util.Tx, height uint32,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">func CoinbasePaysTax(subsidyCache *SubsidyCache, tx *<span class="TextSegElementBranding">dcr</span>util.Tx, height uint32,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; voters uint16, params *chaincfg.Params) error {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; voters uint16, params *chaincfg.Params) error {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Taxes only apply from block 2 onwards.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Taxes only apply from block 2 onwards.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if height &lt;= 1 {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if height &lt;= 1 {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return nil</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return nil</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Tax is disabled.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Tax is disabled.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if params.BlockTaxProportion == 0 {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if params.BlockTaxProportion == 0 {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return nil</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return nil</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if len(tx.MsgTx().TxOut) == 0 {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if len(tx.MsgTx().TxOut) == 0 {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; errStr := fmt.Sprintf(&quot;invalid coinbase (no outputs)&quot;)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; errStr := fmt.Sprintf(&quot;invalid coinbase (no outputs)&quot;)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return ruleError(ErrNoTxOutputs, errStr)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return ruleError(ErrNoTxOutputs, errStr)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; taxOutput := tx.MsgTx().TxOut[0]</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; taxOutput := tx.MsgTx().TxOut[0]</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if taxOutput.Version != params.OrganizationPkScriptVersion {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if taxOutput.Version != params.OrganizationPkScriptVersion {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return ruleError(ErrNoTax,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return ruleError(ErrNoTax,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &quot;coinbase tax output uses incorrect script version&quot;)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &quot;coinbase tax output uses incorrect script version&quot;)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if !bytes.Equal(taxOutput.PkScript, params.OrganizationPkScript) {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if !bytes.Equal(taxOutput.PkScript, params.OrganizationPkScript) {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return ruleError(ErrNoTax,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return ruleError(ErrNoTax,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &quot;coinbase tax output script does not match the &quot;+</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &quot;coinbase tax output script does not match the &quot;+</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &quot;required script&quot;)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &quot;required script&quot;)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Get the amount of subsidy that should have been paid out to</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Get the amount of subsidy that should have been paid out to</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// the organization, then check it.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// the organization, then check it.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; orgSubsidy := CalcBlockTaxSubsidy(subsidyCache, int64(height), voters, params)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; orgSubsidy := CalcBlockTaxSubsidy(subsidyCache, int64(height), voters, params)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if orgSubsidy != taxOutput.Value {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if orgSubsidy != taxOutput.Value {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; errStr := fmt.Sprintf(&quot;amount in output 0 has non matching org &quot;+</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; errStr := fmt.Sprintf(&quot;amount in output 0 has non matching org &quot;+</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &quot;calculated amount; got %v, want %v&quot;, taxOutput.Value,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &quot;calculated amount; got %v, want %v&quot;, taxOutput.Value,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; orgSubsidy)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; orgSubsidy)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return ruleError(ErrNoTax, errStr)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return ruleError(ErrNoTax, errStr)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return nil</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return nil</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// CalculateAddedSubsidy calculates the amount of subsidy added by a block</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// CalculateAddedSubsidy calculates the amount of subsidy added by a block</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// and its parent. The blocks passed to this function MUST be valid blocks</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// and its parent. The blocks passed to this function MUST be valid blocks</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// that have already been confirmed to abide by the consensus rules of the</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// that have already been confirmed to abide by the consensus rules of the</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// network, or the function might panic.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// network, or the function might panic.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">func CalculateAddedSubsidy(block, parent *<span class="TextSegElementBranding">dcr</span>util.Block) int64 {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">func CalculateAddedSubsidy(block, parent *<span class="TextSegElementBranding">dcr</span>util.Block) int64 {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; var subsidy int64</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; var subsidy int64</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; regularTxTreeValid := <span class="TextSegElementBranding">dcr</span>util.IsFlagSet16(block.MsgBlock().Header.VoteBits,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; regularTxTreeValid := <span class="TextSegElementBranding">dcr</span>util.IsFlagSet16(block.MsgBlock().Header.VoteBits,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementBranding">dcr</span>util.BlockValid)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementBranding">dcr</span>util.BlockValid)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if regularTxTreeValid {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if regularTxTreeValid {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; subsidy += parent.MsgBlock().Transactions[0].TxIn[0].ValueIn</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; subsidy += parent.MsgBlock().Transactions[0].TxIn[0].ValueIn</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; for _, stx := range block.MsgBlock().STransactions {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; for _, stx := range block.MsgBlock().STransactions {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if isSSGen, _ := stake.IsSSGen(stx); isSSGen {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if isSSGen, _ := stake.IsSSGen(stx); isSSGen {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; subsidy += stx.TxIn[0].ValueIn</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; subsidy += stx.TxIn[0].ValueIn</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return subsidy</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return subsidy</td>
+</tr>
+<tr class="SectionEnd">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+</table>
+<br/>
+</body>
+</html>

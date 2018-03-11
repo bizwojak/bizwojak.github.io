@@ -1,0 +1,1843 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<style>
+.AlignLeft { text-align: left; }
+.AlignCenter { text-align: center; }
+.AlignRight { text-align: right; }
+body { font-family: sans-serif; font-size: 11pt; }
+img.AutoScale { max-width: 100%; max-height: 100%; }
+td { vertical-align: top; padding-left: 4px; padding-right: 4px; }
+
+tr.SectionGap td { font-size: 4px; border-left: none; border-top: none; border-bottom: 1px solid Black; border-right: 1px solid Black; }
+tr.SectionAll td { border-left: none; border-top: none; border-bottom: 1px solid Black; border-right: 1px solid Black; }
+tr.SectionBegin td { border-left: none; border-top: none; border-right: 1px solid Black; }
+tr.SectionEnd td { border-left: none; border-top: none; border-bottom: 1px solid Black; border-right: 1px solid Black; }
+tr.SectionMiddle td { border-left: none; border-top: none; border-right: 1px solid Black; }
+tr.SubsectionAll td { border-left: none; border-top: none; border-bottom: 1px solid Gray; border-right: 1px solid Black; }
+tr.SubsectionEnd td { border-left: none; border-top: none; border-bottom: 1px solid Gray; border-right: 1px solid Black; }
+table.fc { border-top: 1px solid Black; border-left: 1px solid Black; width: 100%; font-family: monospace; font-size: 10pt; }
+td.TextItemInsigMod { color: #000000; background-color: #EEEEFF; }
+td.TextItemInsigOrphan { color: #000000; background-color: #FAEEFF; }
+td.TextItemNum { color: #696969; background-color: #F0F0F0; }
+td.TextItemSame { color: #000000; background-color: #FFFFFF; }
+td.TextItemSigMod { color: #000000; background-color: #FFE3E3; }
+td.TextItemSigOrphan { color: #000000; background-color: #F1E3FF; }
+.TextSegInsigDiff { color: #0000FF; }
+.TextSegReplacedDiff { color: #0000FF; font-style: italic; }
+.TextSegSigDiff { color: #FF0000; }
+td.TextItemInsigAdd { color: #000000; background-color: #EEEEFF; }
+td.TextItemInsigDel { color: #000000; background-color: #EEEEFF; text-decoration: line-through; }
+td.TextItemSigAdd { color: #000000; background-color: #FFE3E3; }
+td.TextItemSigDel { color: #000000; background-color: #FFE3E3; text-decoration: line-through; }
+.TextSegElementComment { color: #786A41; }
+</style>
+<title>dcrd-1.1.0 <--> hxd-rc1.0 Comparison</title>
+</head>
+<body>
+dcrd-1.1.0 <--> hxd-rc1.0 Comparison<br/>
+Produced: 10/3/2018 11:00:18 PM<br/>
+&nbsp; &nbsp;
+<br/>
+Mode:&nbsp; All, Ignoring Unimportant &nbsp;
+<br/>
+Left file: dcrd-1.1.0\dcrec\edwards\ecdsa.go &nbsp;
+<br/>
+Right file: hxd-rc1.0\dcrec\edwards\ecdsa.go &nbsp;
+<br/>
+<table class="fc" cellspacing="0" cellpadding="0">
+<tr class="SectionBegin">
+<td class="TextItemSame"><span class="TextSegElementComment">// Copyright (c) 2015-2016 The Decred developers</span></td>
+<td class="AlignCenter">=</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// Copyright (c) 2015-2016 The Decred developers</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// Use of this source code is governed by an ISC</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// Use of this source code is governed by an ISC</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// license that can be found in the LICENSE file.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// license that can be found in the LICENSE file.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">package edwards</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">package edwards</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">import (</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">import (</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;bytes&quot;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;bytes&quot;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;crypto/hmac&quot;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;crypto/hmac&quot;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;crypto/sha256&quot;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;crypto/sha256&quot;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;crypto/sha512&quot;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;crypto/sha512&quot;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;fmt&quot;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;fmt&quot;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;hash&quot;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;hash&quot;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;io&quot;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;io&quot;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;math/big&quot;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;math/big&quot;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;github.com/agl/ed25519&quot;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;github.com/agl/ed25519&quot;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;github.com/agl/ed25519/edwards25519&quot;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;github.com/agl/ed25519/edwards25519&quot;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// BIG CAVEAT</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// BIG CAVEAT</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// Memory management is kind of sloppy and whether or not your keys or</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// Memory management is kind of sloppy and whether or not your keys or</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// nonces can be found in memory later is likely a product of when the</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// nonces can be found in memory later is likely a product of when the</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// garbage collector runs.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// garbage collector runs.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// Signing/EC mult is also not constant side, so don't use this in any</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// Signing/EC mult is also not constant side, so don't use this in any</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// application where you think you might be vulnerable to side channel</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// application where you think you might be vulnerable to side channel</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// attacks.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// attacks.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">var (</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">var (</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// oneInitializer is used to fill a byte slice with byte 0x01.&nbsp; It is provided</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// oneInitializer is used to fill a byte slice with byte 0x01.&nbsp; It is provided</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// here to avoid the need to create it multiple times.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// here to avoid the need to create it multiple times.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; oneInitializer = []byte{0x01}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; oneInitializer = []byte{0x01}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// ecTypeEdwards is the ECDSA type for the chainec interface.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// ecTypeEdwards is the ECDSA type for the chainec interface.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; ecTypeEdwards = 1</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; ecTypeEdwards = 1</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// GenerateKey generates a key using a random number generator, returning</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// GenerateKey generates a key using a random number generator, returning</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// the private scalar and the corresponding public key points from a</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// the private scalar and the corresponding public key points from a</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// random secret.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// random secret.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">func GenerateKey(curve *TwistedEdwardsCurve, rand io.Reader) (priv []byte, x,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">func GenerateKey(curve *TwistedEdwardsCurve, rand io.Reader) (priv []byte, x,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; y *big.Int, err error) {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; y *big.Int, err error) {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; var pub *[PubKeyBytesLen]byte</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; var pub *[PubKeyBytesLen]byte</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; var privArray *[PrivKeyBytesLen]byte</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; var privArray *[PrivKeyBytesLen]byte</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; pub, privArray, err = ed25519.GenerateKey(rand)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; pub, privArray, err = ed25519.GenerateKey(rand)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; priv = privArray[:]</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; priv = privArray[:]</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; x, y, err = curve.EncodedBytesToBigIntPoint(pub)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; x, y, err = curve.EncodedBytesToBigIntPoint(pub)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if err != nil {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if err != nil {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return nil, nil, nil, err</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return nil, nil, nil, err</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// SignFromSecret signs a message 'hash' using the given private key priv. It doesn't</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// SignFromSecret signs a message 'hash' using the given private key priv. It doesn't</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// actually user the random reader (the lib is maybe deterministic???).</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// actually user the random reader (the lib is maybe deterministic???).</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">func SignFromSecret(rand io.Reader, priv *PrivateKey, hash []byte) (r, s *big.Int,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">func SignFromSecret(rand io.Reader, priv *PrivateKey, hash []byte) (r, s *big.Int,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; err error) {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; err error) {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; r, s, err = SignFromSecretNoReader(priv, hash)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; r, s, err = SignFromSecretNoReader(priv, hash)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// SignFromSecretNoReader signs a message 'hash' using the given private key</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// SignFromSecretNoReader signs a message 'hash' using the given private key</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// priv. It doesn't actually user the random reader.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// priv. It doesn't actually user the random reader.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">func SignFromSecretNoReader(priv *PrivateKey, hash []byte) (r, s *big.Int,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">func SignFromSecretNoReader(priv *PrivateKey, hash []byte) (r, s *big.Int,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; err error) {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; err error) {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; privBytes := priv.SerializeSecret()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; privBytes := priv.SerializeSecret()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; privArray := copyBytes64(privBytes)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; privArray := copyBytes64(privBytes)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; sig := ed25519.Sign(privArray, hash)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; sig := ed25519.Sign(privArray, hash)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// The signatures are encoded as</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// The signatures are encoded as</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">//&nbsp;&nbsp; sig[0:32]&nbsp; R, a point encoded as little endian</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">//&nbsp;&nbsp; sig[0:32]&nbsp; R, a point encoded as little endian</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">//&nbsp;&nbsp; sig[32:64] S, scalar multiplication/addition results = (ab+c) mod l</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">//&nbsp;&nbsp; sig[32:64] S, scalar multiplication/addition results = (ab+c) mod l</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">//&nbsp; &nbsp;&nbsp; encoded also as little endian</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">//&nbsp; &nbsp;&nbsp; encoded also as little endian</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; rBytes := copyBytes(sig[0:32])</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; rBytes := copyBytes(sig[0:32])</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; r = EncodedBytesToBigInt(rBytes)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; r = EncodedBytesToBigInt(rBytes)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; sBytes := copyBytes(sig[32:64])</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; sBytes := copyBytes(sig[32:64])</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; s = EncodedBytesToBigInt(sBytes)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; s = EncodedBytesToBigInt(sBytes)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// nonceRFC6979 is a local instatiation of deterministic nonce generation</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// nonceRFC6979 is a local instatiation of deterministic nonce generation</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// by the standards of RFC6979.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// by the standards of RFC6979.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">func nonceRFC6979(curve *TwistedEdwardsCurve, privkey []byte, hash []byte,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">func nonceRFC6979(curve *TwistedEdwardsCurve, privkey []byte, hash []byte,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; extra []byte, version []byte) []byte {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; extra []byte, version []byte) []byte {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; pkD := new(big.Int).SetBytes(privkey)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; pkD := new(big.Int).SetBytes(privkey)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; defer pkD.SetInt64(0)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; defer pkD.SetInt64(0)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; bigK := NonceRFC6979(curve, pkD, hash, extra, version)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; bigK := NonceRFC6979(curve, pkD, hash, extra, version)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; defer bigK.SetInt64(0)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; defer bigK.SetInt64(0)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; k := BigIntToEncodedBytesNoReverse(bigK)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; k := BigIntToEncodedBytesNoReverse(bigK)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return k[:]</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return k[:]</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// NonceRFC6979 generates an ECDSA nonce (`k`) deterministically according to</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// NonceRFC6979 generates an ECDSA nonce (`k`) deterministically according to</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// RFC 6979. It takes a 32-byte hash as an input and returns 32-byte nonce to</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// RFC 6979. It takes a 32-byte hash as an input and returns 32-byte nonce to</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// be used in ECDSA algorithm.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// be used in ECDSA algorithm.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">func NonceRFC6979(curve *TwistedEdwardsCurve, privkey *big.Int, hash []byte,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">func NonceRFC6979(curve *TwistedEdwardsCurve, privkey *big.Int, hash []byte,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; extra []byte, version []byte) *big.Int {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; extra []byte, version []byte) *big.Int {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; q := curve.Params().N</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; q := curve.Params().N</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; x := privkey</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; x := privkey</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; alg := sha256.New</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; alg := sha256.New</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; qlen := q.BitLen()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; qlen := q.BitLen()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; holen := alg().Size()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; holen := alg().Size()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; rolen := (qlen + 7) &gt;&gt; 3</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; rolen := (qlen + 7) &gt;&gt; 3</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; bx := append(int2octets(x, rolen), bits2octets(hash, curve, rolen)...)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; bx := append(int2octets(x, rolen), bits2octets(hash, curve, rolen)...)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if len(extra) == 32 {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if len(extra) == 32 {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; bx = append(bx, extra...)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; bx = append(bx, extra...)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if len(version) == 16 &amp;&amp; len(extra) == 32 {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if len(version) == 16 &amp;&amp; len(extra) == 32 {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; bx = append(bx, extra...)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; bx = append(bx, extra...)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if len(version) == 16 &amp;&amp; len(extra) != 32 {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if len(version) == 16 &amp;&amp; len(extra) != 32 {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; bx = append(bx, bytes.Repeat([]byte{0x00}, 32)...)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; bx = append(bx, bytes.Repeat([]byte{0x00}, 32)...)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; bx = append(bx, version...)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; bx = append(bx, version...)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Step B</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Step B</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; v := bytes.Repeat(oneInitializer, holen)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; v := bytes.Repeat(oneInitializer, holen)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Step C (Go zeroes the all allocated memory)</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Step C (Go zeroes the all allocated memory)</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; k := make([]byte, holen)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; k := make([]byte, holen)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Step D</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Step D</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; k = mac(alg, k, append(append(v, 0x00), bx...))</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; k = mac(alg, k, append(append(v, 0x00), bx...))</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Step E</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Step E</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; v = mac(alg, k, v)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; v = mac(alg, k, v)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Step F</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Step F</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; k = mac(alg, k, append(append(v, 0x01), bx...))</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; k = mac(alg, k, append(append(v, 0x01), bx...))</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Step G</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Step G</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; v = mac(alg, k, v)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; v = mac(alg, k, v)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Step H</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Step H</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; for {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; for {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Step H1</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Step H1</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; var t []byte</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; var t []byte</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Step H2</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Step H2</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; for len(t)*8 &lt; qlen {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; for len(t)*8 &lt; qlen {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; v = mac(alg, k, v)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; v = mac(alg, k, v)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t = append(t, v...)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t = append(t, v...)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Step H3</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Step H3</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; secret := hashToInt(t, curve)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; secret := hashToInt(t, curve)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if secret.Cmp(one) &gt;= 0 &amp;&amp; secret.Cmp(q) &lt; 0 {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if secret.Cmp(one) &gt;= 0 &amp;&amp; secret.Cmp(q) &lt; 0 {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return secret</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return secret</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; k = mac(alg, k, append(v, 0x00))</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; k = mac(alg, k, append(v, 0x00))</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; v = mac(alg, k, v)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; v = mac(alg, k, v)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// hashToInt converts a hash value to an integer. There is some disagreement</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// hashToInt converts a hash value to an integer. There is some disagreement</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// about how this is done. [NSA] suggests that this is done in the obvious</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// about how this is done. [NSA] suggests that this is done in the obvious</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// manner, but [SECG] truncates the hash to the bit-length of the curve order</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// manner, but [SECG] truncates the hash to the bit-length of the curve order</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// first. We follow [SECG] because that's what OpenSSL does. Additionally,</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// first. We follow [SECG] because that's what OpenSSL does. Additionally,</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// OpenSSL right shifts excess bits from the number if the hash is too large</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// OpenSSL right shifts excess bits from the number if the hash is too large</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// and we mirror that too.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// and we mirror that too.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// This is borrowed from crypto/ecdsa.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// This is borrowed from crypto/ecdsa.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">func hashToInt(hash []byte, c *TwistedEdwardsCurve) *big.Int {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">func hashToInt(hash []byte, c *TwistedEdwardsCurve) *big.Int {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; orderBits := c.Params().N.BitLen()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; orderBits := c.Params().N.BitLen()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; orderBytes := (orderBits + 7) / 8</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; orderBytes := (orderBits + 7) / 8</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if len(hash) &gt; orderBytes {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if len(hash) &gt; orderBytes {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; hash = hash[:orderBytes]</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; hash = hash[:orderBytes]</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; ret := new(big.Int).SetBytes(hash)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; ret := new(big.Int).SetBytes(hash)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; excess := len(hash)*8 - orderBits</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; excess := len(hash)*8 - orderBits</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if excess &gt; 0 {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if excess &gt; 0 {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; ret.Rsh(ret, uint(excess))</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; ret.Rsh(ret, uint(excess))</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return ret</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return ret</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// mac returns an HMAC of the given key and message.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// mac returns an HMAC of the given key and message.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">func mac(alg func() hash.Hash, k, m []byte) []byte {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">func mac(alg func() hash.Hash, k, m []byte) []byte {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; h := hmac.New(alg, k)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; h := hmac.New(alg, k)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; h.Write(m)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; h.Write(m)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return h.Sum(nil)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return h.Sum(nil)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// https://tools.ietf.org/html/rfc6979#section-2.3.3</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// https://tools.ietf.org/html/rfc6979#section-2.3.3</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">func int2octets(v *big.Int, rolen int) []byte {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">func int2octets(v *big.Int, rolen int) []byte {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; out := v.Bytes()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; out := v.Bytes()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// left pad with zeros if it's too short</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// left pad with zeros if it's too short</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if len(out) &lt; rolen {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if len(out) &lt; rolen {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; out2 := make([]byte, rolen)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; out2 := make([]byte, rolen)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; copy(out2[rolen-len(out):], out)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; copy(out2[rolen-len(out):], out)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return out2</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return out2</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// drop most significant bytes if it's too long</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// drop most significant bytes if it's too long</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if len(out) &gt; rolen {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if len(out) &gt; rolen {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; out2 := make([]byte, rolen)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; out2 := make([]byte, rolen)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; copy(out2, out[len(out)-rolen:])</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; copy(out2, out[len(out)-rolen:])</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return out2</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return out2</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return out</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return out</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// https://tools.ietf.org/html/rfc6979#section-2.3.4</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// https://tools.ietf.org/html/rfc6979#section-2.3.4</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">func bits2octets(in []byte, curve *TwistedEdwardsCurve, rolen int) []byte {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">func bits2octets(in []byte, curve *TwistedEdwardsCurve, rolen int) []byte {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; z1 := hashToInt(in, curve)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; z1 := hashToInt(in, curve)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; z2 := new(big.Int).Sub(z1, curve.Params().N)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; z2 := new(big.Int).Sub(z1, curve.Params().N)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if z2.Sign() &lt; 0 {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if z2.Sign() &lt; 0 {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return int2octets(z1, rolen)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return int2octets(z1, rolen)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return int2octets(z2, rolen)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return int2octets(z2, rolen)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// SignFromScalar signs a message 'hash' using the given private scalar priv.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// SignFromScalar signs a message 'hash' using the given private scalar priv.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// It uses RFC6979 to generate a deterministic nonce. Considered experimental.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// It uses RFC6979 to generate a deterministic nonce. Considered experimental.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// r = kG, where k is the RFC6979 nonce</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// r = kG, where k is the RFC6979 nonce</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// s = r + hash512(k || A || M) * a</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// s = r + hash512(k || A || M) * a</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">func SignFromScalar(curve *TwistedEdwardsCurve, priv *PrivateKey,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">func SignFromScalar(curve *TwistedEdwardsCurve, priv *PrivateKey,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; nonce []byte, hash []byte) (r, s *big.Int, err error) {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; nonce []byte, hash []byte) (r, s *big.Int, err error) {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; publicKey := new([PubKeyBytesLen]byte)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; publicKey := new([PubKeyBytesLen]byte)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; var A edwards25519.ExtendedGroupElement</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; var A edwards25519.ExtendedGroupElement</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; privateScalar := copyBytes(priv.Serialize())</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; privateScalar := copyBytes(priv.Serialize())</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; reverse(privateScalar) <span class="TextSegElementComment">// BE --&gt; LE</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; reverse(privateScalar) <span class="TextSegElementComment">// BE --&gt; LE</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; edwards25519.GeScalarMultBase(&amp;A, privateScalar)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; edwards25519.GeScalarMultBase(&amp;A, privateScalar)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; A.ToBytes(publicKey)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; A.ToBytes(publicKey)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// For signing from a scalar, r = nonce.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// For signing from a scalar, r = nonce.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; nonceLE := copyBytes(nonce)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; nonceLE := copyBytes(nonce)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; reverse(nonceLE)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; reverse(nonceLE)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; var R edwards25519.ExtendedGroupElement</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; var R edwards25519.ExtendedGroupElement</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; edwards25519.GeScalarMultBase(&amp;R, nonceLE)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; edwards25519.GeScalarMultBase(&amp;R, nonceLE)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; var encodedR [32]byte</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; var encodedR [32]byte</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; R.ToBytes(&amp;encodedR)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; R.ToBytes(&amp;encodedR)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// h = hash512(k || A || M)</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// h = hash512(k || A || M)</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; h := sha512.New()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; h := sha512.New()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; h.Reset()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; h.Reset()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; h.Write(encodedR[:])</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; h.Write(encodedR[:])</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; h.Write(publicKey[:])</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; h.Write(publicKey[:])</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; h.Write(hash)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; h.Write(hash)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// s = r + h * a</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// s = r + h * a</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; var hramDigest [64]byte</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; var hramDigest [64]byte</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; h.Sum(hramDigest[:0])</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; h.Sum(hramDigest[:0])</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; var hramDigestReduced [32]byte</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; var hramDigestReduced [32]byte</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; edwards25519.ScReduce(&amp;hramDigestReduced, &amp;hramDigest)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; edwards25519.ScReduce(&amp;hramDigestReduced, &amp;hramDigest)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; var localS [32]byte</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; var localS [32]byte</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; edwards25519.ScMulAdd(&amp;localS, &amp;hramDigestReduced, privateScalar,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; edwards25519.ScMulAdd(&amp;localS, &amp;hramDigestReduced, privateScalar,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; nonceLE)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; nonceLE)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; signature := new([64]byte)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; signature := new([64]byte)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; copy(signature[:], encodedR[:])</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; copy(signature[:], encodedR[:])</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; copy(signature[32:], localS[:])</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; copy(signature[32:], localS[:])</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; sigEd, err := ParseSignature(curve, signature[:])</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; sigEd, err := ParseSignature(curve, signature[:])</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if err != nil {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if err != nil {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return nil, nil, err</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return nil, nil, err</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return sigEd.GetR(), sigEd.GetS(), nil</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return sigEd.GetR(), sigEd.GetS(), nil</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// SignThreshold signs a message 'hash' using the given private scalar priv in</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// SignThreshold signs a message 'hash' using the given private scalar priv in</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// a threshold group signature. It uses RFC6979 to generate a deterministic nonce.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// a threshold group signature. It uses RFC6979 to generate a deterministic nonce.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// Considered experimental.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// Considered experimental.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// As opposed to the threshold signing function for secp256k1, this function</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// As opposed to the threshold signing function for secp256k1, this function</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// takes the entirety of the public nonce point (all points added) instead of</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// takes the entirety of the public nonce point (all points added) instead of</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// the public nonce point with n-1 keys added.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// the public nonce point with n-1 keys added.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// r = K_Sum</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// r = K_Sum</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// s = r + hash512(k || A || M) * a</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// s = r + hash512(k || A || M) * a</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">func SignThreshold(curve *TwistedEdwardsCurve, priv *PrivateKey,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">func SignThreshold(curve *TwistedEdwardsCurve, priv *PrivateKey,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; groupPub *PublicKey, hash []byte, privNonce *PrivateKey,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; groupPub *PublicKey, hash []byte, privNonce *PrivateKey,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; pubNonceSum *PublicKey) (r, s *big.Int, err error) {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; pubNonceSum *PublicKey) (r, s *big.Int, err error) {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if priv == nil || hash == nil || privNonce == nil || pubNonceSum == nil {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if priv == nil || hash == nil || privNonce == nil || pubNonceSum == nil {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return nil, nil, fmt.Errorf(&quot;nil input&quot;)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return nil, nil, fmt.Errorf(&quot;nil input&quot;)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; privateScalar := copyBytes(priv.Serialize())</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; privateScalar := copyBytes(priv.Serialize())</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; reverse(privateScalar) <span class="TextSegElementComment">// BE --&gt; LE</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; reverse(privateScalar) <span class="TextSegElementComment">// BE --&gt; LE</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Threshold variant scheme:</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Threshold variant scheme:</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// R = K_Sum</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// R = K_Sum</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Where K_Sum is the sum of the public keys corresponding to</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Where K_Sum is the sum of the public keys corresponding to</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// the private nonce scalars of each group signature member.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// the private nonce scalars of each group signature member.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// That is, R = k1G + ... + knG.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// That is, R = k1G + ... + knG.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; encodedGroupR := BigIntPointToEncodedBytes(pubNonceSum.GetX(),</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; encodedGroupR := BigIntPointToEncodedBytes(pubNonceSum.GetX(),</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; pubNonceSum.GetY())</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; pubNonceSum.GetY())</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// h = hash512(k || A || M)</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// h = hash512(k || A || M)</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; var hramDigest [64]byte</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; var hramDigest [64]byte</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; h := sha512.New()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; h := sha512.New()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; h.Reset()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; h.Reset()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; h.Write(encodedGroupR[:])</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; h.Write(encodedGroupR[:])</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; h.Write(groupPub.Serialize()[:])</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; h.Write(groupPub.Serialize()[:])</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; h.Write(hash)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; h.Write(hash)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; h.Sum(hramDigest[:0])</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; h.Sum(hramDigest[:0])</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; var hramDigestReduced [32]byte</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; var hramDigestReduced [32]byte</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; edwards25519.ScReduce(&amp;hramDigestReduced, &amp;hramDigest)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; edwards25519.ScReduce(&amp;hramDigestReduced, &amp;hramDigest)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// s = r + h * a</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// s = r + h * a</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; var localS [32]byte</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; var localS [32]byte</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; privNonceLE := copyBytes(privNonce.Serialize())</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; privNonceLE := copyBytes(privNonce.Serialize())</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; reverse(privNonceLE) <span class="TextSegElementComment">// BE --&gt; LE</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; reverse(privNonceLE) <span class="TextSegElementComment">// BE --&gt; LE</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; edwards25519.ScMulAdd(&amp;localS, &amp;hramDigestReduced, privateScalar,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; edwards25519.ScMulAdd(&amp;localS, &amp;hramDigestReduced, privateScalar,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; privNonceLE)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; privNonceLE)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; signature := new([64]byte)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; signature := new([64]byte)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; copy(signature[:], encodedGroupR[:])</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; copy(signature[:], encodedGroupR[:])</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; copy(signature[32:], localS[:])</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; copy(signature[32:], localS[:])</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; sigEd, err := ParseSignature(curve, signature[:])</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; sigEd, err := ParseSignature(curve, signature[:])</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if err != nil {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if err != nil {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return nil, nil, err</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return nil, nil, err</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return sigEd.GetR(), sigEd.GetS(), nil</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return sigEd.GetR(), sigEd.GetS(), nil</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// Sign is the generalized and exported version of Ed25519 signing, that</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// Sign is the generalized and exported version of Ed25519 signing, that</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// handles both standard private secrets and non-standard scalars.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// handles both standard private secrets and non-standard scalars.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">func Sign(curve *TwistedEdwardsCurve, priv *PrivateKey, hash []byte) (r,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">func Sign(curve *TwistedEdwardsCurve, priv *PrivateKey, hash []byte) (r,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; s *big.Int, err error) {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; s *big.Int, err error) {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if priv == nil {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if priv == nil {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return nil, nil, fmt.Errorf(&quot;private key is nil&quot;)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return nil, nil, fmt.Errorf(&quot;private key is nil&quot;)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if hash == nil {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if hash == nil {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return nil, nil, fmt.Errorf(&quot;message key is nil&quot;)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return nil, nil, fmt.Errorf(&quot;message key is nil&quot;)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if priv.secret == nil {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if priv.secret == nil {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; privLE := copyBytes(priv.Serialize())</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; privLE := copyBytes(priv.Serialize())</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; reverse(privLE)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; reverse(privLE)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; nonce := nonceRFC6979(curve, privLE[:], hash, nil, nil)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; nonce := nonceRFC6979(curve, privLE[:], hash, nil, nil)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return SignFromScalar(curve, priv, nonce, hash)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return SignFromScalar(curve, priv, nonce, hash)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return SignFromSecretNoReader(priv, hash)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return SignFromSecretNoReader(priv, hash)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// Verify verifies a message 'hash' using the given public keys and signature.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// Verify verifies a message 'hash' using the given public keys and signature.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">func Verify(pub *PublicKey, hash []byte, r, s *big.Int) bool {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">func Verify(pub *PublicKey, hash []byte, r, s *big.Int) bool {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if pub == nil || hash == nil || r == nil || s == nil {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if pub == nil || hash == nil || r == nil || s == nil {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return false</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return false</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; pubBytes := pub.Serialize()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; pubBytes := pub.Serialize()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; sig := &amp;Signature{r, s}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; sig := &amp;Signature{r, s}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; sigBytes := sig.Serialize()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; sigBytes := sig.Serialize()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; pubArray := copyBytes(pubBytes)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; pubArray := copyBytes(pubBytes)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; sigArray := copyBytes64(sigBytes)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; sigArray := copyBytes64(sigBytes)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return ed25519.Verify(pubArray, hash, sigArray)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return ed25519.Verify(pubArray, hash, sigArray)</td>
+</tr>
+<tr class="SectionEnd">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+</table>
+<br/>
+</body>
+</html>

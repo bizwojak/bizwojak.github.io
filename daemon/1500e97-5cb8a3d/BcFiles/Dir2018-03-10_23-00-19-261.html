@@ -1,0 +1,2079 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<style>
+.AlignLeft { text-align: left; }
+.AlignCenter { text-align: center; }
+.AlignRight { text-align: right; }
+body { font-family: sans-serif; font-size: 11pt; }
+img.AutoScale { max-width: 100%; max-height: 100%; }
+td { vertical-align: top; padding-left: 4px; padding-right: 4px; }
+
+tr.SectionGap td { font-size: 4px; border-left: none; border-top: none; border-bottom: 1px solid Black; border-right: 1px solid Black; }
+tr.SectionAll td { border-left: none; border-top: none; border-bottom: 1px solid Black; border-right: 1px solid Black; }
+tr.SectionBegin td { border-left: none; border-top: none; border-right: 1px solid Black; }
+tr.SectionEnd td { border-left: none; border-top: none; border-bottom: 1px solid Black; border-right: 1px solid Black; }
+tr.SectionMiddle td { border-left: none; border-top: none; border-right: 1px solid Black; }
+tr.SubsectionAll td { border-left: none; border-top: none; border-bottom: 1px solid Gray; border-right: 1px solid Black; }
+tr.SubsectionEnd td { border-left: none; border-top: none; border-bottom: 1px solid Gray; border-right: 1px solid Black; }
+table.fc { border-top: 1px solid Black; border-left: 1px solid Black; width: 100%; font-family: monospace; font-size: 10pt; }
+td.TextItemInsigMod { color: #000000; background-color: #EEEEFF; }
+td.TextItemInsigOrphan { color: #000000; background-color: #FAEEFF; }
+td.TextItemNum { color: #696969; background-color: #F0F0F0; }
+td.TextItemSame { color: #000000; background-color: #FFFFFF; }
+td.TextItemSigMod { color: #000000; background-color: #FFE3E3; }
+td.TextItemSigOrphan { color: #000000; background-color: #F1E3FF; }
+.TextSegInsigDiff { color: #0000FF; }
+.TextSegReplacedDiff { color: #0000FF; font-style: italic; }
+.TextSegSigDiff { color: #FF0000; }
+td.TextItemInsigAdd { color: #000000; background-color: #EEEEFF; }
+td.TextItemInsigDel { color: #000000; background-color: #EEEEFF; text-decoration: line-through; }
+td.TextItemSigAdd { color: #000000; background-color: #FFE3E3; }
+td.TextItemSigDel { color: #000000; background-color: #FFE3E3; text-decoration: line-through; }
+.TextSegElementComment { color: #786A41; }
+.TextSegElementBranding { }
+</style>
+<title>dcrd-1.1.0 <--> hxd-rc1.0 Comparison</title>
+</head>
+<body>
+dcrd-1.1.0 <--> hxd-rc1.0 Comparison<br/>
+Produced: 10/3/2018 11:00:19 PM<br/>
+&nbsp; &nbsp;
+<br/>
+Mode:&nbsp; All, Ignoring Unimportant &nbsp;
+<br/>
+Left file: dcrd-1.1.0\dcrec\secp256k1\schnorr\ecdsa.go &nbsp;
+<br/>
+Right file: hxd-rc1.0\dcrec\secp256k1\schnorr\ecdsa.go &nbsp;
+<br/>
+<table class="fc" cellspacing="0" cellpadding="0">
+<tr class="SectionBegin">
+<td class="TextItemSame"><span class="TextSegElementComment">// Copyright (c) 2015-2016 The Decred developers</span></td>
+<td class="AlignCenter">=</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// Copyright (c) 2015-2016 The Decred developers</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// Use of this source code is governed by an ISC</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// Use of this source code is governed by an ISC</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// license that can be found in the LICENSE file.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// license that can be found in the LICENSE file.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">package schnorr</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">package schnorr</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">import (</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">import (</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;bytes&quot;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;bytes&quot;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;crypto/rand&quot;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;crypto/rand&quot;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;fmt&quot;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;fmt&quot;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;math/big&quot;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;math/big&quot;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;github.com/<span class="TextSegElementBranding">d</span><span class="TextSegElementBranding">ec</span><span class="TextSegElementBranding">red</span>/<span class="TextSegElementBranding">dcr</span>d/chaincfg/chainhash&quot;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;github.com/<span class="TextSegElementBranding">hybridnetwork</span>/<span class="TextSegElementBranding">hx</span>d/chaincfg/chainhash&quot;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;github.com/<span class="TextSegElementBranding">d</span><span class="TextSegElementBranding">ec</span><span class="TextSegElementBranding">red</span>/<span class="TextSegElementBranding">dcr</span>d/<span class="TextSegElementBranding">dcr</span>ec/secp256k1&quot;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;github.com/<span class="TextSegElementBranding">hybridnetwork</span>/<span class="TextSegElementBranding">hx</span>d/<span class="TextSegElementBranding">dcr</span>ec/secp256k1&quot;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// scalarSize is the size of an encoded big endian scalar.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// scalarSize is the size of an encoded big endian scalar.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">const scalarSize = 32</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">const scalarSize = 32</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">var (</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">var (</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// bigZero is the big representation of zero.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// bigZero is the big representation of zero.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; bigZero = new(big.Int).SetInt64(0)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; bigZero = new(big.Int).SetInt64(0)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// ecTypeSecSchnorr is the ECDSA type for the chainec interface.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// ecTypeSecSchnorr is the ECDSA type for the chainec interface.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; ecTypeSecSchnorr = 2</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; ecTypeSecSchnorr = 2</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// zeroArray zeroes the memory of a scalar array.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// zeroArray zeroes the memory of a scalar array.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">func zeroArray(a *[scalarSize]byte) {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">func zeroArray(a *[scalarSize]byte) {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; for i := 0; i &lt; scalarSize; i++ {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; for i := 0; i &lt; scalarSize; i++ {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; a[i] = 0x00</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; a[i] = 0x00</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// zeroSlice zeroes the memory of a scalar byte slice.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// zeroSlice zeroes the memory of a scalar byte slice.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">func zeroSlice(s []byte) {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">func zeroSlice(s []byte) {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; for i := 0; i &lt; scalarSize; i++ {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; for i := 0; i &lt; scalarSize; i++ {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; s[i] = 0x00</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; s[i] = 0x00</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// schnorrSign signs a Schnorr signature using a specified hash function</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// schnorrSign signs a Schnorr signature using a specified hash function</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// and the given nonce, private key, message, and optional public nonce.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// and the given nonce, private key, message, and optional public nonce.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// CAVEAT: Lots of variable time algorithms using both the private key and</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// CAVEAT: Lots of variable time algorithms using both the private key and</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// k, which can expose the signer to constant time attacks. You have been</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// k, which can expose the signer to constant time attacks. You have been</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// warned! DO NOT use this algorithm where you might have the possibility</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// warned! DO NOT use this algorithm where you might have the possibility</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// of someone having EM field/cache/etc access.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// of someone having EM field/cache/etc access.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// Memory management is also kind of sloppy and whether or not your keys</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// Memory management is also kind of sloppy and whether or not your keys</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// or nonces can be found in memory later is likely a product of when the</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// or nonces can be found in memory later is likely a product of when the</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// garbage collector runs.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// garbage collector runs.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// TODO Use field elements with constant time algorithms to prevent said</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// TODO Use field elements with constant time algorithms to prevent said</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// attacks.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// attacks.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// This is identical to the Schnorr signature function found in libsecp256k1:</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// This is identical to the Schnorr signature function found in libsecp256k1:</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// https://github.com/bitcoin/secp256k1/tree/master/src/modules/schnorr</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// https://github.com/bitcoin/secp256k1/tree/master/src/modules/schnorr</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">func schnorrSign(curve *secp256k1.KoblitzCurve, msg []byte, ps []byte, k []byte,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">func schnorrSign(curve *secp256k1.KoblitzCurve, msg []byte, ps []byte, k []byte,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; pubNonceX *big.Int, pubNonceY *big.Int,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; pubNonceX *big.Int, pubNonceY *big.Int,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; hashFunc func([]byte) []byte) (*Signature, error) {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; hashFunc func([]byte) []byte) (*Signature, error) {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if len(msg) != scalarSize {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if len(msg) != scalarSize {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; str := fmt.Sprintf(&quot;wrong size for message (got %v, want %v)&quot;,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; str := fmt.Sprintf(&quot;wrong size for message (got %v, want %v)&quot;,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; len(msg), scalarSize)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; len(msg), scalarSize)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return nil, schnorrError(ErrBadInputSize, str)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return nil, schnorrError(ErrBadInputSize, str)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if len(ps) != scalarSize {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if len(ps) != scalarSize {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; str := fmt.Sprintf(&quot;wrong size for privkey (got %v, want %v)&quot;,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; str := fmt.Sprintf(&quot;wrong size for privkey (got %v, want %v)&quot;,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; len(ps), scalarSize)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; len(ps), scalarSize)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return nil, schnorrError(ErrBadInputSize, str)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return nil, schnorrError(ErrBadInputSize, str)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if len(k) != scalarSize {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if len(k) != scalarSize {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; str := fmt.Sprintf(&quot;wrong size for nonce k (got %v, want %v)&quot;,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; str := fmt.Sprintf(&quot;wrong size for nonce k (got %v, want %v)&quot;,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; len(k), scalarSize)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; len(k), scalarSize)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return nil, schnorrError(ErrBadInputSize, str)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return nil, schnorrError(ErrBadInputSize, str)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; psBig := new(big.Int).SetBytes(ps)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; psBig := new(big.Int).SetBytes(ps)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; bigK := new(big.Int).SetBytes(k)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; bigK := new(big.Int).SetBytes(k)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if psBig.Cmp(bigZero) == 0 {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if psBig.Cmp(bigZero) == 0 {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; str := fmt.Sprintf(&quot;secret scalar is zero&quot;)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; str := fmt.Sprintf(&quot;secret scalar is zero&quot;)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return nil, schnorrError(ErrInputValue, str)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return nil, schnorrError(ErrInputValue, str)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if psBig.Cmp(curve.N) &gt;= 0 {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if psBig.Cmp(curve.N) &gt;= 0 {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; str := fmt.Sprintf(&quot;secret scalar is out of bounds&quot;)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; str := fmt.Sprintf(&quot;secret scalar is out of bounds&quot;)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return nil, schnorrError(ErrInputValue, str)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return nil, schnorrError(ErrInputValue, str)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if bigK.Cmp(bigZero) == 0 {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if bigK.Cmp(bigZero) == 0 {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; str := fmt.Sprintf(&quot;k scalar is zero&quot;)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; str := fmt.Sprintf(&quot;k scalar is zero&quot;)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return nil, schnorrError(ErrInputValue, str)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return nil, schnorrError(ErrInputValue, str)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if bigK.Cmp(curve.N) &gt;= 0 {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if bigK.Cmp(curve.N) &gt;= 0 {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; str := fmt.Sprintf(&quot;k scalar is out of bounds&quot;)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; str := fmt.Sprintf(&quot;k scalar is out of bounds&quot;)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return nil, schnorrError(ErrInputValue, str)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return nil, schnorrError(ErrInputValue, str)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// R = kG</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// R = kG</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; var Rpx, Rpy *big.Int</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; var Rpx, Rpy *big.Int</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Rpx, Rpy = curve.ScalarBaseMult(k)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Rpx, Rpy = curve.ScalarBaseMult(k)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if pubNonceX != nil &amp;&amp; pubNonceY != nil {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if pubNonceX != nil &amp;&amp; pubNonceY != nil {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Optional: if k' exists then R = R+k'</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Optional: if k' exists then R = R+k'</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Rpx, Rpy = curve.Add(Rpx, Rpy, pubNonceX, pubNonceY)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Rpx, Rpy = curve.Add(Rpx, Rpy, pubNonceX, pubNonceY)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Check if the field element that would be represented by Y is odd.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Check if the field element that would be represented by Y is odd.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// If it is, just keep k in the group order.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// If it is, just keep k in the group order.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if Rpy.Bit(0) == 1 {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if Rpy.Bit(0) == 1 {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; bigK.Mod(bigK, curve.N)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; bigK.Mod(bigK, curve.N)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; bigK.Sub(curve.N, bigK)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; bigK.Sub(curve.N, bigK)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// h = Hash(r || m)</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// h = Hash(r || m)</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Rpxb := BigIntToEncodedBytes(Rpx)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Rpxb := BigIntToEncodedBytes(Rpx)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; hashInput := make([]byte, 0, scalarSize*2)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; hashInput := make([]byte, 0, scalarSize*2)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; hashInput = append(hashInput, Rpxb[:]...)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; hashInput = append(hashInput, Rpxb[:]...)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; hashInput = append(hashInput, msg...)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; hashInput = append(hashInput, msg...)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; h := hashFunc(hashInput)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; h := hashFunc(hashInput)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; hBig := new(big.Int).SetBytes(h)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; hBig := new(big.Int).SetBytes(h)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// If the hash ends up larger than the order of the curve, abort.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// If the hash ends up larger than the order of the curve, abort.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if hBig.Cmp(curve.N) &gt;= 0 {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if hBig.Cmp(curve.N) &gt;= 0 {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; str := fmt.Sprintf(&quot;hash of (R || m) too big&quot;)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; str := fmt.Sprintf(&quot;hash of (R || m) too big&quot;)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return nil, schnorrError(ErrSchnorrHashValue, str)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return nil, schnorrError(ErrSchnorrHashValue, str)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// s = k - hx</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// s = k - hx</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// TODO Speed this up a bunch by using field elements, not</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// TODO Speed this up a bunch by using field elements, not</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// big ints. That we multiply the private scalar using big</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// big ints. That we multiply the private scalar using big</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// ints is also probably bad because we can only assume the</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// ints is also probably bad because we can only assume the</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// math isn't in constant time, thus opening us up to side</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// math isn't in constant time, thus opening us up to side</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// channel attacks. Using a constant time field element</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// channel attacks. Using a constant time field element</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// implementation will fix this.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// implementation will fix this.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; sBig := new(big.Int)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; sBig := new(big.Int)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; sBig.Mul(hBig, psBig)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; sBig.Mul(hBig, psBig)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; sBig.Sub(bigK, sBig)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; sBig.Sub(bigK, sBig)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; sBig.Mod(sBig, curve.N)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; sBig.Mod(sBig, curve.N)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if sBig.Cmp(bigZero) == 0 {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if sBig.Cmp(bigZero) == 0 {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; str := fmt.Sprintf(&quot;sig s %v is zero&quot;, sBig)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; str := fmt.Sprintf(&quot;sig s %v is zero&quot;, sBig)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return nil, schnorrError(ErrZeroSigS, str)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return nil, schnorrError(ErrZeroSigS, str)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Zero out the private key and nonce when we're done with it.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Zero out the private key and nonce when we're done with it.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; bigK.SetInt64(0)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; bigK.SetInt64(0)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; zeroSlice(k)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; zeroSlice(k)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; psBig.SetInt64(0)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; psBig.SetInt64(0)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; zeroSlice(ps)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; zeroSlice(ps)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return &amp;Signature{Rpx, sBig}, nil</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return &amp;Signature{Rpx, sBig}, nil</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// Sign is the exported version of sign. It uses RFC6979 and Blake256 to</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// Sign is the exported version of sign. It uses RFC6979 and Blake256 to</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// produce a Schnorr signature.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// produce a Schnorr signature.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">func Sign(curve *secp256k1.KoblitzCurve, priv *secp256k1.PrivateKey,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">func Sign(curve *secp256k1.KoblitzCurve, priv *secp256k1.PrivateKey,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; hash []byte) (r, s *big.Int, err error) {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; hash []byte) (r, s *big.Int, err error) {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Convert the private scalar to a 32 byte big endian number.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Convert the private scalar to a 32 byte big endian number.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; pA := BigIntToEncodedBytes(priv.GetD())</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; pA := BigIntToEncodedBytes(priv.GetD())</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; defer zeroArray(pA)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; defer zeroArray(pA)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Generate a 32-byte scalar to use as a nonce. Try RFC6979</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Generate a 32-byte scalar to use as a nonce. Try RFC6979</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// first.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// first.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; kB := nonceRFC6979(priv.Serialize(), hash, nil, nil)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; kB := nonceRFC6979(priv.Serialize(), hash, nil, nil)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; for {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; for {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; sig, err := schnorrSign(curve, hash, pA[:], kB, nil, nil,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; sig, err := schnorrSign(curve, hash, pA[:], kB, nil, nil,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; chainhash.HashB)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; chainhash.HashB)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if err == nil {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if err == nil {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; r = sig.GetR()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; r = sig.GetR()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; s = sig.GetS()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; s = sig.GetS()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; break</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; break</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; errTyped, ok := err.(Error)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; errTyped, ok := err.(Error)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if !ok {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if !ok {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return nil, nil, fmt.Errorf(&quot;unknown error type&quot;)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return nil, nil, fmt.Errorf(&quot;unknown error type&quot;)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if errTyped.GetCode() != ErrSchnorrHashValue {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if errTyped.GetCode() != ErrSchnorrHashValue {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return nil, nil, err</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return nil, nil, err</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// We need to compute a new nonce, because the one we used</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// We need to compute a new nonce, because the one we used</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// didn't work. Compute a random nonce.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// didn't work. Compute a random nonce.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; _, err = rand.Read(kB)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; _, err = rand.Read(kB)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if err != nil {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if err != nil {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return nil, nil, err</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return nil, nil, err</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return r, s, nil</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return r, s, nil</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// schnorrVerify is the internal function for verification of a secp256k1</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// schnorrVerify is the internal function for verification of a secp256k1</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// Schnorr signature. A secure hash function may be passed for the calculation</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// Schnorr signature. A secure hash function may be passed for the calculation</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// of r.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// of r.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// This is identical to the Schnorr verification function found in libsecp256k1:</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// This is identical to the Schnorr verification function found in libsecp256k1:</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// https://github.com/bitcoin/secp256k1/tree/master/src/modules/schnorr</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// https://github.com/bitcoin/secp256k1/tree/master/src/modules/schnorr</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">func schnorrVerify(curve *secp256k1.KoblitzCurve, sig []byte,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">func schnorrVerify(curve *secp256k1.KoblitzCurve, sig []byte,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; pubkey *secp256k1.PublicKey, msg []byte, hashFunc func([]byte) []byte) (bool,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; pubkey *secp256k1.PublicKey, msg []byte, hashFunc func([]byte) []byte) (bool,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; error) {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; error) {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if len(msg) != scalarSize {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if len(msg) != scalarSize {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; str := fmt.Sprintf(&quot;wrong size for message (got %v, want %v)&quot;,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; str := fmt.Sprintf(&quot;wrong size for message (got %v, want %v)&quot;,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; len(msg), scalarSize)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; len(msg), scalarSize)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return false, schnorrError(ErrBadInputSize, str)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return false, schnorrError(ErrBadInputSize, str)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if len(sig) != SignatureSize {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if len(sig) != SignatureSize {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; str := fmt.Sprintf(&quot;wrong size for signature (got %v, want %v)&quot;,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; str := fmt.Sprintf(&quot;wrong size for signature (got %v, want %v)&quot;,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; len(sig), SignatureSize)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; len(sig), SignatureSize)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return false, schnorrError(ErrBadInputSize, str)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return false, schnorrError(ErrBadInputSize, str)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if pubkey == nil {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if pubkey == nil {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; str := fmt.Sprintf(&quot;nil pubkey&quot;)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; str := fmt.Sprintf(&quot;nil pubkey&quot;)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return false, schnorrError(ErrInputValue, str)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return false, schnorrError(ErrInputValue, str)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if !curve.IsOnCurve(pubkey.GetX(), pubkey.GetY()) {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if !curve.IsOnCurve(pubkey.GetX(), pubkey.GetY()) {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; str := fmt.Sprintf(&quot;pubkey point is not on curve&quot;)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; str := fmt.Sprintf(&quot;pubkey point is not on curve&quot;)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return false, schnorrError(ErrPointNotOnCurve, str)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return false, schnorrError(ErrPointNotOnCurve, str)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; sigR := sig[:32]</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; sigR := sig[:32]</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; sigS := sig[32:]</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; sigS := sig[32:]</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; sigRCopy := make([]byte, scalarSize, scalarSize)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; sigRCopy := make([]byte, scalarSize, scalarSize)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; copy(sigRCopy, sigR)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; copy(sigRCopy, sigR)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; toHash := append(sigRCopy, msg...)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; toHash := append(sigRCopy, msg...)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; h := hashFunc(toHash)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; h := hashFunc(toHash)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; hBig := new(big.Int).SetBytes(h)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; hBig := new(big.Int).SetBytes(h)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// If the hash ends up larger than the order of the curve, abort.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// If the hash ends up larger than the order of the curve, abort.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Same thing for hash == 0 (as unlikely as that is...).</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Same thing for hash == 0 (as unlikely as that is...).</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if hBig.Cmp(curve.N) &gt;= 0 {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if hBig.Cmp(curve.N) &gt;= 0 {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; str := fmt.Sprintf(&quot;hash of (R || m) too big&quot;)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; str := fmt.Sprintf(&quot;hash of (R || m) too big&quot;)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return false, schnorrError(ErrSchnorrHashValue, str)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return false, schnorrError(ErrSchnorrHashValue, str)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if hBig.Cmp(bigZero) == 0 {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if hBig.Cmp(bigZero) == 0 {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; str := fmt.Sprintf(&quot;hash of (R || m) is zero value&quot;)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; str := fmt.Sprintf(&quot;hash of (R || m) is zero value&quot;)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return false, schnorrError(ErrSchnorrHashValue, str)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return false, schnorrError(ErrSchnorrHashValue, str)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Convert s to big int.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Convert s to big int.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; sBig := EncodedBytesToBigInt(copyBytes(sigS))</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; sBig := EncodedBytesToBigInt(copyBytes(sigS))</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// We also can't have s greater than the order of the curve.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// We also can't have s greater than the order of the curve.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if sBig.Cmp(curve.N) &gt;= 0 {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if sBig.Cmp(curve.N) &gt;= 0 {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; str := fmt.Sprintf(&quot;s value is too big&quot;)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; str := fmt.Sprintf(&quot;s value is too big&quot;)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return false, schnorrError(ErrInputValue, str)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return false, schnorrError(ErrInputValue, str)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// r can't be larger than the curve prime.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// r can't be larger than the curve prime.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; rBig := EncodedBytesToBigInt(copyBytes(sigR))</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; rBig := EncodedBytesToBigInt(copyBytes(sigR))</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if rBig.Cmp(curve.P) == 1 {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if rBig.Cmp(curve.P) == 1 {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; str := fmt.Sprintf(&quot;given R was greater than curve prime&quot;)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; str := fmt.Sprintf(&quot;given R was greater than curve prime&quot;)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return false, schnorrError(ErrBadSigRNotOnCurve, str)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return false, schnorrError(ErrBadSigRNotOnCurve, str)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// r' = hQ + sG</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// r' = hQ + sG</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; lx, ly := curve.ScalarMult(pubkey.GetX(), pubkey.GetY(), h)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; lx, ly := curve.ScalarMult(pubkey.GetX(), pubkey.GetY(), h)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; rx, ry := curve.ScalarBaseMult(sigS)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; rx, ry := curve.ScalarBaseMult(sigS)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; rlx, rly := curve.Add(lx, ly, rx, ry)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; rlx, rly := curve.Add(lx, ly, rx, ry)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if rly.Bit(0) == 1 {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if rly.Bit(0) == 1 {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; str := fmt.Sprintf(&quot;calculated R y-value was odd&quot;)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; str := fmt.Sprintf(&quot;calculated R y-value was odd&quot;)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return false, schnorrError(ErrBadSigRYValue, str)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return false, schnorrError(ErrBadSigRYValue, str)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if !curve.IsOnCurve(rlx, rly) {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if !curve.IsOnCurve(rlx, rly) {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; str := fmt.Sprintf(&quot;calculated R point was not on curve&quot;)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; str := fmt.Sprintf(&quot;calculated R point was not on curve&quot;)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return false, schnorrError(ErrBadSigRNotOnCurve, str)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return false, schnorrError(ErrBadSigRNotOnCurve, str)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; rlxB := BigIntToEncodedBytes(rlx)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; rlxB := BigIntToEncodedBytes(rlx)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// r == r' --&gt; valid signature</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// r == r' --&gt; valid signature</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if !bytes.Equal(sigR, rlxB[:]) {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if !bytes.Equal(sigR, rlxB[:]) {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; str := fmt.Sprintf(&quot;calculated R point was not given R&quot;)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; str := fmt.Sprintf(&quot;calculated R point was not given R&quot;)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return false, schnorrError(ErrUnequalRValues, str)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return false, schnorrError(ErrUnequalRValues, str)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return true, nil</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return true, nil</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// Verify is the generalized and exported function for the verification of a</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// Verify is the generalized and exported function for the verification of a</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// secp256k1 Schnorr signature. BLAKE256 is used as the hashing function.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// secp256k1 Schnorr signature. BLAKE256 is used as the hashing function.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">func Verify(curve *secp256k1.KoblitzCurve, pubkey *secp256k1.PublicKey,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">func Verify(curve *secp256k1.KoblitzCurve, pubkey *secp256k1.PublicKey,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; msg []byte, r *big.Int, s *big.Int) bool {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; msg []byte, r *big.Int, s *big.Int) bool {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; sig := NewSignature(r, s)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; sig := NewSignature(r, s)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; ok, _ := schnorrVerify(curve, sig.Serialize(), pubkey, msg,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; ok, _ := schnorrVerify(curve, sig.Serialize(), pubkey, msg,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; chainhash.HashB)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; chainhash.HashB)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return ok</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return ok</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// schnorrRecover recovers a public key using a signature, hash function,</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// schnorrRecover recovers a public key using a signature, hash function,</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// and message. It also attempts to verify the signature against the</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// and message. It also attempts to verify the signature against the</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// regenerated public key.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// regenerated public key.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">func schnorrRecover(curve *secp256k1.KoblitzCurve, sig, msg []byte,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">func schnorrRecover(curve *secp256k1.KoblitzCurve, sig, msg []byte,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; hashFunc func([]byte) []byte) (*secp256k1.PublicKey, bool, error) {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; hashFunc func([]byte) []byte) (*secp256k1.PublicKey, bool, error) {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if len(msg) != scalarSize {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if len(msg) != scalarSize {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; str := fmt.Sprintf(&quot;wrong size for message (got %v, want %v)&quot;,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; str := fmt.Sprintf(&quot;wrong size for message (got %v, want %v)&quot;,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; len(msg), scalarSize)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; len(msg), scalarSize)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return nil, false, schnorrError(ErrBadInputSize, str)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return nil, false, schnorrError(ErrBadInputSize, str)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if len(sig) != SignatureSize {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if len(sig) != SignatureSize {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; str := fmt.Sprintf(&quot;wrong size for signature (got %v, want %v)&quot;,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; str := fmt.Sprintf(&quot;wrong size for signature (got %v, want %v)&quot;,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; len(sig), SignatureSize)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; len(sig), SignatureSize)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return nil, false, schnorrError(ErrBadInputSize, str)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return nil, false, schnorrError(ErrBadInputSize, str)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; sigR := sig[:32]</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; sigR := sig[:32]</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; sigS := sig[32:]</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; sigS := sig[32:]</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; sigRCopy := make([]byte, scalarSize, scalarSize)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; sigRCopy := make([]byte, scalarSize, scalarSize)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; copy(sigRCopy, sigR)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; copy(sigRCopy, sigR)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; toHash := append(sigRCopy, msg...)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; toHash := append(sigRCopy, msg...)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; h := hashFunc(toHash)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; h := hashFunc(toHash)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; hBig := new(big.Int).SetBytes(h)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; hBig := new(big.Int).SetBytes(h)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// If the hash ends up larger than the order of the curve, abort.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// If the hash ends up larger than the order of the curve, abort.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Same thing for hash == 0 (as unlikely as that is...).</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Same thing for hash == 0 (as unlikely as that is...).</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if hBig.Cmp(curve.N) &gt;= 0 {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if hBig.Cmp(curve.N) &gt;= 0 {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; str := fmt.Sprintf(&quot;hash of (R || m) too big&quot;)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; str := fmt.Sprintf(&quot;hash of (R || m) too big&quot;)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return nil, false, schnorrError(ErrSchnorrHashValue, str)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return nil, false, schnorrError(ErrSchnorrHashValue, str)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if hBig.Cmp(bigZero) == 0 {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if hBig.Cmp(bigZero) == 0 {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; str := fmt.Sprintf(&quot;hash of (R || m) is zero value&quot;)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; str := fmt.Sprintf(&quot;hash of (R || m) is zero value&quot;)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return nil, false, schnorrError(ErrSchnorrHashValue, str)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return nil, false, schnorrError(ErrSchnorrHashValue, str)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Convert s to big int.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Convert s to big int.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; sBig := EncodedBytesToBigInt(copyBytes(sigS))</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; sBig := EncodedBytesToBigInt(copyBytes(sigS))</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// We also can't have s greater than the order of the curve.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// We also can't have s greater than the order of the curve.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if sBig.Cmp(curve.N) &gt;= 0 {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if sBig.Cmp(curve.N) &gt;= 0 {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; str := fmt.Sprintf(&quot;s value is too big&quot;)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; str := fmt.Sprintf(&quot;s value is too big&quot;)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return nil, false, schnorrError(ErrInputValue, str)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return nil, false, schnorrError(ErrInputValue, str)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// r can't be larger than the curve prime.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// r can't be larger than the curve prime.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; rBig := EncodedBytesToBigInt(copyBytes(sigR))</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; rBig := EncodedBytesToBigInt(copyBytes(sigR))</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if rBig.Cmp(curve.P) == 1 {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if rBig.Cmp(curve.P) == 1 {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; str := fmt.Sprintf(&quot;given R was greater than curve prime&quot;)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; str := fmt.Sprintf(&quot;given R was greater than curve prime&quot;)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return nil, false, schnorrError(ErrBadSigRNotOnCurve, str)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return nil, false, schnorrError(ErrBadSigRNotOnCurve, str)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Decompress the Y value. We know that the first bit must</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Decompress the Y value. We know that the first bit must</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// be even. Use the PublicKey struct to make it easier.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// be even. Use the PublicKey struct to make it easier.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; compressedPoint := make([]byte, PubKeyBytesLen, PubKeyBytesLen)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; compressedPoint := make([]byte, PubKeyBytesLen, PubKeyBytesLen)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; compressedPoint[0] = pubkeyCompressed</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; compressedPoint[0] = pubkeyCompressed</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; copy(compressedPoint[1:], sigR)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; copy(compressedPoint[1:], sigR)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; rPoint, err := secp256k1.ParsePubKey(compressedPoint, curve)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; rPoint, err := secp256k1.ParsePubKey(compressedPoint, curve)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if err != nil {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if err != nil {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; str := fmt.Sprintf(&quot;bad r point&quot;)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; str := fmt.Sprintf(&quot;bad r point&quot;)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return nil, false, schnorrError(ErrRegenerateRPoint, str)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return nil, false, schnorrError(ErrRegenerateRPoint, str)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Get the inverse of the hash.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Get the inverse of the hash.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; hInv := new(big.Int).ModInverse(hBig, curve.N)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; hInv := new(big.Int).ModInverse(hBig, curve.N)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; hInv.Mod(hInv, curve.N)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; hInv.Mod(hInv, curve.N)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Negate s.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Negate s.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; sBig.Sub(curve.N, sBig)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; sBig.Sub(curve.N, sBig)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; sBig.Mod(sBig, curve.N)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; sBig.Mod(sBig, curve.N)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// s' = -s * inverse(h).</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// s' = -s * inverse(h).</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; sBig.Mul(sBig, hInv)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; sBig.Mul(sBig, hInv)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; sBig.Mod(sBig, curve.N)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; sBig.Mod(sBig, curve.N)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Q = h^(-1)R + s'G</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Q = h^(-1)R + s'G</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; lx, ly := curve.ScalarMult(rPoint.GetX(), rPoint.GetY(), hInv.Bytes())</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; lx, ly := curve.ScalarMult(rPoint.GetX(), rPoint.GetY(), hInv.Bytes())</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; rx, ry := curve.ScalarBaseMult(sBig.Bytes())</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; rx, ry := curve.ScalarBaseMult(sBig.Bytes())</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; pkx, pky := curve.Add(lx, ly, rx, ry)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; pkx, pky := curve.Add(lx, ly, rx, ry)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Check if the public key is on the curve.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Check if the public key is on the curve.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if !curve.IsOnCurve(pkx, pky) {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if !curve.IsOnCurve(pkx, pky) {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; str := fmt.Sprintf(&quot;pubkey not on curve&quot;)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; str := fmt.Sprintf(&quot;pubkey not on curve&quot;)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return nil, false, schnorrError(ErrPubKeyOffCurve, str)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return nil, false, schnorrError(ErrPubKeyOffCurve, str)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; pubkey := secp256k1.NewPublicKey(curve, pkx, pky)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; pubkey := secp256k1.NewPublicKey(curve, pkx, pky)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Verify this signature. Slow, lots of double checks, could be more</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Verify this signature. Slow, lots of double checks, could be more</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// cheaply implemented as</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// cheaply implemented as</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// hQ + sG - R == 0</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// hQ + sG - R == 0</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// which this function checks.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// which this function checks.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// This will sometimes pass even for corrupted signatures, but</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// This will sometimes pass even for corrupted signatures, but</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// this shouldn't be a concern because whoever is using the</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// this shouldn't be a concern because whoever is using the</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// results should be checking the returned public key against</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// results should be checking the returned public key against</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// some known one anyway. In the case of these Schnorr signatures,</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// some known one anyway. In the case of these Schnorr signatures,</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// relatively high numbers of corrupted signatures (50-70%)</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// relatively high numbers of corrupted signatures (50-70%)</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// seem to produce valid pubkeys and valid signatures.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// seem to produce valid pubkeys and valid signatures.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; _, err = schnorrVerify(curve, sig, pubkey, msg, hashFunc)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; _, err = schnorrVerify(curve, sig, pubkey, msg, hashFunc)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if err != nil {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if err != nil {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; str := fmt.Sprintf(&quot;pubkey/sig pair could not be validated&quot;)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; str := fmt.Sprintf(&quot;pubkey/sig pair could not be validated&quot;)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return nil, false, schnorrError(ErrRegenSig, str)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return nil, false, schnorrError(ErrRegenSig, str)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return pubkey, true, nil</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return pubkey, true, nil</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// RecoverPubkey is the exported and generalized version of schnorrRecover.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// RecoverPubkey is the exported and generalized version of schnorrRecover.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// It recovers a public key given a signature and a message, using BLAKE256</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// It recovers a public key given a signature and a message, using BLAKE256</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// as the hashing function.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// as the hashing function.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">func RecoverPubkey(curve *secp256k1.KoblitzCurve, sig,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">func RecoverPubkey(curve *secp256k1.KoblitzCurve, sig,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; msg []byte) (*secp256k1.PublicKey, bool, error) {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; msg []byte) (*secp256k1.PublicKey, bool, error) {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return schnorrRecover(curve, sig, msg, chainhash.HashB)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return schnorrRecover(curve, sig, msg, chainhash.HashB)</td>
+</tr>
+<tr class="SectionEnd">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+</table>
+<br/>
+</body>
+</html>

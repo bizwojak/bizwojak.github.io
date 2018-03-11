@@ -1,0 +1,2343 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<style>
+.AlignLeft { text-align: left; }
+.AlignCenter { text-align: center; }
+.AlignRight { text-align: right; }
+body { font-family: sans-serif; font-size: 11pt; }
+img.AutoScale { max-width: 100%; max-height: 100%; }
+td { vertical-align: top; padding-left: 4px; padding-right: 4px; }
+
+tr.SectionGap td { font-size: 4px; border-left: none; border-top: none; border-bottom: 1px solid Black; border-right: 1px solid Black; }
+tr.SectionAll td { border-left: none; border-top: none; border-bottom: 1px solid Black; border-right: 1px solid Black; }
+tr.SectionBegin td { border-left: none; border-top: none; border-right: 1px solid Black; }
+tr.SectionEnd td { border-left: none; border-top: none; border-bottom: 1px solid Black; border-right: 1px solid Black; }
+tr.SectionMiddle td { border-left: none; border-top: none; border-right: 1px solid Black; }
+tr.SubsectionAll td { border-left: none; border-top: none; border-bottom: 1px solid Gray; border-right: 1px solid Black; }
+tr.SubsectionEnd td { border-left: none; border-top: none; border-bottom: 1px solid Gray; border-right: 1px solid Black; }
+table.fc { border-top: 1px solid Black; border-left: 1px solid Black; width: 100%; font-family: monospace; font-size: 10pt; }
+td.TextItemInsigMod { color: #000000; background-color: #EEEEFF; }
+td.TextItemInsigOrphan { color: #000000; background-color: #FAEEFF; }
+td.TextItemNum { color: #696969; background-color: #F0F0F0; }
+td.TextItemSame { color: #000000; background-color: #FFFFFF; }
+td.TextItemSigMod { color: #000000; background-color: #FFE3E3; }
+td.TextItemSigOrphan { color: #000000; background-color: #F1E3FF; }
+.TextSegInsigDiff { color: #0000FF; }
+.TextSegReplacedDiff { color: #0000FF; font-style: italic; }
+.TextSegSigDiff { color: #FF0000; }
+td.TextItemInsigAdd { color: #000000; background-color: #EEEEFF; }
+td.TextItemInsigDel { color: #000000; background-color: #EEEEFF; text-decoration: line-through; }
+td.TextItemSigAdd { color: #000000; background-color: #FFE3E3; }
+td.TextItemSigDel { color: #000000; background-color: #FFE3E3; text-decoration: line-through; }
+.TextSegElementComment { color: #786A41; }
+</style>
+<title>dcrd-1.1.0 <--> hxd-rc1.0 Comparison</title>
+</head>
+<body>
+dcrd-1.1.0 <--> hxd-rc1.0 Comparison<br/>
+Produced: 10/3/2018 11:00:18 PM<br/>
+&nbsp; &nbsp;
+<br/>
+Mode:&nbsp; All, Ignoring Unimportant &nbsp;
+<br/>
+Left file: dcrd-1.1.0\dcrec\edwards\ecdsa_test.go &nbsp;
+<br/>
+Right file: hxd-rc1.0\dcrec\edwards\ecdsa_test.go &nbsp;
+<br/>
+<table class="fc" cellspacing="0" cellpadding="0">
+<tr class="SectionBegin">
+<td class="TextItemSame"><span class="TextSegElementComment">// Copyright (c) 2015-2016 The Decred developers</span></td>
+<td class="AlignCenter">=</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// Copyright (c) 2015-2016 The Decred developers</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// Use of this source code is governed by an ISC</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// Use of this source code is governed by an ISC</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// license that can be found in the LICENSE file.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// license that can be found in the LICENSE file.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">package edwards</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">package edwards</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">import (</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">import (</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;bufio&quot;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;bufio&quot;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;bytes&quot;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;bytes&quot;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;compress/gzip&quot;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;compress/gzip&quot;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;encoding/hex&quot;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;encoding/hex&quot;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;io&quot;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;io&quot;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;math/big&quot;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;math/big&quot;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;math/rand&quot;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;math/rand&quot;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;os&quot;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;os&quot;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;strings&quot;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;strings&quot;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;testing&quot;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;testing&quot;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">func TestGolden(t *testing.T) {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">func TestGolden(t *testing.T) {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; curve := new(TwistedEdwardsCurve)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; curve := new(TwistedEdwardsCurve)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; curve.InitParam25519()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; curve.InitParam25519()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// sign.input.gz is a selection of test cases from</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// sign.input.gz is a selection of test cases from</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// http://ed25519.cr.yp.to/python/sign.input</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// http://ed25519.cr.yp.to/python/sign.input</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; testDataZ, err := os.Open(&quot;testdata/sign.input.gz&quot;)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; testDataZ, err := os.Open(&quot;testdata/sign.input.gz&quot;)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if err != nil {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if err != nil {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatal(err)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatal(err)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; defer testDataZ.Close()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; defer testDataZ.Close()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; testData, err := gzip.NewReader(testDataZ)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; testData, err := gzip.NewReader(testDataZ)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if err != nil {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if err != nil {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatal(err)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatal(err)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; defer testData.Close()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; defer testData.Close()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; in := bufio.NewReaderSize(testData, 1&lt;&lt;12)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; in := bufio.NewReaderSize(testData, 1&lt;&lt;12)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; lineNo := 0</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; lineNo := 0</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; for {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; for {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; lineNo++</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; lineNo++</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; lineBytes, err := in.ReadBytes(byte('\n'))</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; lineBytes, err := in.ReadBytes(byte('\n'))</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if err != nil {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if err != nil {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if err == io.EOF {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if err == io.EOF {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; break</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; break</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;error reading test data: %s&quot;, err)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;error reading test data: %s&quot;, err)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; line := string(lineBytes)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; line := string(lineBytes)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; parts := strings.Split(line, &quot;:&quot;)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; parts := strings.Split(line, &quot;:&quot;)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if len(parts) != 5 {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if len(parts) != 5 {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;bad number of parts on line %d (want %v, got %v)&quot;, lineNo,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;bad number of parts on line %d (want %v, got %v)&quot;, lineNo,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 5, len(parts))</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 5, len(parts))</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; privBytes, _ := hex.DecodeString(parts[0])</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; privBytes, _ := hex.DecodeString(parts[0])</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; privArray := copyBytes64(privBytes)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; privArray := copyBytes64(privBytes)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; pubKeyBytes, _ := hex.DecodeString(parts[1])</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; pubKeyBytes, _ := hex.DecodeString(parts[1])</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; pubArray := copyBytes(pubKeyBytes)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; pubArray := copyBytes(pubKeyBytes)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; msg, _ := hex.DecodeString(parts[2])</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; msg, _ := hex.DecodeString(parts[2])</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; sig, _ := hex.DecodeString(parts[3])</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; sig, _ := hex.DecodeString(parts[3])</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; sigArray := copyBytes64(sig)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; sigArray := copyBytes64(sig)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// The signatures in the test vectors also include the message</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// The signatures in the test vectors also include the message</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// at the end, but we just want R and S.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// at the end, but we just want R and S.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; sig = sig[:SignatureSize]</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; sig = sig[:SignatureSize]</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if l := len(pubKeyBytes); l != PubKeyBytesLen {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if l := len(pubKeyBytes); l != PubKeyBytesLen {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;bad public key length on line %d: got %d bytes&quot;, lineNo, l)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;bad public key length on line %d: got %d bytes&quot;, lineNo, l)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; var priv [PrivKeyBytesLen]byte</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; var priv [PrivKeyBytesLen]byte</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; copy(priv[:], privBytes)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; copy(priv[:], privBytes)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; copy(priv[32:], pubKeyBytes)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; copy(priv[32:], pubKeyBytes)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Deserialize privkey and test functions.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Deserialize privkey and test functions.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; privkeyS1, pubkeyS1 := PrivKeyFromSecret(curve, priv[:32])</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; privkeyS1, pubkeyS1 := PrivKeyFromSecret(curve, priv[:32])</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; privkeyS2, pubkeyS2 := PrivKeyFromBytes(curve, priv[:])</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; privkeyS2, pubkeyS2 := PrivKeyFromBytes(curve, priv[:])</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; pkS1 := privkeyS1.SerializeSecret()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; pkS1 := privkeyS1.SerializeSecret()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; pkS2 := privkeyS2.SerializeSecret()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; pkS2 := privkeyS2.SerializeSecret()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; pubkS1 := pubkeyS1.Serialize()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; pubkS1 := pubkeyS1.Serialize()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; pubkS2 := pubkeyS2.Serialize()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; pubkS2 := pubkeyS2.Serialize()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; cmp := bytes.Equal(pkS1[:], pkS2[:])</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; cmp := bytes.Equal(pkS1[:], pkS2[:])</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if !cmp {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if !cmp {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;expected %v, got %v&quot;, true, cmp)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;expected %v, got %v&quot;, true, cmp)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; cmp = bytes.Equal(privArray[:], copyBytes64(pkS1)[:])</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; cmp = bytes.Equal(privArray[:], copyBytes64(pkS1)[:])</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if !cmp {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if !cmp {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;expected %v, got %v&quot;, true, cmp)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;expected %v, got %v&quot;, true, cmp)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; cmp = bytes.Equal(privArray[:], copyBytes64(pkS2)[:])</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; cmp = bytes.Equal(privArray[:], copyBytes64(pkS2)[:])</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if !cmp {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if !cmp {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;expected %v, got %v&quot;, true, cmp)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;expected %v, got %v&quot;, true, cmp)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; cmp = bytes.Equal(pubkS1[:], pubkS2[:])</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; cmp = bytes.Equal(pubkS1[:], pubkS2[:])</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if !cmp {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if !cmp {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;expected %v, got %v&quot;, true, cmp)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;expected %v, got %v&quot;, true, cmp)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; cmp = bytes.Equal(pubArray[:], copyBytes(pubkS1)[:])</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; cmp = bytes.Equal(pubArray[:], copyBytes(pubkS1)[:])</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if !cmp {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if !cmp {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;expected %v, got %v&quot;, true, cmp)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;expected %v, got %v&quot;, true, cmp)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; cmp = bytes.Equal(pubArray[:], copyBytes(pubkS2)[:])</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; cmp = bytes.Equal(pubArray[:], copyBytes(pubkS2)[:])</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if !cmp {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if !cmp {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;expected %v, got %v&quot;, true, cmp)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;expected %v, got %v&quot;, true, cmp)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Deserialize pubkey and test functions.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Deserialize pubkey and test functions.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; pubkeyP, err := ParsePubKey(curve, pubKeyBytes)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; pubkeyP, err := ParsePubKey(curve, pubKeyBytes)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; pubkP := pubkeyP.Serialize()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; pubkP := pubkeyP.Serialize()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; cmp = bytes.Equal(pubkS1[:], pubkP[:])</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; cmp = bytes.Equal(pubkS1[:], pubkP[:])</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if !cmp {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if !cmp {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;expected %v, got %v&quot;, true, cmp)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;expected %v, got %v&quot;, true, cmp)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; cmp = bytes.Equal(pubkS2[:], pubkP[:])</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; cmp = bytes.Equal(pubkS2[:], pubkP[:])</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if !cmp {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if !cmp {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;expected %v, got %v&quot;, true, cmp)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;expected %v, got %v&quot;, true, cmp)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; cmp = bytes.Equal(pubArray[:], copyBytes(pubkP)[:])</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; cmp = bytes.Equal(pubArray[:], copyBytes(pubkP)[:])</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if !cmp {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if !cmp {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;expected %v, got %v&quot;, true, cmp)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;expected %v, got %v&quot;, true, cmp)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Deserialize signature and test functions.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Deserialize signature and test functions.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; internalSig, err := ParseSignature(curve, sig)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; internalSig, err := ParseSignature(curve, sig)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; iSigSerialized := internalSig.Serialize()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; iSigSerialized := internalSig.Serialize()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; cmp = bytes.Equal(sigArray[:], copyBytes64(iSigSerialized)[:])</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; cmp = bytes.Equal(sigArray[:], copyBytes64(iSigSerialized)[:])</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if !cmp {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if !cmp {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;expected %v, got %v&quot;, true, cmp)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;expected %v, got %v&quot;, true, cmp)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; sig2r, sig2s, err := Sign(curve, privkeyS2, msg)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; sig2r, sig2s, err := Sign(curve, privkeyS2, msg)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; sig2 := &amp;Signature{sig2r, sig2s}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; sig2 := &amp;Signature{sig2r, sig2s}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; sig2B := sig2.Serialize()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; sig2B := sig2.Serialize()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if !bytes.Equal(sig, sig2B[:]) {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if !bytes.Equal(sig, sig2B[:]) {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Errorf(&quot;different signature result on line %d: %x vs %x&quot;, lineNo,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Errorf(&quot;different signature result on line %d: %x vs %x&quot;, lineNo,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; sig, sig2B[:])</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; sig, sig2B[:])</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; var pubKey [PubKeyBytesLen]byte</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; var pubKey [PubKeyBytesLen]byte</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; copy(pubKey[:], pubKeyBytes)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; copy(pubKey[:], pubKeyBytes)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if !Verify(pubkeyP, msg, sig2r, sig2s) {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if !Verify(pubkeyP, msg, sig2r, sig2s) {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Errorf(&quot;signature failed to verify on line %d&quot;, lineNo)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Errorf(&quot;signature failed to verify on line %d&quot;, lineNo)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">func randPrivScalarKeyList(curve *TwistedEdwardsCurve, i int) []*PrivateKey {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">func randPrivScalarKeyList(curve *TwistedEdwardsCurve, i int) []*PrivateKey {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; r := rand.New(rand.NewSource(54321))</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; r := rand.New(rand.NewSource(54321))</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; privKeyList := make([]*PrivateKey, i, i)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; privKeyList := make([]*PrivateKey, i, i)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; for j := 0; j &lt; i; j++ {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; for j := 0; j &lt; i; j++ {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; for {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; for {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; bIn := new([32]byte)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; bIn := new([32]byte)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; for k := 0; k &lt; PrivScalarSize; k++ {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; for k := 0; k &lt; PrivScalarSize; k++ {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; randByte := r.Intn(255)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; randByte := r.Intn(255)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; bIn[k] = uint8(randByte)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; bIn[k] = uint8(randByte)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; bInBig := new(big.Int).SetBytes(bIn[:])</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; bInBig := new(big.Int).SetBytes(bIn[:])</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; bInBig.Mod(bInBig, curve.N)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; bInBig.Mod(bInBig, curve.N)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; bIn = copyBytes(bInBig.Bytes())</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; bIn = copyBytes(bInBig.Bytes())</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; bIn[31] &amp;= 248</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; bIn[31] &amp;= 248</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; pks, _, err := PrivKeyFromScalar(curve, bIn[:])</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; pks, _, err := PrivKeyFromScalar(curve, bIn[:])</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if err != nil {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if err != nil {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; r.Seed(int64(j) + r.Int63n(12345))</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; r.Seed(int64(j) + r.Int63n(12345))</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; continue</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; continue</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// No duplicates allowed.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// No duplicates allowed.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if j &gt; 0 &amp;&amp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if j &gt; 0 &amp;&amp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; (bytes.Equal(pks.Serialize(), privKeyList[j-1].Serialize())) {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; (bytes.Equal(pks.Serialize(), privKeyList[j-1].Serialize())) {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; continue</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; continue</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; privKeyList[j] = pks</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; privKeyList[j] = pks</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; r.Seed(int64(j) + 54321)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; r.Seed(int64(j) + 54321)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; break</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; break</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return privKeyList</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return privKeyList</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">func TestNonStandardSignatures(t *testing.T) {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">func TestNonStandardSignatures(t *testing.T) {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; tRand := rand.New(rand.NewSource(54321))</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; tRand := rand.New(rand.NewSource(54321))</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; curve := new(TwistedEdwardsCurve)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; curve := new(TwistedEdwardsCurve)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; curve.InitParam25519()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; curve.InitParam25519()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; msg := []byte{</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; msg := []byte{</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 0xbe, 0x13, 0xae, 0xf4,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 0xbe, 0x13, 0xae, 0xf4,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 0xe8, 0xa2, 0x00, 0xb6,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 0xe8, 0xa2, 0x00, 0xb6,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 0x45, 0x81, 0xc4, 0xd1,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 0x45, 0x81, 0xc4, 0xd1,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 0x0c, 0xf4, 0x1b, 0x5b,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 0x0c, 0xf4, 0x1b, 0x5b,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 0xe1, 0xd1, 0x81, 0xa7,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 0xe1, 0xd1, 0x81, 0xa7,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 0xd3, 0xdc, 0x37, 0x55,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 0xd3, 0xdc, 0x37, 0x55,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 0x58, 0xc1, 0xbd, 0xa2,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 0x58, 0xc1, 0xbd, 0xa2,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 0x98, 0x2b, 0xd9, 0xfb,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 0x98, 0x2b, 0xd9, 0xfb,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; pks := randPrivScalarKeyList(curve, 50)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; pks := randPrivScalarKeyList(curve, 50)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; for _, pk := range pks {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; for _, pk := range pks {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; r, s, err := Sign(curve, pk, msg)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; r, s, err := Sign(curve, pk, msg)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if err != nil {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if err != nil {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;unexpected error %s&quot;, err)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;unexpected error %s&quot;, err)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; pubX, pubY := pk.Public()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; pubX, pubY := pk.Public()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; pub := NewPublicKey(curve, pubX, pubY)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; pub := NewPublicKey(curve, pubX, pubY)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; ok := Verify(pub, msg, r, s)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; ok := Verify(pub, msg, r, s)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if !ok {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if !ok {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;expected %v, got %v&quot;, true, ok)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;expected %v, got %v&quot;, true, ok)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Test serializing/deserializing.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Test serializing/deserializing.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; privKeyDupTest, _, err := PrivKeyFromScalar(curve,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; privKeyDupTest, _, err := PrivKeyFromScalar(curve,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; copyBytes(pk.ecPk.D.Bytes())[:])</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; copyBytes(pk.ecPk.D.Bytes())[:])</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if err != nil {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if err != nil {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;unexpected error %s&quot;, err)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;unexpected error %s&quot;, err)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; cmp := privKeyDupTest.GetD().Cmp(pk.GetD()) == 0</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; cmp := privKeyDupTest.GetD().Cmp(pk.GetD()) == 0</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if !cmp {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if !cmp {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;expected %v, got %v&quot;, true, cmp)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;expected %v, got %v&quot;, true, cmp)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; privKeyDupTest2, _, err := PrivKeyFromScalar(curve, pk.Serialize())</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; privKeyDupTest2, _, err := PrivKeyFromScalar(curve, pk.Serialize())</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if err != nil {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if err != nil {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;unexpected error %s&quot;, err)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;unexpected error %s&quot;, err)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; cmp = privKeyDupTest2.GetD().Cmp(pk.GetD()) == 0</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; cmp = privKeyDupTest2.GetD().Cmp(pk.GetD()) == 0</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if !cmp {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if !cmp {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;expected %v, got %v&quot;, true, cmp)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;expected %v, got %v&quot;, true, cmp)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Screw up a random bit in the signature and</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Screw up a random bit in the signature and</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// make sure it still fails.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// make sure it still fails.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; sig := NewSignature(r, s)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; sig := NewSignature(r, s)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; sigBad := sig.Serialize()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; sigBad := sig.Serialize()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; pos := tRand.Intn(63)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; pos := tRand.Intn(63)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; bitPos := tRand.Intn(7)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; bitPos := tRand.Intn(7)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; sigBad[pos] ^= 1 &lt;&lt; uint8(bitPos)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; sigBad[pos] ^= 1 &lt;&lt; uint8(bitPos)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; bSig, err := ParseSignature(curve, sigBad)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; bSig, err := ParseSignature(curve, sigBad)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if err != nil {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if err != nil {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Signature failed to parse, continue.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Signature failed to parse, continue.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; continue</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; continue</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; ok = Verify(pub, msg, bSig.GetR(), bSig.GetS())</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; ok = Verify(pub, msg, bSig.GetR(), bSig.GetS())</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if ok {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if ok {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;expected %v, got %v&quot;, false, ok)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;expected %v, got %v&quot;, false, ok)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Screw up a random bit in the pubkey and</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Screw up a random bit in the pubkey and</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// make sure it still fails.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// make sure it still fails.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; pkBad := pub.Serialize()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; pkBad := pub.Serialize()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; pos = tRand.Intn(31)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; pos = tRand.Intn(31)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if pos == 0 {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if pos == 0 {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// 0th bit in first byte doesn't matter</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// 0th bit in first byte doesn't matter</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; bitPos = tRand.Intn(6) + 1</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; bitPos = tRand.Intn(6) + 1</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; } else {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; } else {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; bitPos = tRand.Intn(7)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; bitPos = tRand.Intn(7)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; pkBad[pos] ^= 1 &lt;&lt; uint8(bitPos)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; pkBad[pos] ^= 1 &lt;&lt; uint8(bitPos)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; bPub, err := ParsePubKey(curve, pkBad)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; bPub, err := ParsePubKey(curve, pkBad)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if err == nil &amp;&amp; bPub != nil {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if err == nil &amp;&amp; bPub != nil {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; ok = Verify(bPub, msg, r, s)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; ok = Verify(bPub, msg, r, s)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if ok {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if ok {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;expected %v, got %v&quot;, false, ok)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;expected %v, got %v&quot;, false, ok)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">func randPrivKeyList(curve *TwistedEdwardsCurve, i int) []*PrivateKey {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">func randPrivKeyList(curve *TwistedEdwardsCurve, i int) []*PrivateKey {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; r := rand.New(rand.NewSource(54321))</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; r := rand.New(rand.NewSource(54321))</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; privKeyList := make([]*PrivateKey, i, i)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; privKeyList := make([]*PrivateKey, i, i)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; for j := 0; j &lt; i; j++ {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; for j := 0; j &lt; i; j++ {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; for {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; for {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; bIn := new([32]byte)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; bIn := new([32]byte)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; for k := 0; k &lt; fieldIntSize; k++ {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; for k := 0; k &lt; fieldIntSize; k++ {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; randByte := r.Intn(255)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; randByte := r.Intn(255)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; bIn[k] = uint8(randByte)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; bIn[k] = uint8(randByte)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; pks, _ := PrivKeyFromSecret(curve, bIn[:])</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; pks, _ := PrivKeyFromSecret(curve, bIn[:])</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if pks == nil {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if pks == nil {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; continue</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; continue</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if j &gt; 0 &amp;&amp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if j &gt; 0 &amp;&amp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; (bytes.Equal(pks.Serialize(), privKeyList[j-1].Serialize())) {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; (bytes.Equal(pks.Serialize(), privKeyList[j-1].Serialize())) {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; r.Seed(int64(j) + r.Int63n(12345))</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; r.Seed(int64(j) + r.Int63n(12345))</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; continue</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; continue</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; privKeyList[j] = pks</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; privKeyList[j] = pks</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; r.Seed(int64(j) + 54321)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; r.Seed(int64(j) + 54321)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; break</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; break</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return privKeyList</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return privKeyList</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">func benchmarkSigning(b *testing.B) {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">func benchmarkSigning(b *testing.B) {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; curve := new(TwistedEdwardsCurve)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; curve := new(TwistedEdwardsCurve)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; curve.InitParam25519()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; curve.InitParam25519()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; r := rand.New(rand.NewSource(54321))</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; r := rand.New(rand.NewSource(54321))</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; msg := []byte{</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; msg := []byte{</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 0xbe, 0x13, 0xae, 0xf4,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 0xbe, 0x13, 0xae, 0xf4,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 0xe8, 0xa2, 0x00, 0xb6,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 0xe8, 0xa2, 0x00, 0xb6,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 0x45, 0x81, 0xc4, 0xd1,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 0x45, 0x81, 0xc4, 0xd1,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 0x0c, 0xf4, 0x1b, 0x5b,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 0x0c, 0xf4, 0x1b, 0x5b,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 0xe1, 0xd1, 0x81, 0xa7,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 0xe1, 0xd1, 0x81, 0xa7,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 0xd3, 0xdc, 0x37, 0x55,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 0xd3, 0xdc, 0x37, 0x55,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 0x58, 0xc1, 0xbd, 0xa2,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 0x58, 0xc1, 0xbd, 0xa2,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 0x98, 0x2b, 0xd9, 0xfb,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 0x98, 0x2b, 0xd9, 0xfb,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; numKeys := 1024</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; numKeys := 1024</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; privKeyList := randPrivKeyList(curve, numKeys)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; privKeyList := randPrivKeyList(curve, numKeys)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; for n := 0; n &lt; b.N; n++ {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; for n := 0; n &lt; b.N; n++ {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; randIndex := r.Intn(numKeys - 1)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; randIndex := r.Intn(numKeys - 1)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; _, _, err := Sign(curve, privKeyList[randIndex], msg)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; _, _, err := Sign(curve, privKeyList[randIndex], msg)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if err != nil {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if err != nil {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; panic(&quot;sign failure&quot;)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; panic(&quot;sign failure&quot;)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">func BenchmarkSigning(b *testing.B) { benchmarkSigning(b) }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">func BenchmarkSigning(b *testing.B) { benchmarkSigning(b) }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">func benchmarkSigningNonStandard(b *testing.B) {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">func benchmarkSigningNonStandard(b *testing.B) {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; curve := new(TwistedEdwardsCurve)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; curve := new(TwistedEdwardsCurve)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; curve.InitParam25519()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; curve.InitParam25519()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; r := rand.New(rand.NewSource(54321))</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; r := rand.New(rand.NewSource(54321))</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; msg := []byte{</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; msg := []byte{</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 0xbe, 0x13, 0xae, 0xf4,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 0xbe, 0x13, 0xae, 0xf4,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 0xe8, 0xa2, 0x00, 0xb6,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 0xe8, 0xa2, 0x00, 0xb6,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 0x45, 0x81, 0xc4, 0xd1,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 0x45, 0x81, 0xc4, 0xd1,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 0x0c, 0xf4, 0x1b, 0x5b,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 0x0c, 0xf4, 0x1b, 0x5b,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 0xe1, 0xd1, 0x81, 0xa7,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 0xe1, 0xd1, 0x81, 0xa7,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 0xd3, 0xdc, 0x37, 0x55,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 0xd3, 0xdc, 0x37, 0x55,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 0x58, 0xc1, 0xbd, 0xa2,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 0x58, 0xc1, 0xbd, 0xa2,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 0x98, 0x2b, 0xd9, 0xfb,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 0x98, 0x2b, 0xd9, 0xfb,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; numKeys := 250</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; numKeys := 250</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; privKeyList := randPrivScalarKeyList(curve, numKeys)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; privKeyList := randPrivScalarKeyList(curve, numKeys)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; for n := 0; n &lt; b.N; n++ {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; for n := 0; n &lt; b.N; n++ {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; randIndex := r.Intn(numKeys - 1)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; randIndex := r.Intn(numKeys - 1)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; _, _, err := Sign(curve, privKeyList[randIndex], msg)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; _, _, err := Sign(curve, privKeyList[randIndex], msg)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if err != nil {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if err != nil {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; panic(&quot;sign failure&quot;)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; panic(&quot;sign failure&quot;)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">func BenchmarkSigningNonStandard(b *testing.B) { benchmarkSigningNonStandard(b) }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">func BenchmarkSigningNonStandard(b *testing.B) { benchmarkSigningNonStandard(b) }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">type SignatureVerParams struct {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">type SignatureVerParams struct {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; pubkey *PublicKey</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; pubkey *PublicKey</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; msg&nbsp; &nbsp; []byte</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; msg&nbsp; &nbsp; []byte</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; sig&nbsp; &nbsp; *Signature</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; sig&nbsp; &nbsp; *Signature</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">func randSigList(curve *TwistedEdwardsCurve, i int) []*SignatureVerParams {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">func randSigList(curve *TwistedEdwardsCurve, i int) []*SignatureVerParams {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; r := rand.New(rand.NewSource(54321))</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; r := rand.New(rand.NewSource(54321))</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; privKeyList := make([]*PrivateKey, i, i)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; privKeyList := make([]*PrivateKey, i, i)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; for j := 0; j &lt; i; j++ {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; for j := 0; j &lt; i; j++ {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; for {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; for {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; bIn := new([32]byte)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; bIn := new([32]byte)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; for k := 0; k &lt; fieldIntSize; k++ {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; for k := 0; k &lt; fieldIntSize; k++ {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; randByte := r.Intn(255)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; randByte := r.Intn(255)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; bIn[k] = uint8(randByte)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; bIn[k] = uint8(randByte)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; pks, _ := PrivKeyFromSecret(curve, bIn[:])</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; pks, _ := PrivKeyFromSecret(curve, bIn[:])</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if pks == nil {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if pks == nil {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; continue</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; continue</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; privKeyList[j] = pks</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; privKeyList[j] = pks</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; r.Seed(int64(j) + 54321)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; r.Seed(int64(j) + 54321)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; break</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; break</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; msgList := make([][]byte, i, i)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; msgList := make([][]byte, i, i)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; for j := 0; j &lt; i; j++ {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; for j := 0; j &lt; i; j++ {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; m := make([]byte, 32, 32)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; m := make([]byte, 32, 32)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; for k := 0; k &lt; fieldIntSize; k++ {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; for k := 0; k &lt; fieldIntSize; k++ {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; randByte := r.Intn(255)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; randByte := r.Intn(255)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; m[k] = uint8(randByte)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; m[k] = uint8(randByte)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; msgList[j] = m</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; msgList[j] = m</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; r.Seed(int64(j) + 54321)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; r.Seed(int64(j) + 54321)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; sigsList := make([]*Signature, i, i)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; sigsList := make([]*Signature, i, i)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; for j := 0; j &lt; i; j++ {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; for j := 0; j &lt; i; j++ {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; r, s, err := Sign(curve, privKeyList[j], msgList[j])</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; r, s, err := Sign(curve, privKeyList[j], msgList[j])</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if err != nil {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if err != nil {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; panic(&quot;sign failure&quot;)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; panic(&quot;sign failure&quot;)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; sig := &amp;Signature{r, s}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; sig := &amp;Signature{r, s}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; sigsList[j] = sig</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; sigsList[j] = sig</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; sigStructList := make([]*SignatureVerParams, i, i)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; sigStructList := make([]*SignatureVerParams, i, i)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; for j := 0; j &lt; i; j++ {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; for j := 0; j &lt; i; j++ {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; ss := new(SignatureVerParams)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; ss := new(SignatureVerParams)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; pkx, pky := privKeyList[j].Public()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; pkx, pky := privKeyList[j].Public()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; ss.pubkey = NewPublicKey(curve, pkx, pky)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; ss.pubkey = NewPublicKey(curve, pkx, pky)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; ss.msg = msgList[j]</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; ss.msg = msgList[j]</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; ss.sig = sigsList[j]</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; ss.sig = sigsList[j]</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; sigStructList[j] = ss</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; sigStructList[j] = ss</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return sigStructList</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return sigStructList</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">func benchmarkVerification(b *testing.B) {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">func benchmarkVerification(b *testing.B) {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; curve := new(TwistedEdwardsCurve)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; curve := new(TwistedEdwardsCurve)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; curve.InitParam25519()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; curve.InitParam25519()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; r := rand.New(rand.NewSource(54321))</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; r := rand.New(rand.NewSource(54321))</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; numSigs := 1024</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; numSigs := 1024</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; sigList := randSigList(curve, numSigs)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; sigList := randSigList(curve, numSigs)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; for n := 0; n &lt; b.N; n++ {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; for n := 0; n &lt; b.N; n++ {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; randIndex := r.Intn(numSigs - 1)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; randIndex := r.Intn(numSigs - 1)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; ver := Verify(sigList[randIndex].pubkey,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; ver := Verify(sigList[randIndex].pubkey,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; sigList[randIndex].msg,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; sigList[randIndex].msg,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; sigList[randIndex].sig.R,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; sigList[randIndex].sig.R,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; sigList[randIndex].sig.S)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; sigList[randIndex].sig.S)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if !ver {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if !ver {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; panic(&quot;made invalid sig&quot;)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; panic(&quot;made invalid sig&quot;)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionEnd">
+<td class="TextItemSame">func BenchmarkVerification(b *testing.B) { benchmarkVerification(b) }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">func BenchmarkVerification(b *testing.B) { benchmarkVerification(b) }</td>
+</tr>
+</table>
+<br/>
+</body>
+</html>

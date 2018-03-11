@@ -1,0 +1,2729 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<style>
+.AlignLeft { text-align: left; }
+.AlignCenter { text-align: center; }
+.AlignRight { text-align: right; }
+body { font-family: sans-serif; font-size: 11pt; }
+img.AutoScale { max-width: 100%; max-height: 100%; }
+td { vertical-align: top; padding-left: 4px; padding-right: 4px; }
+
+tr.SectionGap td { font-size: 4px; border-left: none; border-top: none; border-bottom: 1px solid Black; border-right: 1px solid Black; }
+tr.SectionAll td { border-left: none; border-top: none; border-bottom: 1px solid Black; border-right: 1px solid Black; }
+tr.SectionBegin td { border-left: none; border-top: none; border-right: 1px solid Black; }
+tr.SectionEnd td { border-left: none; border-top: none; border-bottom: 1px solid Black; border-right: 1px solid Black; }
+tr.SectionMiddle td { border-left: none; border-top: none; border-right: 1px solid Black; }
+tr.SubsectionAll td { border-left: none; border-top: none; border-bottom: 1px solid Gray; border-right: 1px solid Black; }
+tr.SubsectionEnd td { border-left: none; border-top: none; border-bottom: 1px solid Gray; border-right: 1px solid Black; }
+table.fc { border-top: 1px solid Black; border-left: 1px solid Black; width: 100%; font-family: monospace; font-size: 10pt; }
+td.TextItemInsigMod { color: #000000; background-color: #EEEEFF; }
+td.TextItemInsigOrphan { color: #000000; background-color: #FAEEFF; }
+td.TextItemNum { color: #696969; background-color: #F0F0F0; }
+td.TextItemSame { color: #000000; background-color: #FFFFFF; }
+td.TextItemSigMod { color: #000000; background-color: #FFE3E3; }
+td.TextItemSigOrphan { color: #000000; background-color: #F1E3FF; }
+.TextSegInsigDiff { color: #0000FF; }
+.TextSegReplacedDiff { color: #0000FF; font-style: italic; }
+.TextSegSigDiff { color: #FF0000; }
+td.TextItemInsigAdd { color: #000000; background-color: #EEEEFF; }
+td.TextItemInsigDel { color: #000000; background-color: #EEEEFF; text-decoration: line-through; }
+td.TextItemSigAdd { color: #000000; background-color: #FFE3E3; }
+td.TextItemSigDel { color: #000000; background-color: #FFE3E3; text-decoration: line-through; }
+.TextSegElementComment { color: #786A41; }
+.TextSegElementBranding { }
+</style>
+<title>dcrd-1.1.0 <--> hxd-rc1.0 Comparison</title>
+</head>
+<body>
+dcrd-1.1.0 <--> hxd-rc1.0 Comparison<br/>
+Produced: 10/3/2018 11:00:15 PM<br/>
+&nbsp; &nbsp;
+<br/>
+Mode:&nbsp; All, Ignoring Unimportant &nbsp;
+<br/>
+Left file: dcrd-1.1.0\connmgr\connmanager_test.go &nbsp;
+<br/>
+Right file: hxd-rc1.0\connmgr\connmanager_test.go &nbsp;
+<br/>
+<table class="fc" cellspacing="0" cellpadding="0">
+<tr class="SectionBegin">
+<td class="TextItemSame"><span class="TextSegElementComment">// Copyright (c) 2016 The btcsuite developers</span></td>
+<td class="AlignCenter">=</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// Copyright (c) 2016 The btcsuite developers</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// Use of this source code is governed by an ISC</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// Use of this source code is governed by an ISC</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// license that can be found in the LICENSE file.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// license that can be found in the LICENSE file.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">package connmgr</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">package connmgr</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">import (</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">import (</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;errors&quot;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;errors&quot;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;io&quot;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;io&quot;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;net&quot;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;net&quot;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;sync/atomic&quot;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;sync/atomic&quot;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;testing&quot;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;testing&quot;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;time&quot;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &quot;time&quot;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">func init() {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">func init() {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Override the max retry duration when running tests.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Override the max retry duration when running tests.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; maxRetryDuration = 2 * time.Millisecond</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; maxRetryDuration = 2 * time.Millisecond</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// mockAddr mocks a network address</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// mockAddr mocks a network address</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">type mockAddr struct {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">type mockAddr struct {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; net, address string</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; net, address string</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">func (m mockAddr) Network() string { return m.net }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">func (m mockAddr) Network() string { return m.net }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">func (m mockAddr) String() string&nbsp; { return m.address }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">func (m mockAddr) String() string&nbsp; { return m.address }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// mockConn mocks a network connection by implementing the net.Conn interface.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// mockConn mocks a network connection by implementing the net.Conn interface.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">type mockConn struct {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">type mockConn struct {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; io.Reader</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; io.Reader</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; io.Writer</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; io.Writer</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; io.Closer</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; io.Closer</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// local network, address for the connection.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// local network, address for the connection.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; lnet, laddr string</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; lnet, laddr string</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// remote network, address for the connection.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// remote network, address for the connection.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; rAddr net.Addr</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; rAddr net.Addr</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// LocalAddr returns the local address for the connection.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// LocalAddr returns the local address for the connection.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">func (c mockConn) LocalAddr() net.Addr {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">func (c mockConn) LocalAddr() net.Addr {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return &amp;mockAddr{c.lnet, c.laddr}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return &amp;mockAddr{c.lnet, c.laddr}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// RemoteAddr returns the remote address for the connection.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// RemoteAddr returns the remote address for the connection.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">func (c mockConn) RemoteAddr() net.Addr {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">func (c mockConn) RemoteAddr() net.Addr {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return &amp;mockAddr{c.rAddr.Network(), c.rAddr.String()}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return &amp;mockAddr{c.rAddr.Network(), c.rAddr.String()}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// Close handles closing the connection.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// Close handles closing the connection.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">func (c mockConn) Close() error {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">func (c mockConn) Close() error {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return nil</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return nil</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">func (c mockConn) SetDeadline(t time.Time) error&nbsp; &nbsp; &nbsp; { return nil }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">func (c mockConn) SetDeadline(t time.Time) error&nbsp; &nbsp; &nbsp; { return nil }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">func (c mockConn) SetReadDeadline(t time.Time) error&nbsp; { return nil }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">func (c mockConn) SetReadDeadline(t time.Time) error&nbsp; { return nil }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">func (c mockConn) SetWriteDeadline(t time.Time) error { return nil }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">func (c mockConn) SetWriteDeadline(t time.Time) error { return nil }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// mockDialer mocks the net.Dial interface by returning a mock connection to</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// mockDialer mocks the net.Dial interface by returning a mock connection to</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// the given address.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// the given address.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">func mockDialer(addr net.Addr) (net.Conn, error) {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">func mockDialer(addr net.Addr) (net.Conn, error) {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; r, w := io.Pipe()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; r, w := io.Pipe()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; c := &amp;mockConn{rAddr: addr}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; c := &amp;mockConn{rAddr: addr}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; c.Reader = r</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; c.Reader = r</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; c.Writer = w</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; c.Writer = w</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return c, nil</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return c, nil</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// TestNewConfig tests that new ConnManager config is validated as expected.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// TestNewConfig tests that new ConnManager config is validated as expected.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">func TestNewConfig(t *testing.T) {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">func TestNewConfig(t *testing.T) {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; _, err := New(&amp;Config{})</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; _, err := New(&amp;Config{})</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if err == nil {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if err == nil {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;New expected error: 'Dial can't be nil', got nil&quot;)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;New expected error: 'Dial can't be nil', got nil&quot;)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; _, err = New(&amp;Config{</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; _, err = New(&amp;Config{</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Dial: mockDialer,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Dial: mockDialer,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; })</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; })</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if err != nil {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if err != nil {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;New unexpected error: %v&quot;, err)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;New unexpected error: %v&quot;, err)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// TestStartStop tests that the connection manager starts and stops as</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// TestStartStop tests that the connection manager starts and stops as</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// expected.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// expected.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">func TestStartStop(t *testing.T) {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">func TestStartStop(t *testing.T) {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; connected := make(chan *ConnReq)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; connected := make(chan *ConnReq)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; disconnected := make(chan *ConnReq)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; disconnected := make(chan *ConnReq)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cmgr, err := New(&amp;Config{</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cmgr, err := New(&amp;Config{</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; TargetOutbound: 1,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; TargetOutbound: 1,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; GetNewAddress: func() (net.Addr, error) {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; GetNewAddress: func() (net.Addr, error) {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return &amp;net.TCPAddr{</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return &amp;net.TCPAddr{</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; IP:&nbsp;&nbsp; net.ParseIP(&quot;127.0.0.1&quot;),</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; IP:&nbsp;&nbsp; net.ParseIP(&quot;127.0.0.1&quot;),</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Port: <span class="TextSegElementBranding">18555</span>,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Port: <span class="TextSegElementBranding">18555</span>,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }, nil</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }, nil</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; },</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; },</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Dial: mockDialer,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Dial: mockDialer,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; OnConnection: func(c *ConnReq, conn net.Conn) {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; OnConnection: func(c *ConnReq, conn net.Conn) {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; connected &lt;- c</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; connected &lt;- c</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; },</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; },</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; OnDisconnection: func(c *ConnReq) {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; OnDisconnection: func(c *ConnReq) {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; disconnected &lt;- c</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; disconnected &lt;- c</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; },</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; },</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; })</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; })</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if err != nil {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if err != nil {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;New error: %v&quot;, err)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;New error: %v&quot;, err)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cmgr.Start()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cmgr.Start()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; gotConnReq := &lt;-connected</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; gotConnReq := &lt;-connected</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cmgr.Stop()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cmgr.Stop()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// already stopped</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// already stopped</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cmgr.Stop()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cmgr.Stop()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// ignored</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// ignored</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cr := &amp;ConnReq{</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cr := &amp;ConnReq{</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Addr: &amp;net.TCPAddr{</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Addr: &amp;net.TCPAddr{</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; IP:&nbsp;&nbsp; net.ParseIP(&quot;127.0.0.1&quot;),</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; IP:&nbsp;&nbsp; net.ParseIP(&quot;127.0.0.1&quot;),</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Port: <span class="TextSegElementBranding">18555</span>,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Port: <span class="TextSegElementBranding">18555</span>,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; },</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; },</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Permanent: true,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Permanent: true,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cmgr.Connect(cr)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cmgr.Connect(cr)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if cr.ID() != 0 {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if cr.ID() != 0 {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;start/stop: got id: %v, want: 0&quot;, cr.ID())</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;start/stop: got id: %v, want: 0&quot;, cr.ID())</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cmgr.Disconnect(gotConnReq.ID())</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cmgr.Disconnect(gotConnReq.ID())</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cmgr.Remove(gotConnReq.ID())</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cmgr.Remove(gotConnReq.ID())</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; select {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; select {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; case &lt;-disconnected:</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; case &lt;-disconnected:</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;start/stop: unexpected disconnection&quot;)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;start/stop: unexpected disconnection&quot;)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; case &lt;-time.Tick(10 * time.Millisecond):</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; case &lt;-time.Tick(10 * time.Millisecond):</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; break</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; break</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// TestConnectMode tests that the connection manager works in the connect mode.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// TestConnectMode tests that the connection manager works in the connect mode.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">//</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">//</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// In connect mode, automatic connections are disabled, so we test that</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// In connect mode, automatic connections are disabled, so we test that</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// requests using Connect are handled and that no other connections are made.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// requests using Connect are handled and that no other connections are made.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">func TestConnectMode(t *testing.T) {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">func TestConnectMode(t *testing.T) {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; connected := make(chan *ConnReq)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; connected := make(chan *ConnReq)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cmgr, err := New(&amp;Config{</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cmgr, err := New(&amp;Config{</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; TargetOutbound: 2,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; TargetOutbound: 2,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Dial:&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; mockDialer,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Dial:&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; mockDialer,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; OnConnection: func(c *ConnReq, conn net.Conn) {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; OnConnection: func(c *ConnReq, conn net.Conn) {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; connected &lt;- c</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; connected &lt;- c</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; },</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; },</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; })</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; })</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if err != nil {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if err != nil {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;New error: %v&quot;, err)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;New error: %v&quot;, err)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cr := &amp;ConnReq{</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cr := &amp;ConnReq{</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Addr: &amp;net.TCPAddr{</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Addr: &amp;net.TCPAddr{</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; IP:&nbsp;&nbsp; net.ParseIP(&quot;127.0.0.1&quot;),</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; IP:&nbsp;&nbsp; net.ParseIP(&quot;127.0.0.1&quot;),</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Port: <span class="TextSegElementBranding">18555</span>,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Port: <span class="TextSegElementBranding">18555</span>,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; },</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; },</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Permanent: true,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Permanent: true,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cmgr.Start()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cmgr.Start()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cmgr.Connect(cr)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cmgr.Connect(cr)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; gotConnReq := &lt;-connected</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; gotConnReq := &lt;-connected</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; wantID := cr.ID()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; wantID := cr.ID()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; gotID := gotConnReq.ID()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; gotID := gotConnReq.ID()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if gotID != wantID {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if gotID != wantID {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;connect mode: %v - want ID %v, got ID %v&quot;, cr.Addr, wantID, gotID)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;connect mode: %v - want ID %v, got ID %v&quot;, cr.Addr, wantID, gotID)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; gotState := cr.State()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; gotState := cr.State()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; wantState := ConnEstablished</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; wantState := ConnEstablished</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if gotState != wantState {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if gotState != wantState {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;connect mode: %v - want state %v, got state %v&quot;, cr.Addr, wantState, gotState)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;connect mode: %v - want state %v, got state %v&quot;, cr.Addr, wantState, gotState)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; select {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; select {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; case c := &lt;-connected:</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; case c := &lt;-connected:</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;connect mode: got unexpected connection - %v&quot;, c.Addr)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;connect mode: got unexpected connection - %v&quot;, c.Addr)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; case &lt;-time.After(time.Millisecond):</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; case &lt;-time.After(time.Millisecond):</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; break</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; break</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cmgr.Stop()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cmgr.Stop()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// TestTargetOutbound tests the target number of outbound connections.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// TestTargetOutbound tests the target number of outbound connections.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">//</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">//</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// We wait until all connections are established, then test they there are the</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// We wait until all connections are established, then test they there are the</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// only connections made.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// only connections made.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">func TestTargetOutbound(t *testing.T) {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">func TestTargetOutbound(t *testing.T) {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; targetOutbound := uint32(10)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; targetOutbound := uint32(10)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; connected := make(chan *ConnReq)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; connected := make(chan *ConnReq)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cmgr, err := New(&amp;Config{</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cmgr, err := New(&amp;Config{</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; TargetOutbound: targetOutbound,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; TargetOutbound: targetOutbound,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Dial:&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; mockDialer,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Dial:&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; mockDialer,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; GetNewAddress: func() (net.Addr, error) {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; GetNewAddress: func() (net.Addr, error) {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return &amp;net.TCPAddr{</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return &amp;net.TCPAddr{</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; IP:&nbsp;&nbsp; net.ParseIP(&quot;127.0.0.1&quot;),</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; IP:&nbsp;&nbsp; net.ParseIP(&quot;127.0.0.1&quot;),</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Port: <span class="TextSegElementBranding">18555</span>,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Port: <span class="TextSegElementBranding">18555</span>,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }, nil</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }, nil</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; },</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; },</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; OnConnection: func(c *ConnReq, conn net.Conn) {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; OnConnection: func(c *ConnReq, conn net.Conn) {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; connected &lt;- c</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; connected &lt;- c</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; },</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; },</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; })</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; })</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if err != nil {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if err != nil {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;New error: %v&quot;, err)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;New error: %v&quot;, err)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cmgr.Start()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cmgr.Start()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; for i := uint32(0); i &lt; targetOutbound; i++ {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; for i := uint32(0); i &lt; targetOutbound; i++ {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &lt;-connected</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &lt;-connected</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; select {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; select {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; case c := &lt;-connected:</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; case c := &lt;-connected:</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;target outbound: got unexpected connection - %v&quot;, c.Addr)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;target outbound: got unexpected connection - %v&quot;, c.Addr)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; case &lt;-time.After(time.Millisecond):</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; case &lt;-time.After(time.Millisecond):</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; break</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; break</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cmgr.Stop()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cmgr.Stop()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// TestRetryPermanent tests that permanent connection requests are retried.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// TestRetryPermanent tests that permanent connection requests are retried.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">//</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">//</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// We make a permanent connection request using Connect, disconnect it using</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// We make a permanent connection request using Connect, disconnect it using</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// Disconnect and we wait for it to be connected back.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// Disconnect and we wait for it to be connected back.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">func TestRetryPermanent(t *testing.T) {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">func TestRetryPermanent(t *testing.T) {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; connected := make(chan *ConnReq)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; connected := make(chan *ConnReq)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; disconnected := make(chan *ConnReq)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; disconnected := make(chan *ConnReq)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cmgr, err := New(&amp;Config{</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cmgr, err := New(&amp;Config{</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; RetryDuration:&nbsp; time.Millisecond,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; RetryDuration:&nbsp; time.Millisecond,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; TargetOutbound: 1,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; TargetOutbound: 1,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Dial:&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; mockDialer,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Dial:&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; mockDialer,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; OnConnection: func(c *ConnReq, conn net.Conn) {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; OnConnection: func(c *ConnReq, conn net.Conn) {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; connected &lt;- c</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; connected &lt;- c</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; },</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; },</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; OnDisconnection: func(c *ConnReq) {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; OnDisconnection: func(c *ConnReq) {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; disconnected &lt;- c</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; disconnected &lt;- c</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; },</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; },</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; })</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; })</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if err != nil {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if err != nil {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;New error: %v&quot;, err)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;New error: %v&quot;, err)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cr := &amp;ConnReq{</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cr := &amp;ConnReq{</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Addr: &amp;net.TCPAddr{</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Addr: &amp;net.TCPAddr{</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; IP:&nbsp;&nbsp; net.ParseIP(&quot;127.0.0.1&quot;),</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; IP:&nbsp;&nbsp; net.ParseIP(&quot;127.0.0.1&quot;),</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Port: <span class="TextSegElementBranding">18555</span>,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Port: <span class="TextSegElementBranding">18555</span>,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; },</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; },</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Permanent: true,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Permanent: true,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; go cmgr.Connect(cr)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; go cmgr.Connect(cr)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cmgr.Start()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cmgr.Start()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; gotConnReq := &lt;-connected</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; gotConnReq := &lt;-connected</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; wantID := cr.ID()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; wantID := cr.ID()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; gotID := gotConnReq.ID()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; gotID := gotConnReq.ID()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if gotID != wantID {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if gotID != wantID {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;retry: %v - want ID %v, got ID %v&quot;, cr.Addr, wantID, gotID)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;retry: %v - want ID %v, got ID %v&quot;, cr.Addr, wantID, gotID)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; gotState := cr.State()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; gotState := cr.State()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; wantState := ConnEstablished</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; wantState := ConnEstablished</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if gotState != wantState {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if gotState != wantState {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;retry: %v - want state %v, got state %v&quot;, cr.Addr, wantState, gotState)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;retry: %v - want state %v, got state %v&quot;, cr.Addr, wantState, gotState)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cmgr.Disconnect(cr.ID())</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cmgr.Disconnect(cr.ID())</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; gotConnReq = &lt;-disconnected</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; gotConnReq = &lt;-disconnected</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; wantID = cr.ID()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; wantID = cr.ID()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; gotID = gotConnReq.ID()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; gotID = gotConnReq.ID()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if gotID != wantID {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if gotID != wantID {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;retry: %v - want ID %v, got ID %v&quot;, cr.Addr, wantID, gotID)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;retry: %v - want ID %v, got ID %v&quot;, cr.Addr, wantID, gotID)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; gotState = cr.State()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; gotState = cr.State()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; wantState = ConnDisconnected</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; wantState = ConnDisconnected</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if gotState != wantState {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if gotState != wantState {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;retry: %v - want state %v, got state %v&quot;, cr.Addr, wantState, gotState)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;retry: %v - want state %v, got state %v&quot;, cr.Addr, wantState, gotState)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; gotConnReq = &lt;-connected</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; gotConnReq = &lt;-connected</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; wantID = cr.ID()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; wantID = cr.ID()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; gotID = gotConnReq.ID()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; gotID = gotConnReq.ID()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if gotID != wantID {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if gotID != wantID {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;retry: %v - want ID %v, got ID %v&quot;, cr.Addr, wantID, gotID)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;retry: %v - want ID %v, got ID %v&quot;, cr.Addr, wantID, gotID)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; gotState = cr.State()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; gotState = cr.State()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; wantState = ConnEstablished</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; wantState = ConnEstablished</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if gotState != wantState {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if gotState != wantState {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;retry: %v - want state %v, got state %v&quot;, cr.Addr, wantState, gotState)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;retry: %v - want state %v, got state %v&quot;, cr.Addr, wantState, gotState)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cmgr.Remove(cr.ID())</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cmgr.Remove(cr.ID())</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; gotConnReq = &lt;-disconnected</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; gotConnReq = &lt;-disconnected</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; wantID = cr.ID()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; wantID = cr.ID()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; gotID = gotConnReq.ID()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; gotID = gotConnReq.ID()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if gotID != wantID {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if gotID != wantID {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;retry: %v - want ID %v, got ID %v&quot;, cr.Addr, wantID, gotID)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;retry: %v - want ID %v, got ID %v&quot;, cr.Addr, wantID, gotID)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; gotState = cr.State()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; gotState = cr.State()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; wantState = ConnDisconnected</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; wantState = ConnDisconnected</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if gotState != wantState {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if gotState != wantState {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;retry: %v - want state %v, got state %v&quot;, cr.Addr, wantState, gotState)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;retry: %v - want state %v, got state %v&quot;, cr.Addr, wantState, gotState)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cmgr.Stop()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cmgr.Stop()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// TestMaxRetryDuration tests the maximum retry duration.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// TestMaxRetryDuration tests the maximum retry duration.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">//</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">//</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// We have a timed dialer which initially returns err but after RetryDuration</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// We have a timed dialer which initially returns err but after RetryDuration</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// hits maxRetryDuration returns a mock conn.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// hits maxRetryDuration returns a mock conn.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">func TestMaxRetryDuration(t *testing.T) {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">func TestMaxRetryDuration(t *testing.T) {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; networkUp := make(chan struct{})</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; networkUp := make(chan struct{})</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; time.AfterFunc(5*time.Millisecond, func() {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; time.AfterFunc(5*time.Millisecond, func() {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; close(networkUp)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; close(networkUp)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; })</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; })</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; timedDialer := func(addr net.Addr) (net.Conn, error) {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; timedDialer := func(addr net.Addr) (net.Conn, error) {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; select {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; select {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; case &lt;-networkUp:</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; case &lt;-networkUp:</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return mockDialer(addr)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return mockDialer(addr)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; default:</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; default:</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return nil, errors.New(&quot;network down&quot;)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return nil, errors.New(&quot;network down&quot;)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; connected := make(chan *ConnReq)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; connected := make(chan *ConnReq)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cmgr, err := New(&amp;Config{</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cmgr, err := New(&amp;Config{</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; RetryDuration:&nbsp; time.Millisecond,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; RetryDuration:&nbsp; time.Millisecond,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; TargetOutbound: 1,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; TargetOutbound: 1,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Dial:&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; timedDialer,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Dial:&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; timedDialer,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; OnConnection: func(c *ConnReq, conn net.Conn) {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; OnConnection: func(c *ConnReq, conn net.Conn) {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; connected &lt;- c</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; connected &lt;- c</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; },</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; },</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; })</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; })</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if err != nil {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if err != nil {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;New error: %v&quot;, err)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;New error: %v&quot;, err)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cr := &amp;ConnReq{</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cr := &amp;ConnReq{</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Addr: &amp;net.TCPAddr{</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Addr: &amp;net.TCPAddr{</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; IP:&nbsp;&nbsp; net.ParseIP(&quot;127.0.0.1&quot;),</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; IP:&nbsp;&nbsp; net.ParseIP(&quot;127.0.0.1&quot;),</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Port: <span class="TextSegElementBranding">18555</span>,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Port: <span class="TextSegElementBranding">18555</span>,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; },</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; },</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Permanent: true,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Permanent: true,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; go cmgr.Connect(cr)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; go cmgr.Connect(cr)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cmgr.Start()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cmgr.Start()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// retry in 1ms</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// retry in 1ms</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// retry in 2ms - max retry duration reached</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// retry in 2ms - max retry duration reached</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// retry in 2ms - timedDialer returns mockDial</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// retry in 2ms - timedDialer returns mockDial</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; select {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; select {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; case &lt;-connected:</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; case &lt;-connected:</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; case &lt;-time.Tick(100 * time.Millisecond):</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; case &lt;-time.Tick(100 * time.Millisecond):</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;max retry duration: connection timeout&quot;)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;max retry duration: connection timeout&quot;)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// TestNetworkFailure tests that the connection manager handles a network</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// TestNetworkFailure tests that the connection manager handles a network</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// failure gracefully.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// failure gracefully.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">func TestNetworkFailure(t *testing.T) {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">func TestNetworkFailure(t *testing.T) {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; var dials uint32</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; var dials uint32</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; errDialer := func(net net.Addr) (net.Conn, error) {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; errDialer := func(net net.Addr) (net.Conn, error) {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; atomic.AddUint32(&amp;dials, 1)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; atomic.AddUint32(&amp;dials, 1)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return nil, errors.New(&quot;network down&quot;)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return nil, errors.New(&quot;network down&quot;)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cmgr, err := New(&amp;Config{</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cmgr, err := New(&amp;Config{</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; TargetOutbound: 5,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; TargetOutbound: 5,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; RetryDuration:&nbsp; 5 * time.Millisecond,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; RetryDuration:&nbsp; 5 * time.Millisecond,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Dial:&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; errDialer,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Dial:&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; errDialer,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; GetNewAddress: func() (net.Addr, error) {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; GetNewAddress: func() (net.Addr, error) {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return &amp;net.TCPAddr{</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return &amp;net.TCPAddr{</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; IP:&nbsp;&nbsp; net.ParseIP(&quot;127.0.0.1&quot;),</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; IP:&nbsp;&nbsp; net.ParseIP(&quot;127.0.0.1&quot;),</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Port: <span class="TextSegElementBranding">18555</span>,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Port: <span class="TextSegElementBranding">18555</span>,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }, nil</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }, nil</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; },</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; },</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; OnConnection: func(c *ConnReq, conn net.Conn) {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; OnConnection: func(c *ConnReq, conn net.Conn) {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;network failure: got unexpected connection - %v&quot;, c.Addr)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;network failure: got unexpected connection - %v&quot;, c.Addr)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; },</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; },</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; })</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; })</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if err != nil {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if err != nil {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;New error: %v&quot;, err)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;New error: %v&quot;, err)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cmgr.Start()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cmgr.Start()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; time.AfterFunc(10*time.Millisecond, cmgr.Stop)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; time.AfterFunc(10*time.Millisecond, cmgr.Stop)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cmgr.Wait()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cmgr.Wait()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; wantMaxDials := uint32(75)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; wantMaxDials := uint32(75)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if atomic.LoadUint32(&amp;dials) &gt; wantMaxDials {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if atomic.LoadUint32(&amp;dials) &gt; wantMaxDials {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;network failure: unexpected number of dials - got %v, want &lt; %v&quot;,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;network failure: unexpected number of dials - got %v, want &lt; %v&quot;,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; atomic.LoadUint32(&amp;dials), wantMaxDials)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; atomic.LoadUint32(&amp;dials), wantMaxDials)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// TestStopFailed tests that failed connections are ignored after connmgr is</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// TestStopFailed tests that failed connections are ignored after connmgr is</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// stopped.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// stopped.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">//</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">//</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// We have a dailer which sets the stop flag on the conn manager and returns an</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// We have a dailer which sets the stop flag on the conn manager and returns an</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// err so that the handler assumes that the conn manager is stopped and ignores</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// err so that the handler assumes that the conn manager is stopped and ignores</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// the failure.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// the failure.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">func TestStopFailed(t *testing.T) {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">func TestStopFailed(t *testing.T) {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; done := make(chan struct{}, 1)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; done := make(chan struct{}, 1)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; waitDialer := func(addr net.Addr) (net.Conn, error) {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; waitDialer := func(addr net.Addr) (net.Conn, error) {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; done &lt;- struct{}{}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; done &lt;- struct{}{}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; time.Sleep(time.Millisecond)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; time.Sleep(time.Millisecond)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return nil, errors.New(&quot;network down&quot;)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return nil, errors.New(&quot;network down&quot;)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cmgr, err := New(&amp;Config{</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cmgr, err := New(&amp;Config{</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Dial: waitDialer,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Dial: waitDialer,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; })</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; })</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if err != nil {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if err != nil {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;New error: %v&quot;, err)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;New error: %v&quot;, err)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cmgr.Start()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cmgr.Start()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; go func() {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; go func() {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &lt;-done</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &lt;-done</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; atomic.StoreInt32(&amp;cmgr.stop, 1)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; atomic.StoreInt32(&amp;cmgr.stop, 1)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; time.Sleep(2 * time.Millisecond)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; time.Sleep(2 * time.Millisecond)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; atomic.StoreInt32(&amp;cmgr.stop, 0)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; atomic.StoreInt32(&amp;cmgr.stop, 0)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; cmgr.Stop()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; cmgr.Stop()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cr := &amp;ConnReq{</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cr := &amp;ConnReq{</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Addr: &amp;net.TCPAddr{</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Addr: &amp;net.TCPAddr{</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; IP:&nbsp;&nbsp; net.ParseIP(&quot;127.0.0.1&quot;),</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; IP:&nbsp;&nbsp; net.ParseIP(&quot;127.0.0.1&quot;),</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Port: <span class="TextSegElementBranding">18555</span>,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Port: <span class="TextSegElementBranding">18555</span>,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; },</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; },</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Permanent: true,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Permanent: true,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; go cmgr.Connect(cr)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; go cmgr.Connect(cr)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cmgr.Wait()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cmgr.Wait()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// mockListener implements the net.Listener interface and is used to test</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// mockListener implements the net.Listener interface and is used to test</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// code that deals with net.Listeners without having to actually make any real</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// code that deals with net.Listeners without having to actually make any real</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// connections.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// connections.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">type mockListener struct {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">type mockListener struct {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; localAddr&nbsp;&nbsp; string</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; localAddr&nbsp;&nbsp; string</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; provideConn chan net.Conn</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; provideConn chan net.Conn</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// Accept returns a mock connection when it receives a signal via the Connect</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// Accept returns a mock connection when it receives a signal via the Connect</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// function.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// function.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">//</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">//</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// This is part of the net.Listener interface.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// This is part of the net.Listener interface.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">func (m *mockListener) Accept() (net.Conn, error) {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">func (m *mockListener) Accept() (net.Conn, error) {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; for conn := range m.provideConn {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; for conn := range m.provideConn {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return conn, nil</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return conn, nil</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return nil, errors.New(&quot;network connection closed&quot;)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return nil, errors.New(&quot;network connection closed&quot;)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// Close closes the mock listener which will cause any blocked Accept</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// Close closes the mock listener which will cause any blocked Accept</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// operations to be unblocked and return errors.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// operations to be unblocked and return errors.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">//</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">//</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// This is part of the net.Listener interface.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// This is part of the net.Listener interface.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">func (m *mockListener) Close() error {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">func (m *mockListener) Close() error {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; close(m.provideConn)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; close(m.provideConn)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return nil</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return nil</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// Addr returns the address the mock listener was configured with.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// Addr returns the address the mock listener was configured with.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">//</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">//</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// This is part of the net.Listener interface.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// This is part of the net.Listener interface.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">func (m *mockListener) Addr() net.Addr {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">func (m *mockListener) Addr() net.Addr {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return &amp;mockAddr{&quot;tcp&quot;, m.localAddr}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return &amp;mockAddr{&quot;tcp&quot;, m.localAddr}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// Connect fakes a connection to the mock listener from the provided remote</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// Connect fakes a connection to the mock listener from the provided remote</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// address.&nbsp; It will cause the Accept function to return a mock connection</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// address.&nbsp; It will cause the Accept function to return a mock connection</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// configured with the provided remote address and the local address for the</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// configured with the provided remote address and the local address for the</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// mock listener.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// mock listener.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">func (m *mockListener) Connect(ip string, port int) {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">func (m *mockListener) Connect(ip string, port int) {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; m.provideConn &lt;- &amp;mockConn{</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; m.provideConn &lt;- &amp;mockConn{</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; laddr: m.localAddr,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; laddr: m.localAddr,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; lnet:&nbsp; &quot;tcp&quot;,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; lnet:&nbsp; &quot;tcp&quot;,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; rAddr: &amp;net.TCPAddr{</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; rAddr: &amp;net.TCPAddr{</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; IP:&nbsp;&nbsp; net.ParseIP(ip),</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; IP:&nbsp;&nbsp; net.ParseIP(ip),</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Port: port,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Port: port,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; },</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; },</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// newMockListener returns a new mock listener for the provided local address</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// newMockListener returns a new mock listener for the provided local address</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// and port.&nbsp; No ports are actually opened.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// and port.&nbsp; No ports are actually opened.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">func newMockListener(localAddr string) *mockListener {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">func newMockListener(localAddr string) *mockListener {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return &amp;mockListener{</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return &amp;mockListener{</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; localAddr:&nbsp;&nbsp; localAddr,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; localAddr:&nbsp;&nbsp; localAddr,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; provideConn: make(chan net.Conn),</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; provideConn: make(chan net.Conn),</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// TestListeners ensures providing listeners to the connection manager along</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// TestListeners ensures providing listeners to the connection manager along</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// with an accept callback works properly.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// with an accept callback works properly.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">func TestListeners(t *testing.T) {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">func TestListeners(t *testing.T) {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Setup a connection manager with a couple of mock listeners that</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Setup a connection manager with a couple of mock listeners that</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// notify a channel when they receive mock connections.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// notify a channel when they receive mock connections.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; receivedConns := make(chan net.Conn)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; receivedConns := make(chan net.Conn)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; listener1 := newMockListener(&quot;127.0.0.1:8333&quot;)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; listener1 := newMockListener(&quot;127.0.0.1:8333&quot;)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; listener2 := newMockListener(&quot;127.0.0.1:9333&quot;)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; listener2 := newMockListener(&quot;127.0.0.1:9333&quot;)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; listeners := []net.Listener{listener1, listener2}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; listeners := []net.Listener{listener1, listener2}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cmgr, err := New(&amp;Config{</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cmgr, err := New(&amp;Config{</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Listeners: listeners,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Listeners: listeners,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; OnAccept: func(conn net.Conn) {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; OnAccept: func(conn net.Conn) {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; receivedConns &lt;- conn</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; receivedConns &lt;- conn</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; },</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; },</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Dial: mockDialer,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Dial: mockDialer,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; })</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; })</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if err != nil {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if err != nil {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;New error: %v&quot;, err)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;New error: %v&quot;, err)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cmgr.Start()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cmgr.Start()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Fake a couple of mock connections to each of the listeners.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Fake a couple of mock connections to each of the listeners.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; go func() {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; go func() {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; for i, listener := range listeners {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; for i, listener := range listeners {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; l := listener.(*mockListener)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; l := listener.(*mockListener)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; l.Connect(&quot;127.0.0.1&quot;, 10000+i*2)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; l.Connect(&quot;127.0.0.1&quot;, 10000+i*2)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; l.Connect(&quot;127.0.0.1&quot;, 10000+i*2+1)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; l.Connect(&quot;127.0.0.1&quot;, 10000+i*2+1)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Tally the receive connections to ensure the expected number are</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Tally the receive connections to ensure the expected number are</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// received.&nbsp; Also, fail the test after a timeout so it will not hang</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// received.&nbsp; Also, fail the test after a timeout so it will not hang</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// forever should the test not work.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// forever should the test not work.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; expectedNumConns := len(listeners) * 2</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; expectedNumConns := len(listeners) * 2</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; var numConns int</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; var numConns int</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">out:</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">out:</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; for {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; for {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; select {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; select {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; case &lt;-receivedConns:</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; case &lt;-receivedConns:</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; numConns++</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; numConns++</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if numConns == expectedNumConns {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; if numConns == expectedNumConns {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; break out</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; break out</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; case &lt;-time.After(time.Millisecond * 50):</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; case &lt;-time.After(time.Millisecond * 50):</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;Timeout waiting for %d expected connections&quot;,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; t.Fatalf(&quot;Timeout waiting for %d expected connections&quot;,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; expectedNumConns)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; expectedNumConns)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cmgr.Stop()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cmgr.Stop()</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cmgr.Wait()</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; cmgr.Wait()</td>
+</tr>
+<tr class="SectionEnd">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+</table>
+<br/>
+</body>
+</html>

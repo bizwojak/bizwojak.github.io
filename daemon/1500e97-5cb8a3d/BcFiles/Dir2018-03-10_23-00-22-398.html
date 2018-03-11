@@ -1,0 +1,2584 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<style>
+.AlignLeft { text-align: left; }
+.AlignCenter { text-align: center; }
+.AlignRight { text-align: right; }
+body { font-family: sans-serif; font-size: 11pt; }
+img.AutoScale { max-width: 100%; max-height: 100%; }
+td { vertical-align: top; padding-left: 4px; padding-right: 4px; }
+
+tr.SectionGap td { font-size: 4px; border-left: none; border-top: none; border-bottom: 1px solid Black; border-right: 1px solid Black; }
+tr.SectionAll td { border-left: none; border-top: none; border-bottom: 1px solid Black; border-right: 1px solid Black; }
+tr.SectionBegin td { border-left: none; border-top: none; border-right: 1px solid Black; }
+tr.SectionEnd td { border-left: none; border-top: none; border-bottom: 1px solid Black; border-right: 1px solid Black; }
+tr.SectionMiddle td { border-left: none; border-top: none; border-right: 1px solid Black; }
+tr.SubsectionAll td { border-left: none; border-top: none; border-bottom: 1px solid Gray; border-right: 1px solid Black; }
+tr.SubsectionEnd td { border-left: none; border-top: none; border-bottom: 1px solid Gray; border-right: 1px solid Black; }
+table.fc { border-top: 1px solid Black; border-left: 1px solid Black; width: 100%; font-family: monospace; font-size: 10pt; }
+td.TextItemInsigMod { color: #000000; background-color: #EEEEFF; }
+td.TextItemInsigOrphan { color: #000000; background-color: #FAEEFF; }
+td.TextItemNum { color: #696969; background-color: #F0F0F0; }
+td.TextItemSame { color: #000000; background-color: #FFFFFF; }
+td.TextItemSigMod { color: #000000; background-color: #FFE3E3; }
+td.TextItemSigOrphan { color: #000000; background-color: #F1E3FF; }
+.TextSegInsigDiff { color: #0000FF; }
+.TextSegReplacedDiff { color: #0000FF; font-style: italic; }
+.TextSegSigDiff { color: #FF0000; }
+td.TextItemInsigAdd { color: #000000; background-color: #EEEEFF; }
+td.TextItemInsigDel { color: #000000; background-color: #EEEEFF; text-decoration: line-through; }
+td.TextItemSigAdd { color: #000000; background-color: #FFE3E3; }
+td.TextItemSigDel { color: #000000; background-color: #FFE3E3; text-decoration: line-through; }
+.TextSegElementComment { color: #786A41; }
+.TextSegElementBranding { }
+</style>
+<title>dcrd-1.1.0 <--> hxd-rc1.0 Comparison</title>
+</head>
+<body>
+dcrd-1.1.0 <--> hxd-rc1.0 Comparison<br/>
+Produced: 10/3/2018 11:00:22 PM<br/>
+&nbsp; &nbsp;
+<br/>
+Mode:&nbsp; All, Ignoring Unimportant &nbsp;
+<br/>
+Left file: dcrd-1.1.0\dcrjson\chainsvrresults.go &nbsp;
+<br/>
+Right file: hxd-rc1.0\dcrjson\chainsvrresults.go &nbsp;
+<br/>
+<table class="fc" cellspacing="0" cellpadding="0">
+<tr class="SectionBegin">
+<td class="TextItemSame"><span class="TextSegElementComment">// Copyright (c) 2014 The btcsuite developers</span></td>
+<td class="AlignCenter">=</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// Copyright (c) 2014 The btcsuite developers</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// Copyright (c) 2015-2016 The Decred developers</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// Copyright (c) 2015-2016 The Decred developers</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// Use of this source code is governed by an ISC</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// Use of this source code is governed by an ISC</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// license that can be found in the LICENSE file.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// license that can be found in the LICENSE file.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">package <span class="TextSegElementBranding">dcr</span>json</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">package <span class="TextSegElementBranding">dcr</span>json</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">import &quot;encoding/json&quot;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">import &quot;encoding/json&quot;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// GetBlockHeaderVerboseResult models the data from the getblockheader command when</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// GetBlockHeaderVerboseResult models the data from the getblockheader command when</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// the verbose flag is set.&nbsp; When the verbose flag is not set, getblockheader</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// the verbose flag is set.&nbsp; When the verbose flag is not set, getblockheader</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// returns a hex-encoded string.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// returns a hex-encoded string.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">type GetBlockHeaderVerboseResult struct {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">type GetBlockHeaderVerboseResult struct {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Hash&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; string&nbsp; `json:&quot;hash&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Hash&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; string&nbsp; `json:&quot;hash&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Confirmations int64&nbsp;&nbsp; `json:&quot;confirmations&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Confirmations int64&nbsp;&nbsp; `json:&quot;confirmations&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Version&nbsp; &nbsp; &nbsp;&nbsp; int32&nbsp;&nbsp; `json:&quot;version&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Version&nbsp; &nbsp; &nbsp;&nbsp; int32&nbsp;&nbsp; `json:&quot;version&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; PreviousHash&nbsp; string&nbsp; `json:&quot;previousblockhash,omitempty&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; PreviousHash&nbsp; string&nbsp; `json:&quot;previousblockhash,omitempty&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; MerkleRoot&nbsp; &nbsp; string&nbsp; `json:&quot;merkleroot&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; MerkleRoot&nbsp; &nbsp; string&nbsp; `json:&quot;merkleroot&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; StakeRoot&nbsp; &nbsp;&nbsp; string&nbsp; `json:&quot;stakeroot&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; StakeRoot&nbsp; &nbsp;&nbsp; string&nbsp; `json:&quot;stakeroot&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; VoteBits&nbsp; &nbsp; &nbsp; uint16&nbsp; `json:&quot;votebits&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; VoteBits&nbsp; &nbsp; &nbsp; uint16&nbsp; `json:&quot;votebits&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; FinalState&nbsp; &nbsp; string&nbsp; `json:&quot;finalstate&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; FinalState&nbsp; &nbsp; string&nbsp; `json:&quot;finalstate&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Voters&nbsp; &nbsp; &nbsp; &nbsp; uint16&nbsp; `json:&quot;voters&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Voters&nbsp; &nbsp; &nbsp; &nbsp; uint16&nbsp; `json:&quot;voters&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; FreshStake&nbsp; &nbsp; uint8&nbsp;&nbsp; `json:&quot;freshstake&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; FreshStake&nbsp; &nbsp; uint8&nbsp;&nbsp; `json:&quot;freshstake&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Revocations&nbsp;&nbsp; uint8&nbsp;&nbsp; `json:&quot;revocations&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Revocations&nbsp;&nbsp; uint8&nbsp;&nbsp; `json:&quot;revocations&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; PoolSize&nbsp; &nbsp; &nbsp; uint32&nbsp; `json:&quot;poolsize&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; PoolSize&nbsp; &nbsp; &nbsp; uint32&nbsp; `json:&quot;poolsize&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Bits&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; string&nbsp; `json:&quot;bits&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Bits&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; string&nbsp; `json:&quot;bits&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; SBits&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; float64 `json:&quot;sbits&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; SBits&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; float64 `json:&quot;sbits&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Height&nbsp; &nbsp; &nbsp; &nbsp; uint32&nbsp; `json:&quot;height&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Height&nbsp; &nbsp; &nbsp; &nbsp; uint32&nbsp; `json:&quot;height&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Size&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; uint32&nbsp; `json:&quot;size&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Size&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; uint32&nbsp; `json:&quot;size&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Time&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; int64&nbsp;&nbsp; `json:&quot;time&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Time&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; int64&nbsp;&nbsp; `json:&quot;time&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Nonce&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; uint32&nbsp; `json:&quot;nonce&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Nonce&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; uint32&nbsp; `json:&quot;nonce&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; StakeVersion&nbsp; uint32&nbsp; `json:&quot;stakeversion&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; StakeVersion&nbsp; uint32&nbsp; `json:&quot;stakeversion&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Difficulty&nbsp; &nbsp; float64 `json:&quot;difficulty&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Difficulty&nbsp; &nbsp; float64 `json:&quot;difficulty&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; NextHash&nbsp; &nbsp; &nbsp; string&nbsp; `json:&quot;nextblockhash,omitempty&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; NextHash&nbsp; &nbsp; &nbsp; string&nbsp; `json:&quot;nextblockhash,omitempty&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// GetBlockVerboseResult models the data from the getblock command when the</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// GetBlockVerboseResult models the data from the getblock command when the</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// verbose flag is set.&nbsp; When the verbose flag is not set, getblock returns a</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// verbose flag is set.&nbsp; When the verbose flag is not set, getblock returns a</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// hex-encoded string.&nbsp; Contains Decred additions.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// hex-encoded string.&nbsp; Contains Decred additions.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">type GetBlockVerboseResult struct {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">type GetBlockVerboseResult struct {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Hash&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; string&nbsp; &nbsp; &nbsp; &nbsp; `json:&quot;hash&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Hash&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; string&nbsp; &nbsp; &nbsp; &nbsp; `json:&quot;hash&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Confirmations int64&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; `json:&quot;confirmations&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Confirmations int64&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; `json:&quot;confirmations&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Size&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; int32&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; `json:&quot;size&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Size&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; int32&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; `json:&quot;size&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Height&nbsp; &nbsp; &nbsp; &nbsp; int64&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; `json:&quot;height&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Height&nbsp; &nbsp; &nbsp; &nbsp; int64&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; `json:&quot;height&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Version&nbsp; &nbsp; &nbsp;&nbsp; int32&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; `json:&quot;version&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Version&nbsp; &nbsp; &nbsp;&nbsp; int32&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; `json:&quot;version&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; MerkleRoot&nbsp; &nbsp; string&nbsp; &nbsp; &nbsp; &nbsp; `json:&quot;merkleroot&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; MerkleRoot&nbsp; &nbsp; string&nbsp; &nbsp; &nbsp; &nbsp; `json:&quot;merkleroot&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; StakeRoot&nbsp; &nbsp;&nbsp; string&nbsp; &nbsp; &nbsp; &nbsp; `json:&quot;stakeroot&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; StakeRoot&nbsp; &nbsp;&nbsp; string&nbsp; &nbsp; &nbsp; &nbsp; `json:&quot;stakeroot&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Tx&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; []string&nbsp; &nbsp; &nbsp; `json:&quot;tx,omitempty&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Tx&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; []string&nbsp; &nbsp; &nbsp; `json:&quot;tx,omitempty&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; RawTx&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; []TxRawResult `json:&quot;rawtx,omitempty&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; RawTx&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; []TxRawResult `json:&quot;rawtx,omitempty&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; STx&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; []string&nbsp; &nbsp; &nbsp; `json:&quot;stx,omitempty&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; STx&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; []string&nbsp; &nbsp; &nbsp; `json:&quot;stx,omitempty&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; RawSTx&nbsp; &nbsp; &nbsp; &nbsp; []TxRawResult `json:&quot;rawstx,omitempty&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; RawSTx&nbsp; &nbsp; &nbsp; &nbsp; []TxRawResult `json:&quot;rawstx,omitempty&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Time&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; int64&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; `json:&quot;time&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Time&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; int64&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; `json:&quot;time&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Nonce&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; uint32&nbsp; &nbsp; &nbsp; &nbsp; `json:&quot;nonce&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Nonce&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; uint32&nbsp; &nbsp; &nbsp; &nbsp; `json:&quot;nonce&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; VoteBits&nbsp; &nbsp; &nbsp; uint16&nbsp; &nbsp; &nbsp; &nbsp; `json:&quot;votebits&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; VoteBits&nbsp; &nbsp; &nbsp; uint16&nbsp; &nbsp; &nbsp; &nbsp; `json:&quot;votebits&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; FinalState&nbsp; &nbsp; string&nbsp; &nbsp; &nbsp; &nbsp; `json:&quot;finalstate&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; FinalState&nbsp; &nbsp; string&nbsp; &nbsp; &nbsp; &nbsp; `json:&quot;finalstate&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Voters&nbsp; &nbsp; &nbsp; &nbsp; uint16&nbsp; &nbsp; &nbsp; &nbsp; `json:&quot;voters&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Voters&nbsp; &nbsp; &nbsp; &nbsp; uint16&nbsp; &nbsp; &nbsp; &nbsp; `json:&quot;voters&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; FreshStake&nbsp; &nbsp; uint8&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; `json:&quot;freshstake&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; FreshStake&nbsp; &nbsp; uint8&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; `json:&quot;freshstake&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Revocations&nbsp;&nbsp; uint8&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; `json:&quot;revocations&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Revocations&nbsp;&nbsp; uint8&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; `json:&quot;revocations&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; PoolSize&nbsp; &nbsp; &nbsp; uint32&nbsp; &nbsp; &nbsp; &nbsp; `json:&quot;poolsize&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; PoolSize&nbsp; &nbsp; &nbsp; uint32&nbsp; &nbsp; &nbsp; &nbsp; `json:&quot;poolsize&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Bits&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; string&nbsp; &nbsp; &nbsp; &nbsp; `json:&quot;bits&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Bits&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; string&nbsp; &nbsp; &nbsp; &nbsp; `json:&quot;bits&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; SBits&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; float64&nbsp; &nbsp; &nbsp;&nbsp; `json:&quot;sbits&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; SBits&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; float64&nbsp; &nbsp; &nbsp;&nbsp; `json:&quot;sbits&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Difficulty&nbsp; &nbsp; float64&nbsp; &nbsp; &nbsp;&nbsp; `json:&quot;difficulty&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Difficulty&nbsp; &nbsp; float64&nbsp; &nbsp; &nbsp;&nbsp; `json:&quot;difficulty&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; ExtraData&nbsp; &nbsp;&nbsp; string&nbsp; &nbsp; &nbsp; &nbsp; `json:&quot;extradata&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; ExtraData&nbsp; &nbsp;&nbsp; string&nbsp; &nbsp; &nbsp; &nbsp; `json:&quot;extradata&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; StakeVersion&nbsp; uint32&nbsp; &nbsp; &nbsp; &nbsp; `json:&quot;stakeversion&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; StakeVersion&nbsp; uint32&nbsp; &nbsp; &nbsp; &nbsp; `json:&quot;stakeversion&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; PreviousHash&nbsp; string&nbsp; &nbsp; &nbsp; &nbsp; `json:&quot;previousblockhash&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; PreviousHash&nbsp; string&nbsp; &nbsp; &nbsp; &nbsp; `json:&quot;previousblockhash&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; NextHash&nbsp; &nbsp; &nbsp; string&nbsp; &nbsp; &nbsp; &nbsp; `json:&quot;nextblockhash,omitempty&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; NextHash&nbsp; &nbsp; &nbsp; string&nbsp; &nbsp; &nbsp; &nbsp; `json:&quot;nextblockhash,omitempty&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// CreateMultiSigResult models the data returned from the createmultisig</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// CreateMultiSigResult models the data returned from the createmultisig</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// command.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// command.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">type CreateMultiSigResult struct {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">type CreateMultiSigResult struct {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Address&nbsp; &nbsp; &nbsp; string `json:&quot;address&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Address&nbsp; &nbsp; &nbsp; string `json:&quot;address&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; RedeemScript string `json:&quot;redeemScript&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; RedeemScript string `json:&quot;redeemScript&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// DecodeScriptResult models the data returned from the decodescript command.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// DecodeScriptResult models the data returned from the decodescript command.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">type DecodeScriptResult struct {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">type DecodeScriptResult struct {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Asm&nbsp; &nbsp; &nbsp;&nbsp; string&nbsp;&nbsp; `json:&quot;asm&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Asm&nbsp; &nbsp; &nbsp;&nbsp; string&nbsp;&nbsp; `json:&quot;asm&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; ReqSigs&nbsp;&nbsp; int32&nbsp; &nbsp; `json:&quot;reqSigs,omitempty&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; ReqSigs&nbsp;&nbsp; int32&nbsp; &nbsp; `json:&quot;reqSigs,omitempty&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Type&nbsp; &nbsp; &nbsp; string&nbsp;&nbsp; `json:&quot;type&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Type&nbsp; &nbsp; &nbsp; string&nbsp;&nbsp; `json:&quot;type&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Addresses []string `json:&quot;addresses,omitempty&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Addresses []string `json:&quot;addresses,omitempty&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; P2sh&nbsp; &nbsp; &nbsp; string&nbsp;&nbsp; `json:&quot;p2sh&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; P2sh&nbsp; &nbsp; &nbsp; string&nbsp;&nbsp; `json:&quot;p2sh&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// GetAddedNodeInfoResultAddr models the data of the addresses portion of the</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// GetAddedNodeInfoResultAddr models the data of the addresses portion of the</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// getaddednodeinfo command.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// getaddednodeinfo command.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">type GetAddedNodeInfoResultAddr struct {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">type GetAddedNodeInfoResultAddr struct {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Address&nbsp;&nbsp; string `json:&quot;address&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Address&nbsp;&nbsp; string `json:&quot;address&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Connected string `json:&quot;connected&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Connected string `json:&quot;connected&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// GetAddedNodeInfoResult models the data from the getaddednodeinfo command.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// GetAddedNodeInfoResult models the data from the getaddednodeinfo command.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">type GetAddedNodeInfoResult struct {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">type GetAddedNodeInfoResult struct {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; AddedNode string&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; `json:&quot;addednode&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; AddedNode string&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; `json:&quot;addednode&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Connected *bool&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; `json:&quot;connected,omitempty&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Connected *bool&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; `json:&quot;connected,omitempty&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Addresses *[]GetAddedNodeInfoResultAddr `json:&quot;addresses,omitempty&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Addresses *[]GetAddedNodeInfoResultAddr `json:&quot;addresses,omitempty&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// GetBlockChainInfoResult models the data returned from the getblockchaininfo</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// GetBlockChainInfoResult models the data returned from the getblockchaininfo</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// command.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// command.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">type GetBlockChainInfoResult struct {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">type GetBlockChainInfoResult struct {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Chain&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; string&nbsp; `json:&quot;chain&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Chain&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; string&nbsp; `json:&quot;chain&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Blocks&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; int32&nbsp;&nbsp; `json:&quot;blocks&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Blocks&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; int32&nbsp;&nbsp; `json:&quot;blocks&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Headers&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; int32&nbsp;&nbsp; `json:&quot;headers&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Headers&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; int32&nbsp;&nbsp; `json:&quot;headers&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; BestBlockHash&nbsp; &nbsp; &nbsp; &nbsp; string&nbsp; `json:&quot;bestblockhash&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; BestBlockHash&nbsp; &nbsp; &nbsp; &nbsp; string&nbsp; `json:&quot;bestblockhash&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Difficulty&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; float64 `json:&quot;difficulty&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Difficulty&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; float64 `json:&quot;difficulty&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; VerificationProgress float64 `json:&quot;verificationprogress&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; VerificationProgress float64 `json:&quot;verificationprogress&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; ChainWork&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; string&nbsp; `json:&quot;chainwork&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; ChainWork&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; string&nbsp; `json:&quot;chainwork&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// GetBlockSubsidyResult models the data returned from the getblocksubsidy</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// GetBlockSubsidyResult models the data returned from the getblocksubsidy</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// command.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// command.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">type GetBlockSubsidyResult struct {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">type GetBlockSubsidyResult struct {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Developer int64 `json:&quot;developer&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Developer int64 `json:&quot;developer&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; PoS&nbsp; &nbsp; &nbsp;&nbsp; int64 `json:&quot;pos&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; PoS&nbsp; &nbsp; &nbsp;&nbsp; int64 `json:&quot;pos&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; PoW&nbsp; &nbsp; &nbsp;&nbsp; int64 `json:&quot;pow&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; PoW&nbsp; &nbsp; &nbsp;&nbsp; int64 `json:&quot;pow&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Total&nbsp; &nbsp;&nbsp; int64 `json:&quot;total&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Total&nbsp; &nbsp;&nbsp; int64 `json:&quot;total&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// GetBlockTemplateResultTx models the transactions field of the</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// GetBlockTemplateResultTx models the transactions field of the</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// getblocktemplate command.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// getblocktemplate command.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">type GetBlockTemplateResultTx struct {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">type GetBlockTemplateResultTx struct {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Data&nbsp; &nbsp; string&nbsp; `json:&quot;data&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Data&nbsp; &nbsp; string&nbsp; `json:&quot;data&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Hash&nbsp; &nbsp; string&nbsp; `json:&quot;hash&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Hash&nbsp; &nbsp; string&nbsp; `json:&quot;hash&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Depends []int64 `json:&quot;depends&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Depends []int64 `json:&quot;depends&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Fee&nbsp; &nbsp;&nbsp; int64&nbsp;&nbsp; `json:&quot;fee&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Fee&nbsp; &nbsp;&nbsp; int64&nbsp;&nbsp; `json:&quot;fee&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; SigOps&nbsp; int64&nbsp;&nbsp; `json:&quot;sigops&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; SigOps&nbsp; int64&nbsp;&nbsp; `json:&quot;sigops&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; TxType&nbsp; string&nbsp; `json:&quot;txtype&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; TxType&nbsp; string&nbsp; `json:&quot;txtype&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// GetBlockTemplateResultAux models the coinbaseaux field of the</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// GetBlockTemplateResultAux models the coinbaseaux field of the</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// getblocktemplate command.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// getblocktemplate command.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">type GetBlockTemplateResultAux struct {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">type GetBlockTemplateResultAux struct {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Flags string `json:&quot;flags&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Flags string `json:&quot;flags&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// GetBlockTemplateResult models the data returned from the getblocktemplate</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// GetBlockTemplateResult models the data returned from the getblocktemplate</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// command.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// command.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">type GetBlockTemplateResult struct {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">type GetBlockTemplateResult struct {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Base fields from BIP 0022.&nbsp; CoinbaseAux is optional.&nbsp; One of</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Base fields from BIP 0022.&nbsp; CoinbaseAux is optional.&nbsp; One of</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// CoinbaseTxn or CoinbaseValue must be specified, but not both.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// CoinbaseTxn or CoinbaseValue must be specified, but not both.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// GBT has been modified from the Bitcoin semantics to include</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// GBT has been modified from the Bitcoin semantics to include</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// the header rather than various components which are all part</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// the header rather than various components which are all part</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// of the header anyway.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// of the header anyway.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Header&nbsp; &nbsp; &nbsp; &nbsp; string&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; `json:&quot;header&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Header&nbsp; &nbsp; &nbsp; &nbsp; string&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; `json:&quot;header&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; SigOpLimit&nbsp; &nbsp; int64&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; `json:&quot;sigoplimit,omitempty&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; SigOpLimit&nbsp; &nbsp; int64&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; `json:&quot;sigoplimit,omitempty&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; SizeLimit&nbsp; &nbsp;&nbsp; int64&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; `json:&quot;sizelimit,omitempty&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; SizeLimit&nbsp; &nbsp;&nbsp; int64&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; `json:&quot;sizelimit,omitempty&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Transactions&nbsp; []GetBlockTemplateResultTx `json:&quot;transactions&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Transactions&nbsp; []GetBlockTemplateResultTx `json:&quot;transactions&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; STransactions []GetBlockTemplateResultTx `json:&quot;stransactions&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; STransactions []GetBlockTemplateResultTx `json:&quot;stransactions&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; CoinbaseAux&nbsp;&nbsp; *GetBlockTemplateResultAux `json:&quot;coinbaseaux,omitempty&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; CoinbaseAux&nbsp;&nbsp; *GetBlockTemplateResultAux `json:&quot;coinbaseaux,omitempty&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; CoinbaseTxn&nbsp;&nbsp; *GetBlockTemplateResultTx&nbsp; `json:&quot;coinbasetxn,omitempty&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; CoinbaseTxn&nbsp;&nbsp; *GetBlockTemplateResultTx&nbsp; `json:&quot;coinbasetxn,omitempty&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; CoinbaseValue *int64&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; `json:&quot;coinbasevalue,omitempty&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; CoinbaseValue *int64&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; `json:&quot;coinbasevalue,omitempty&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; WorkID&nbsp; &nbsp; &nbsp; &nbsp; string&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; `json:&quot;workid,omitempty&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; WorkID&nbsp; &nbsp; &nbsp; &nbsp; string&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; `json:&quot;workid,omitempty&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Optional long polling from BIP 0022.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Optional long polling from BIP 0022.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; LongPollID&nbsp; string `json:&quot;longpollid,omitempty&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; LongPollID&nbsp; string `json:&quot;longpollid,omitempty&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; LongPollURI string `json:&quot;longpolluri,omitempty&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; LongPollURI string `json:&quot;longpolluri,omitempty&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; SubmitOld&nbsp;&nbsp; *bool&nbsp; `json:&quot;submitold,omitempty&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; SubmitOld&nbsp;&nbsp; *bool&nbsp; `json:&quot;submitold,omitempty&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Basic pool extension from BIP 0023.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Basic pool extension from BIP 0023.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Target&nbsp; string `json:&quot;target,omitempty&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Target&nbsp; string `json:&quot;target,omitempty&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Expires int64&nbsp; `json:&quot;expires,omitempty&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Expires int64&nbsp; `json:&quot;expires,omitempty&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Mutations from BIP 0023.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Mutations from BIP 0023.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; MaxTime&nbsp; &nbsp; int64&nbsp; &nbsp; `json:&quot;maxtime,omitempty&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; MaxTime&nbsp; &nbsp; int64&nbsp; &nbsp; `json:&quot;maxtime,omitempty&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; MinTime&nbsp; &nbsp; int64&nbsp; &nbsp; `json:&quot;mintime,omitempty&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; MinTime&nbsp; &nbsp; int64&nbsp; &nbsp; `json:&quot;mintime,omitempty&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Mutable&nbsp; &nbsp; []string `json:&quot;mutable,omitempty&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Mutable&nbsp; &nbsp; []string `json:&quot;mutable,omitempty&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; NonceRange string&nbsp;&nbsp; `json:&quot;noncerange,omitempty&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; NonceRange string&nbsp;&nbsp; `json:&quot;noncerange,omitempty&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Block proposal from BIP 0023.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; <span class="TextSegElementComment">// Block proposal from BIP 0023.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Capabilities&nbsp; []string `json:&quot;capabilities,omitempty&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Capabilities&nbsp; []string `json:&quot;capabilities,omitempty&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; RejectReasion string&nbsp;&nbsp; `json:&quot;reject-reason,omitempty&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; RejectReasion string&nbsp;&nbsp; `json:&quot;reject-reason,omitempty&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// GetMempoolInfoResult models the data returned from the getmempoolinfo</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// GetMempoolInfoResult models the data returned from the getmempoolinfo</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// command.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// command.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">type GetMempoolInfoResult struct {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">type GetMempoolInfoResult struct {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Size&nbsp; int64 `json:&quot;size&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Size&nbsp; int64 `json:&quot;size&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Bytes int64 `json:&quot;bytes&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Bytes int64 `json:&quot;bytes&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// GetNetworkInfoResult models the data returned from the getnetworkinfo</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// GetNetworkInfoResult models the data returned from the getnetworkinfo</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// command.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// command.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">type GetNetworkInfoResult struct {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">type GetNetworkInfoResult struct {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Version&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; int32&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; `json:&quot;version&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Version&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; int32&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; `json:&quot;version&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; ProtocolVersion int32&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; `json:&quot;protocolversion&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; ProtocolVersion int32&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; `json:&quot;protocolversion&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; TimeOffset&nbsp; &nbsp; &nbsp; int64&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; `json:&quot;timeoffset&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; TimeOffset&nbsp; &nbsp; &nbsp; int64&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; `json:&quot;timeoffset&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Connections&nbsp; &nbsp;&nbsp; int32&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; `json:&quot;connections&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Connections&nbsp; &nbsp;&nbsp; int32&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; `json:&quot;connections&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Networks&nbsp; &nbsp; &nbsp; &nbsp; []NetworksResult&nbsp; &nbsp; &nbsp;&nbsp; `json:&quot;networks&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Networks&nbsp; &nbsp; &nbsp; &nbsp; []NetworksResult&nbsp; &nbsp; &nbsp;&nbsp; `json:&quot;networks&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; RelayFee&nbsp; &nbsp; &nbsp; &nbsp; float64&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; `json:&quot;relayfee&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; RelayFee&nbsp; &nbsp; &nbsp; &nbsp; float64&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; `json:&quot;relayfee&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; LocalAddresses&nbsp; []LocalAddressesResult `json:&quot;localaddresses&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; LocalAddresses&nbsp; []LocalAddressesResult `json:&quot;localaddresses&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// GetPeerInfoResult models the data returned from the getpeerinfo command.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// GetPeerInfoResult models the data returned from the getpeerinfo command.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">type GetPeerInfoResult struct {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">type GetPeerInfoResult struct {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; ID&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; int32&nbsp;&nbsp; `json:&quot;id&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; ID&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; int32&nbsp;&nbsp; `json:&quot;id&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Addr&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; string&nbsp; `json:&quot;addr&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Addr&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; string&nbsp; `json:&quot;addr&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; AddrLocal&nbsp; &nbsp; &nbsp; string&nbsp; `json:&quot;addrlocal,omitempty&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; AddrLocal&nbsp; &nbsp; &nbsp; string&nbsp; `json:&quot;addrlocal,omitempty&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Services&nbsp; &nbsp; &nbsp;&nbsp; string&nbsp; `json:&quot;services&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Services&nbsp; &nbsp; &nbsp;&nbsp; string&nbsp; `json:&quot;services&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; LastSend&nbsp; &nbsp; &nbsp;&nbsp; int64&nbsp;&nbsp; `json:&quot;lastsend&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; LastSend&nbsp; &nbsp; &nbsp;&nbsp; int64&nbsp;&nbsp; `json:&quot;lastsend&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; LastRecv&nbsp; &nbsp; &nbsp;&nbsp; int64&nbsp;&nbsp; `json:&quot;lastrecv&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; LastRecv&nbsp; &nbsp; &nbsp;&nbsp; int64&nbsp;&nbsp; `json:&quot;lastrecv&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; BytesSent&nbsp; &nbsp; &nbsp; uint64&nbsp; `json:&quot;bytessent&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; BytesSent&nbsp; &nbsp; &nbsp; uint64&nbsp; `json:&quot;bytessent&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; BytesRecv&nbsp; &nbsp; &nbsp; uint64&nbsp; `json:&quot;bytesrecv&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; BytesRecv&nbsp; &nbsp; &nbsp; uint64&nbsp; `json:&quot;bytesrecv&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; ConnTime&nbsp; &nbsp; &nbsp;&nbsp; int64&nbsp;&nbsp; `json:&quot;conntime&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; ConnTime&nbsp; &nbsp; &nbsp;&nbsp; int64&nbsp;&nbsp; `json:&quot;conntime&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; TimeOffset&nbsp; &nbsp;&nbsp; int64&nbsp;&nbsp; `json:&quot;timeoffset&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; TimeOffset&nbsp; &nbsp;&nbsp; int64&nbsp;&nbsp; `json:&quot;timeoffset&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; PingTime&nbsp; &nbsp; &nbsp;&nbsp; float64 `json:&quot;pingtime&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; PingTime&nbsp; &nbsp; &nbsp;&nbsp; float64 `json:&quot;pingtime&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; PingWait&nbsp; &nbsp; &nbsp;&nbsp; float64 `json:&quot;pingwait,omitempty&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; PingWait&nbsp; &nbsp; &nbsp;&nbsp; float64 `json:&quot;pingwait,omitempty&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Version&nbsp; &nbsp; &nbsp; &nbsp; uint32&nbsp; `json:&quot;version&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Version&nbsp; &nbsp; &nbsp; &nbsp; uint32&nbsp; `json:&quot;version&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; SubVer&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; string&nbsp; `json:&quot;subver&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; SubVer&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; string&nbsp; `json:&quot;subver&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Inbound&nbsp; &nbsp; &nbsp; &nbsp; bool&nbsp; &nbsp; `json:&quot;inbound&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Inbound&nbsp; &nbsp; &nbsp; &nbsp; bool&nbsp; &nbsp; `json:&quot;inbound&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; StartingHeight int64&nbsp;&nbsp; `json:&quot;startingheight&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; StartingHeight int64&nbsp;&nbsp; `json:&quot;startingheight&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; CurrentHeight&nbsp; int64&nbsp;&nbsp; `json:&quot;currentheight,omitempty&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; CurrentHeight&nbsp; int64&nbsp;&nbsp; `json:&quot;currentheight,omitempty&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; BanScore&nbsp; &nbsp; &nbsp;&nbsp; int32&nbsp;&nbsp; `json:&quot;banscore&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; BanScore&nbsp; &nbsp; &nbsp;&nbsp; int32&nbsp;&nbsp; `json:&quot;banscore&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; SyncNode&nbsp; &nbsp; &nbsp;&nbsp; bool&nbsp; &nbsp; `json:&quot;syncnode&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; SyncNode&nbsp; &nbsp; &nbsp;&nbsp; bool&nbsp; &nbsp; `json:&quot;syncnode&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// GetRawMempoolVerboseResult models the data returned from the getrawmempool</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// GetRawMempoolVerboseResult models the data returned from the getrawmempool</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// command when the verbose flag is set.&nbsp; When the verbose flag is not set,</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// command when the verbose flag is set.&nbsp; When the verbose flag is not set,</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// getrawmempool returns an array of transaction hashes.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// getrawmempool returns an array of transaction hashes.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">type GetRawMempoolVerboseResult struct {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">type GetRawMempoolVerboseResult struct {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Size&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; int32&nbsp; &nbsp; `json:&quot;size&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Size&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; int32&nbsp; &nbsp; `json:&quot;size&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Fee&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; float64&nbsp; `json:&quot;fee&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Fee&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; float64&nbsp; `json:&quot;fee&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Time&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; int64&nbsp; &nbsp; `json:&quot;time&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Time&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; int64&nbsp; &nbsp; `json:&quot;time&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Height&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; int64&nbsp; &nbsp; `json:&quot;height&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Height&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; int64&nbsp; &nbsp; `json:&quot;height&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; StartingPriority float64&nbsp; `json:&quot;startingpriority&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; StartingPriority float64&nbsp; `json:&quot;startingpriority&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; CurrentPriority&nbsp; float64&nbsp; `json:&quot;currentpriority&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; CurrentPriority&nbsp; float64&nbsp; `json:&quot;currentpriority&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Depends&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; []string `json:&quot;depends&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Depends&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; []string `json:&quot;depends&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// ScriptPubKeyResult models the scriptPubKey data of a tx script.&nbsp; It is</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// ScriptPubKeyResult models the scriptPubKey data of a tx script.&nbsp; It is</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// defined separately since it is used by multiple commands.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// defined separately since it is used by multiple commands.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">type ScriptPubKeyResult struct {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">type ScriptPubKeyResult struct {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Asm&nbsp; &nbsp; &nbsp;&nbsp; string&nbsp;&nbsp; `json:&quot;asm&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Asm&nbsp; &nbsp; &nbsp;&nbsp; string&nbsp;&nbsp; `json:&quot;asm&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Hex&nbsp; &nbsp; &nbsp;&nbsp; string&nbsp;&nbsp; `json:&quot;hex,omitempty&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Hex&nbsp; &nbsp; &nbsp;&nbsp; string&nbsp;&nbsp; `json:&quot;hex,omitempty&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; ReqSigs&nbsp;&nbsp; int32&nbsp; &nbsp; `json:&quot;reqSigs,omitempty&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; ReqSigs&nbsp;&nbsp; int32&nbsp; &nbsp; `json:&quot;reqSigs,omitempty&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Type&nbsp; &nbsp; &nbsp; string&nbsp;&nbsp; `json:&quot;type&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Type&nbsp; &nbsp; &nbsp; string&nbsp;&nbsp; `json:&quot;type&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Addresses []string `json:&quot;addresses,omitempty&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Addresses []string `json:&quot;addresses,omitempty&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; CommitAmt *float64 `json:&quot;commitamt,omitempty&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; CommitAmt *float64 `json:&quot;commitamt,omitempty&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// GetTxOutResult models the data from the gettxout command.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// GetTxOutResult models the data from the gettxout command.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">type GetTxOutResult struct {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">type GetTxOutResult struct {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; BestBlock&nbsp; &nbsp;&nbsp; string&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; `json:&quot;bestblock&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; BestBlock&nbsp; &nbsp;&nbsp; string&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; `json:&quot;bestblock&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Confirmations int64&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; `json:&quot;confirmations&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Confirmations int64&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; `json:&quot;confirmations&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Value&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; float64&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; `json:&quot;value&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Value&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; float64&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; `json:&quot;value&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; ScriptPubKey&nbsp; ScriptPubKeyResult `json:&quot;scriptPubKey&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; ScriptPubKey&nbsp; ScriptPubKeyResult `json:&quot;scriptPubKey&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Version&nbsp; &nbsp; &nbsp;&nbsp; int32&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; `json:&quot;version&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Version&nbsp; &nbsp; &nbsp;&nbsp; int32&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; `json:&quot;version&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Coinbase&nbsp; &nbsp; &nbsp; bool&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; `json:&quot;coinbase&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Coinbase&nbsp; &nbsp; &nbsp; bool&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; `json:&quot;coinbase&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// GetNetTotalsResult models the data returned from the getnettotals command.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// GetNetTotalsResult models the data returned from the getnettotals command.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">type GetNetTotalsResult struct {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">type GetNetTotalsResult struct {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; TotalBytesRecv uint64 `json:&quot;totalbytesrecv&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; TotalBytesRecv uint64 `json:&quot;totalbytesrecv&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; TotalBytesSent uint64 `json:&quot;totalbytessent&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; TotalBytesSent uint64 `json:&quot;totalbytessent&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; TimeMillis&nbsp; &nbsp;&nbsp; int64&nbsp; `json:&quot;timemillis&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; TimeMillis&nbsp; &nbsp;&nbsp; int64&nbsp; `json:&quot;timemillis&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// ScriptSig models a signature script.&nbsp; It is defined separately since it only</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// ScriptSig models a signature script.&nbsp; It is defined separately since it only</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// applies to non-coinbase.&nbsp; Therefore the field in the Vin structure needs</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// applies to non-coinbase.&nbsp; Therefore the field in the Vin structure needs</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// to be a pointer.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// to be a pointer.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">type ScriptSig struct {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">type ScriptSig struct {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Asm string `json:&quot;asm&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Asm string `json:&quot;asm&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Hex string `json:&quot;hex&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Hex string `json:&quot;hex&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// Vin models parts of the tx data.&nbsp; It is defined separately since</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// Vin models parts of the tx data.&nbsp; It is defined separately since</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// getrawtransaction, decoderawtransaction, and searchrawtransaction use the</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// getrawtransaction, decoderawtransaction, and searchrawtransaction use the</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// same structure.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// same structure.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">type Vin struct {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">type Vin struct {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Coinbase&nbsp; &nbsp; string&nbsp; &nbsp;&nbsp; `json:&quot;coinbase&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Coinbase&nbsp; &nbsp; string&nbsp; &nbsp;&nbsp; `json:&quot;coinbase&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Txid&nbsp; &nbsp; &nbsp; &nbsp; string&nbsp; &nbsp;&nbsp; `json:&quot;txid&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Txid&nbsp; &nbsp; &nbsp; &nbsp; string&nbsp; &nbsp;&nbsp; `json:&quot;txid&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Vout&nbsp; &nbsp; &nbsp; &nbsp; uint32&nbsp; &nbsp;&nbsp; `json:&quot;vout&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Vout&nbsp; &nbsp; &nbsp; &nbsp; uint32&nbsp; &nbsp;&nbsp; `json:&quot;vout&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Tree&nbsp; &nbsp; &nbsp; &nbsp; int8&nbsp; &nbsp; &nbsp;&nbsp; `json:&quot;tree&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Tree&nbsp; &nbsp; &nbsp; &nbsp; int8&nbsp; &nbsp; &nbsp;&nbsp; `json:&quot;tree&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Sequence&nbsp; &nbsp; uint32&nbsp; &nbsp;&nbsp; `json:&quot;sequence&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Sequence&nbsp; &nbsp; uint32&nbsp; &nbsp;&nbsp; `json:&quot;sequence&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; AmountIn&nbsp; &nbsp; float64&nbsp; &nbsp; `json:&quot;amountin&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; AmountIn&nbsp; &nbsp; float64&nbsp; &nbsp; `json:&quot;amountin&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; BlockHeight uint32&nbsp; &nbsp;&nbsp; `json:&quot;blockheight&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; BlockHeight uint32&nbsp; &nbsp;&nbsp; `json:&quot;blockheight&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; BlockIndex&nbsp; uint32&nbsp; &nbsp;&nbsp; `json:&quot;blockindex&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; BlockIndex&nbsp; uint32&nbsp; &nbsp;&nbsp; `json:&quot;blockindex&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; ScriptSig&nbsp;&nbsp; *ScriptSig `json:&quot;scriptSig&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; ScriptSig&nbsp;&nbsp; *ScriptSig `json:&quot;scriptSig&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// IsCoinBase returns a bool to show if a Vin is a Coinbase one or not.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// IsCoinBase returns a bool to show if a Vin is a Coinbase one or not.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">func (v *Vin) IsCoinBase() bool {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">func (v *Vin) IsCoinBase() bool {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return len(v.Coinbase) &gt; 0</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return len(v.Coinbase) &gt; 0</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// MarshalJSON provides a custom Marshal method for Vin.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// MarshalJSON provides a custom Marshal method for Vin.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">func (v *Vin) MarshalJSON() ([]byte, error) {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">func (v *Vin) MarshalJSON() ([]byte, error) {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if v.IsCoinBase() {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if v.IsCoinBase() {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; coinbaseStruct := struct {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; coinbaseStruct := struct {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; AmountIn&nbsp; &nbsp; float64 `json:&quot;amountin&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; AmountIn&nbsp; &nbsp; float64 `json:&quot;amountin&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; BlockHeight uint32&nbsp; `json:&quot;blockheight&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; BlockHeight uint32&nbsp; `json:&quot;blockheight&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; BlockIndex&nbsp; uint32&nbsp; `json:&quot;blockindex&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; BlockIndex&nbsp; uint32&nbsp; `json:&quot;blockindex&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Coinbase&nbsp; &nbsp; string&nbsp; `json:&quot;coinbase&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Coinbase&nbsp; &nbsp; string&nbsp; `json:&quot;coinbase&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Sequence&nbsp; &nbsp; uint32&nbsp; `json:&quot;sequence&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Sequence&nbsp; &nbsp; uint32&nbsp; `json:&quot;sequence&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }{</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }{</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; AmountIn:&nbsp; &nbsp; v.AmountIn,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; AmountIn:&nbsp; &nbsp; v.AmountIn,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; BlockHeight: v.BlockHeight,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; BlockHeight: v.BlockHeight,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; BlockIndex:&nbsp; v.BlockIndex,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; BlockIndex:&nbsp; v.BlockIndex,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Coinbase:&nbsp; &nbsp; v.Coinbase,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Coinbase:&nbsp; &nbsp; v.Coinbase,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Sequence:&nbsp; &nbsp; v.Sequence,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Sequence:&nbsp; &nbsp; v.Sequence,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return json.Marshal(coinbaseStruct)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return json.Marshal(coinbaseStruct)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; txStruct := struct {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; txStruct := struct {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Txid&nbsp; &nbsp; &nbsp; &nbsp; string&nbsp; &nbsp;&nbsp; `json:&quot;txid&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Txid&nbsp; &nbsp; &nbsp; &nbsp; string&nbsp; &nbsp;&nbsp; `json:&quot;txid&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Vout&nbsp; &nbsp; &nbsp; &nbsp; uint32&nbsp; &nbsp;&nbsp; `json:&quot;vout&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Vout&nbsp; &nbsp; &nbsp; &nbsp; uint32&nbsp; &nbsp;&nbsp; `json:&quot;vout&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Tree&nbsp; &nbsp; &nbsp; &nbsp; int8&nbsp; &nbsp; &nbsp;&nbsp; `json:&quot;tree&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Tree&nbsp; &nbsp; &nbsp; &nbsp; int8&nbsp; &nbsp; &nbsp;&nbsp; `json:&quot;tree&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Sequence&nbsp; &nbsp; uint32&nbsp; &nbsp;&nbsp; `json:&quot;sequence&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Sequence&nbsp; &nbsp; uint32&nbsp; &nbsp;&nbsp; `json:&quot;sequence&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; AmountIn&nbsp; &nbsp; float64&nbsp; &nbsp; `json:&quot;amountin&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; AmountIn&nbsp; &nbsp; float64&nbsp; &nbsp; `json:&quot;amountin&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; BlockHeight uint32&nbsp; &nbsp;&nbsp; `json:&quot;blockheight&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; BlockHeight uint32&nbsp; &nbsp;&nbsp; `json:&quot;blockheight&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; BlockIndex&nbsp; uint32&nbsp; &nbsp;&nbsp; `json:&quot;blockindex&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; BlockIndex&nbsp; uint32&nbsp; &nbsp;&nbsp; `json:&quot;blockindex&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; ScriptSig&nbsp;&nbsp; *ScriptSig `json:&quot;scriptSig&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; ScriptSig&nbsp;&nbsp; *ScriptSig `json:&quot;scriptSig&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }{</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }{</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Txid:&nbsp; &nbsp; &nbsp; &nbsp; v.Txid,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Txid:&nbsp; &nbsp; &nbsp; &nbsp; v.Txid,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Vout:&nbsp; &nbsp; &nbsp; &nbsp; v.Vout,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Vout:&nbsp; &nbsp; &nbsp; &nbsp; v.Vout,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Tree:&nbsp; &nbsp; &nbsp; &nbsp; v.Tree,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Tree:&nbsp; &nbsp; &nbsp; &nbsp; v.Tree,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Sequence:&nbsp; &nbsp; v.Sequence,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Sequence:&nbsp; &nbsp; v.Sequence,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; AmountIn:&nbsp; &nbsp; v.AmountIn,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; AmountIn:&nbsp; &nbsp; v.AmountIn,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; BlockHeight: v.BlockHeight,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; BlockHeight: v.BlockHeight,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; BlockIndex:&nbsp; v.BlockIndex,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; BlockIndex:&nbsp; v.BlockIndex,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; ScriptSig:&nbsp;&nbsp; v.ScriptSig,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; ScriptSig:&nbsp;&nbsp; v.ScriptSig,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return json.Marshal(txStruct)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return json.Marshal(txStruct)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// PrevOut represents previous output for an input Vin.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// PrevOut represents previous output for an input Vin.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">type PrevOut struct {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">type PrevOut struct {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Addresses []string `json:&quot;addresses,omitempty&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Addresses []string `json:&quot;addresses,omitempty&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Value&nbsp; &nbsp;&nbsp; float64&nbsp; `json:&quot;value&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Value&nbsp; &nbsp;&nbsp; float64&nbsp; `json:&quot;value&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// VinPrevOut is like Vin except it includes PrevOut.&nbsp; It is used by searchrawtransaction</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// VinPrevOut is like Vin except it includes PrevOut.&nbsp; It is used by searchrawtransaction</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">type VinPrevOut struct {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">type VinPrevOut struct {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Coinbase&nbsp; &nbsp; string&nbsp; &nbsp;&nbsp; `json:&quot;coinbase&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Coinbase&nbsp; &nbsp; string&nbsp; &nbsp;&nbsp; `json:&quot;coinbase&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Txid&nbsp; &nbsp; &nbsp; &nbsp; string&nbsp; &nbsp;&nbsp; `json:&quot;txid&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Txid&nbsp; &nbsp; &nbsp; &nbsp; string&nbsp; &nbsp;&nbsp; `json:&quot;txid&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Vout&nbsp; &nbsp; &nbsp; &nbsp; uint32&nbsp; &nbsp;&nbsp; `json:&quot;vout&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Vout&nbsp; &nbsp; &nbsp; &nbsp; uint32&nbsp; &nbsp;&nbsp; `json:&quot;vout&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Tree&nbsp; &nbsp; &nbsp; &nbsp; int8&nbsp; &nbsp; &nbsp;&nbsp; `json:&quot;tree&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Tree&nbsp; &nbsp; &nbsp; &nbsp; int8&nbsp; &nbsp; &nbsp;&nbsp; `json:&quot;tree&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; AmountIn&nbsp; &nbsp; *float64&nbsp;&nbsp; `json:&quot;amountin,omitempty&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; AmountIn&nbsp; &nbsp; *float64&nbsp;&nbsp; `json:&quot;amountin,omitempty&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; BlockHeight *uint32&nbsp; &nbsp; `json:&quot;blockheight,omitempty&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; BlockHeight *uint32&nbsp; &nbsp; `json:&quot;blockheight,omitempty&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; BlockIndex&nbsp; *uint32&nbsp; &nbsp; `json:&quot;blockindex,omitempty&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; BlockIndex&nbsp; *uint32&nbsp; &nbsp; `json:&quot;blockindex,omitempty&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; ScriptSig&nbsp;&nbsp; *ScriptSig `json:&quot;scriptSig&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; ScriptSig&nbsp;&nbsp; *ScriptSig `json:&quot;scriptSig&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; PrevOut&nbsp; &nbsp;&nbsp; *PrevOut&nbsp;&nbsp; `json:&quot;prevOut&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; PrevOut&nbsp; &nbsp;&nbsp; *PrevOut&nbsp;&nbsp; `json:&quot;prevOut&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Sequence&nbsp; &nbsp; uint32&nbsp; &nbsp;&nbsp; `json:&quot;sequence&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Sequence&nbsp; &nbsp; uint32&nbsp; &nbsp;&nbsp; `json:&quot;sequence&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// IsCoinBase returns a bool to show if a Vin is a Coinbase one or not.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// IsCoinBase returns a bool to show if a Vin is a Coinbase one or not.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">func (v *VinPrevOut) IsCoinBase() bool {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">func (v *VinPrevOut) IsCoinBase() bool {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return len(v.Coinbase) &gt; 0</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return len(v.Coinbase) &gt; 0</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// MarshalJSON provides a custom Marshal method for VinPrevOut.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// MarshalJSON provides a custom Marshal method for VinPrevOut.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">func (v *VinPrevOut) MarshalJSON() ([]byte, error) {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">func (v *VinPrevOut) MarshalJSON() ([]byte, error) {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if v.IsCoinBase() {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; if v.IsCoinBase() {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; coinbaseStruct := struct {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; coinbaseStruct := struct {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Coinbase string&nbsp;&nbsp; `json:&quot;coinbase&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Coinbase string&nbsp;&nbsp; `json:&quot;coinbase&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; AmountIn *float64 `json:&quot;amountin,omitempty&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; AmountIn *float64 `json:&quot;amountin,omitempty&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Sequence uint32&nbsp;&nbsp; `json:&quot;sequence&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Sequence uint32&nbsp;&nbsp; `json:&quot;sequence&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }{</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }{</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Coinbase: v.Coinbase,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Coinbase: v.Coinbase,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; AmountIn: v.AmountIn,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; AmountIn: v.AmountIn,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Sequence: v.Sequence,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Sequence: v.Sequence,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return json.Marshal(coinbaseStruct)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return json.Marshal(coinbaseStruct)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; txStruct := struct {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; txStruct := struct {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Txid&nbsp; &nbsp; &nbsp; &nbsp; string&nbsp; &nbsp;&nbsp; `json:&quot;txid&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Txid&nbsp; &nbsp; &nbsp; &nbsp; string&nbsp; &nbsp;&nbsp; `json:&quot;txid&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Vout&nbsp; &nbsp; &nbsp; &nbsp; uint32&nbsp; &nbsp;&nbsp; `json:&quot;vout&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Vout&nbsp; &nbsp; &nbsp; &nbsp; uint32&nbsp; &nbsp;&nbsp; `json:&quot;vout&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Tree&nbsp; &nbsp; &nbsp; &nbsp; int8&nbsp; &nbsp; &nbsp;&nbsp; `json:&quot;tree&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Tree&nbsp; &nbsp; &nbsp; &nbsp; int8&nbsp; &nbsp; &nbsp;&nbsp; `json:&quot;tree&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; AmountIn&nbsp; &nbsp; *float64&nbsp;&nbsp; `json:&quot;amountin,omitempty&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; AmountIn&nbsp; &nbsp; *float64&nbsp;&nbsp; `json:&quot;amountin,omitempty&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; BlockHeight *uint32&nbsp; &nbsp; `json:&quot;blockheight,omitempty&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; BlockHeight *uint32&nbsp; &nbsp; `json:&quot;blockheight,omitempty&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; BlockIndex&nbsp; *uint32&nbsp; &nbsp; `json:&quot;blockindex,omitempty&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; BlockIndex&nbsp; *uint32&nbsp; &nbsp; `json:&quot;blockindex,omitempty&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; ScriptSig&nbsp;&nbsp; *ScriptSig `json:&quot;scriptSig&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; ScriptSig&nbsp;&nbsp; *ScriptSig `json:&quot;scriptSig&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; PrevOut&nbsp; &nbsp;&nbsp; *PrevOut&nbsp;&nbsp; `json:&quot;prevOut,omitempty&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; PrevOut&nbsp; &nbsp;&nbsp; *PrevOut&nbsp;&nbsp; `json:&quot;prevOut,omitempty&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Sequence&nbsp; &nbsp; uint32&nbsp; &nbsp;&nbsp; `json:&quot;sequence&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Sequence&nbsp; &nbsp; uint32&nbsp; &nbsp;&nbsp; `json:&quot;sequence&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }{</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }{</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Txid:&nbsp; &nbsp; &nbsp; &nbsp; v.Txid,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Txid:&nbsp; &nbsp; &nbsp; &nbsp; v.Txid,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Vout:&nbsp; &nbsp; &nbsp; &nbsp; v.Vout,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Vout:&nbsp; &nbsp; &nbsp; &nbsp; v.Vout,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Tree:&nbsp; &nbsp; &nbsp; &nbsp; v.Tree,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Tree:&nbsp; &nbsp; &nbsp; &nbsp; v.Tree,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; AmountIn:&nbsp; &nbsp; v.AmountIn,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; AmountIn:&nbsp; &nbsp; v.AmountIn,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; BlockHeight: v.BlockHeight,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; BlockHeight: v.BlockHeight,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; BlockIndex:&nbsp; v.BlockIndex,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; BlockIndex:&nbsp; v.BlockIndex,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; ScriptSig:&nbsp;&nbsp; v.ScriptSig,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; ScriptSig:&nbsp;&nbsp; v.ScriptSig,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; PrevOut:&nbsp; &nbsp;&nbsp; v.PrevOut,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; PrevOut:&nbsp; &nbsp;&nbsp; v.PrevOut,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Sequence:&nbsp; &nbsp; v.Sequence,</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Sequence:&nbsp; &nbsp; v.Sequence,</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; }</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return json.Marshal(txStruct)</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; return json.Marshal(txStruct)</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// Vout models parts of the tx data.&nbsp; It is defined separately since both</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// Vout models parts of the tx data.&nbsp; It is defined separately since both</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// getrawtransaction and decoderawtransaction use the same structure.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// getrawtransaction and decoderawtransaction use the same structure.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">type Vout struct {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">type Vout struct {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Value&nbsp; &nbsp; &nbsp; &nbsp; float64&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; `json:&quot;value&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Value&nbsp; &nbsp; &nbsp; &nbsp; float64&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; `json:&quot;value&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; N&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; uint32&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; `json:&quot;n&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; N&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; uint32&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; `json:&quot;n&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Version&nbsp; &nbsp; &nbsp; uint16&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; `json:&quot;version&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Version&nbsp; &nbsp; &nbsp; uint16&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; `json:&quot;version&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; ScriptPubKey ScriptPubKeyResult `json:&quot;scriptPubKey&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; ScriptPubKey ScriptPubKeyResult `json:&quot;scriptPubKey&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// GetMiningInfoResult models the data from the getmininginfo command.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// GetMiningInfoResult models the data from the getmininginfo command.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// Contains Decred additions.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// Contains Decred additions.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">type GetMiningInfoResult struct {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">type GetMiningInfoResult struct {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Blocks&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; int64&nbsp;&nbsp; `json:&quot;blocks&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Blocks&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; int64&nbsp;&nbsp; `json:&quot;blocks&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; CurrentBlockSize uint64&nbsp; `json:&quot;currentblocksize&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; CurrentBlockSize uint64&nbsp; `json:&quot;currentblocksize&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; CurrentBlockTx&nbsp;&nbsp; uint64&nbsp; `json:&quot;currentblocktx&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; CurrentBlockTx&nbsp;&nbsp; uint64&nbsp; `json:&quot;currentblocktx&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Difficulty&nbsp; &nbsp; &nbsp;&nbsp; float64 `json:&quot;difficulty&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Difficulty&nbsp; &nbsp; &nbsp;&nbsp; float64 `json:&quot;difficulty&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; StakeDifficulty&nbsp; int64&nbsp;&nbsp; `json:&quot;stakedifficulty&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; StakeDifficulty&nbsp; int64&nbsp;&nbsp; `json:&quot;stakedifficulty&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Errors&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; string&nbsp; `json:&quot;errors&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Errors&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; string&nbsp; `json:&quot;errors&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Generate&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; bool&nbsp; &nbsp; `json:&quot;generate&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Generate&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; bool&nbsp; &nbsp; `json:&quot;generate&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; GenProcLimit&nbsp; &nbsp;&nbsp; int32&nbsp;&nbsp; `json:&quot;genproclimit&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; GenProcLimit&nbsp; &nbsp;&nbsp; int32&nbsp;&nbsp; `json:&quot;genproclimit&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; HashesPerSec&nbsp; &nbsp;&nbsp; int64&nbsp;&nbsp; `json:&quot;hashespersec&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; HashesPerSec&nbsp; &nbsp;&nbsp; int64&nbsp;&nbsp; `json:&quot;hashespersec&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; NetworkHashPS&nbsp; &nbsp; int64&nbsp;&nbsp; `json:&quot;networkhashps&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; NetworkHashPS&nbsp; &nbsp; int64&nbsp;&nbsp; `json:&quot;networkhashps&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; PooledTx&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; uint64&nbsp; `json:&quot;pooledtx&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; PooledTx&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; uint64&nbsp; `json:&quot;pooledtx&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; TestNet&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; bool&nbsp; &nbsp; `json:&quot;testnet&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; TestNet&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; bool&nbsp; &nbsp; `json:&quot;testnet&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// GetWorkResult models the data from the getwork command.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// GetWorkResult models the data from the getwork command.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">type GetWorkResult struct {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">type GetWorkResult struct {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Data&nbsp;&nbsp; string `json:&quot;data&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Data&nbsp;&nbsp; string `json:&quot;data&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Target string `json:&quot;target&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Target string `json:&quot;target&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// InfoChainResult models the data returned by the chain server getinfo command.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// InfoChainResult models the data returned by the chain server getinfo command.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">type InfoChainResult struct {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">type InfoChainResult struct {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Version&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; int32&nbsp;&nbsp; `json:&quot;version&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Version&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; int32&nbsp;&nbsp; `json:&quot;version&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; ProtocolVersion int32&nbsp;&nbsp; `json:&quot;protocolversion&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; ProtocolVersion int32&nbsp;&nbsp; `json:&quot;protocolversion&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Blocks&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; int64&nbsp;&nbsp; `json:&quot;blocks&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Blocks&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; int64&nbsp;&nbsp; `json:&quot;blocks&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; TimeOffset&nbsp; &nbsp; &nbsp; int64&nbsp;&nbsp; `json:&quot;timeoffset&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; TimeOffset&nbsp; &nbsp; &nbsp; int64&nbsp;&nbsp; `json:&quot;timeoffset&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Connections&nbsp; &nbsp;&nbsp; int32&nbsp;&nbsp; `json:&quot;connections&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Connections&nbsp; &nbsp;&nbsp; int32&nbsp;&nbsp; `json:&quot;connections&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Proxy&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; string&nbsp; `json:&quot;proxy&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Proxy&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; string&nbsp; `json:&quot;proxy&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Difficulty&nbsp; &nbsp; &nbsp; float64 `json:&quot;difficulty&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Difficulty&nbsp; &nbsp; &nbsp; float64 `json:&quot;difficulty&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; TestNet&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; bool&nbsp; &nbsp; `json:&quot;testnet&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; TestNet&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; bool&nbsp; &nbsp; `json:&quot;testnet&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; RelayFee&nbsp; &nbsp; &nbsp; &nbsp; float64 `json:&quot;relayfee&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; RelayFee&nbsp; &nbsp; &nbsp; &nbsp; float64 `json:&quot;relayfee&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Errors&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; string&nbsp; `json:&quot;errors&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Errors&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; string&nbsp; `json:&quot;errors&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// LocalAddressesResult models the localaddresses data from the getnetworkinfo</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// LocalAddressesResult models the localaddresses data from the getnetworkinfo</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// command.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// command.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">type LocalAddressesResult struct {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">type LocalAddressesResult struct {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Address string `json:&quot;address&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Address string `json:&quot;address&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Port&nbsp; &nbsp; uint16 `json:&quot;port&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Port&nbsp; &nbsp; uint16 `json:&quot;port&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Score&nbsp;&nbsp; int32&nbsp; `json:&quot;score&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Score&nbsp;&nbsp; int32&nbsp; `json:&quot;score&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// NetworksResult models the networks data from the getnetworkinfo command.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// NetworksResult models the networks data from the getnetworkinfo command.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">type NetworksResult struct {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">type NetworksResult struct {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Name&nbsp; &nbsp; &nbsp; string `json:&quot;name&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Name&nbsp; &nbsp; &nbsp; string `json:&quot;name&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Limited&nbsp;&nbsp; bool&nbsp;&nbsp; `json:&quot;limited&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Limited&nbsp;&nbsp; bool&nbsp;&nbsp; `json:&quot;limited&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Reachable bool&nbsp;&nbsp; `json:&quot;reachable&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Reachable bool&nbsp;&nbsp; `json:&quot;reachable&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Proxy&nbsp; &nbsp;&nbsp; string `json:&quot;proxy&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Proxy&nbsp; &nbsp;&nbsp; string `json:&quot;proxy&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// TxRawResult models the data from the getrawtransaction command.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// TxRawResult models the data from the getrawtransaction command.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">type TxRawResult struct {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">type TxRawResult struct {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Hex&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; string `json:&quot;hex&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Hex&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; string `json:&quot;hex&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Txid&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; string `json:&quot;txid&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Txid&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; string `json:&quot;txid&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Version&nbsp; &nbsp; &nbsp;&nbsp; int32&nbsp; `json:&quot;version&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Version&nbsp; &nbsp; &nbsp;&nbsp; int32&nbsp; `json:&quot;version&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; LockTime&nbsp; &nbsp; &nbsp; uint32 `json:&quot;locktime&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; LockTime&nbsp; &nbsp; &nbsp; uint32 `json:&quot;locktime&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Expiry&nbsp; &nbsp; &nbsp; &nbsp; uint32 `json:&quot;expiry&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Expiry&nbsp; &nbsp; &nbsp; &nbsp; uint32 `json:&quot;expiry&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Vin&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; []Vin&nbsp; `json:&quot;vin&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Vin&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; []Vin&nbsp; `json:&quot;vin&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Vout&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; []Vout `json:&quot;vout&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Vout&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; []Vout `json:&quot;vout&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; BlockHash&nbsp; &nbsp;&nbsp; string `json:&quot;blockhash,omitempty&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; BlockHash&nbsp; &nbsp;&nbsp; string `json:&quot;blockhash,omitempty&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; BlockHeight&nbsp;&nbsp; int64&nbsp; `json:&quot;blockheight&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; BlockHeight&nbsp;&nbsp; int64&nbsp; `json:&quot;blockheight&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; BlockIndex&nbsp; &nbsp; uint32 `json:&quot;blockindex,omitempty&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; BlockIndex&nbsp; &nbsp; uint32 `json:&quot;blockindex,omitempty&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Confirmations int64&nbsp; `json:&quot;confirmations,omitempty&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Confirmations int64&nbsp; `json:&quot;confirmations,omitempty&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Time&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; int64&nbsp; `json:&quot;time,omitempty&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Time&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; int64&nbsp; `json:&quot;time,omitempty&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Blocktime&nbsp; &nbsp;&nbsp; int64&nbsp; `json:&quot;blocktime,omitempty&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Blocktime&nbsp; &nbsp;&nbsp; int64&nbsp; `json:&quot;blocktime,omitempty&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// SearchRawTransactionsResult models the data from the searchrawtransaction</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// SearchRawTransactionsResult models the data from the searchrawtransaction</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// command.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// command.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">type SearchRawTransactionsResult struct {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">type SearchRawTransactionsResult struct {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Hex&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; string&nbsp; &nbsp; &nbsp;&nbsp; `json:&quot;hex,omitempty&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Hex&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; string&nbsp; &nbsp; &nbsp;&nbsp; `json:&quot;hex,omitempty&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Txid&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; string&nbsp; &nbsp; &nbsp;&nbsp; `json:&quot;txid&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Txid&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; string&nbsp; &nbsp; &nbsp;&nbsp; `json:&quot;txid&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Version&nbsp; &nbsp; &nbsp;&nbsp; int32&nbsp; &nbsp; &nbsp; &nbsp; `json:&quot;version&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Version&nbsp; &nbsp; &nbsp;&nbsp; int32&nbsp; &nbsp; &nbsp; &nbsp; `json:&quot;version&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; LockTime&nbsp; &nbsp; &nbsp; uint32&nbsp; &nbsp; &nbsp;&nbsp; `json:&quot;locktime&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; LockTime&nbsp; &nbsp; &nbsp; uint32&nbsp; &nbsp; &nbsp;&nbsp; `json:&quot;locktime&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Vin&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; []VinPrevOut `json:&quot;vin&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Vin&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; []VinPrevOut `json:&quot;vin&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Vout&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; []Vout&nbsp; &nbsp; &nbsp;&nbsp; `json:&quot;vout&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Vout&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; []Vout&nbsp; &nbsp; &nbsp;&nbsp; `json:&quot;vout&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; BlockHash&nbsp; &nbsp;&nbsp; string&nbsp; &nbsp; &nbsp;&nbsp; `json:&quot;blockhash,omitempty&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; BlockHash&nbsp; &nbsp;&nbsp; string&nbsp; &nbsp; &nbsp;&nbsp; `json:&quot;blockhash,omitempty&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Confirmations uint64&nbsp; &nbsp; &nbsp;&nbsp; `json:&quot;confirmations,omitempty&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Confirmations uint64&nbsp; &nbsp; &nbsp;&nbsp; `json:&quot;confirmations,omitempty&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Time&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; int64&nbsp; &nbsp; &nbsp; &nbsp; `json:&quot;time,omitempty&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Time&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; int64&nbsp; &nbsp; &nbsp; &nbsp; `json:&quot;time,omitempty&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Blocktime&nbsp; &nbsp;&nbsp; int64&nbsp; &nbsp; &nbsp; &nbsp; `json:&quot;blocktime,omitempty&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Blocktime&nbsp; &nbsp;&nbsp; int64&nbsp; &nbsp; &nbsp; &nbsp; `json:&quot;blocktime,omitempty&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// TxRawDecodeResult models the data from the decoderawtransaction command.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// TxRawDecodeResult models the data from the decoderawtransaction command.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">type TxRawDecodeResult struct {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">type TxRawDecodeResult struct {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Txid&nbsp; &nbsp;&nbsp; string `json:&quot;txid&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Txid&nbsp; &nbsp;&nbsp; string `json:&quot;txid&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Version&nbsp; int32&nbsp; `json:&quot;version&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Version&nbsp; int32&nbsp; `json:&quot;version&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Locktime uint32 `json:&quot;locktime&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Locktime uint32 `json:&quot;locktime&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Expiry&nbsp;&nbsp; uint32 `json:&quot;expiry&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Expiry&nbsp;&nbsp; uint32 `json:&quot;expiry&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Vin&nbsp; &nbsp; &nbsp; []Vin&nbsp; `json:&quot;vin&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Vin&nbsp; &nbsp; &nbsp; []Vin&nbsp; `json:&quot;vin&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Vout&nbsp; &nbsp;&nbsp; []Vout `json:&quot;vout&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Vout&nbsp; &nbsp;&nbsp; []Vout `json:&quot;vout&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// ValidateAddressChainResult models the data returned by the chain server</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// ValidateAddressChainResult models the data returned by the chain server</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// validateaddress command.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// validateaddress command.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">type ValidateAddressChainResult struct {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">type ValidateAddressChainResult struct {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; IsValid bool&nbsp;&nbsp; `json:&quot;isvalid&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; IsValid bool&nbsp;&nbsp; `json:&quot;isvalid&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Address string `json:&quot;address,omitempty&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Address string `json:&quot;address,omitempty&quot;`</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// GetHeadersResult models the data returned by the chain server getheaders</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// GetHeadersResult models the data returned by the chain server getheaders</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame"><span class="TextSegElementComment">// command.</span></td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame"><span class="TextSegElementComment">// command.</span></td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">type GetHeadersResult struct {</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">type GetHeadersResult struct {</td>
+</tr>
+<tr class="SectionMiddle">
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Headers []string `json:&quot;headers&quot;`</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; Headers []string `json:&quot;headers&quot;`</td>
+</tr>
+<tr class="SectionEnd">
+<td class="TextItemSame">}</td>
+<td class="AlignCenter">&nbsp;</td>
+<td class="TextItemSame">}</td>
+</tr>
+</table>
+<br/>
+</body>
+</html>
